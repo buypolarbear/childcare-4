@@ -1,0 +1,134 @@
+/*************************************************************
+	website: 	
+	type:		
+	desc:		
+	Date:                     
+-----------------------------------------------------------
+
+	1.0 UNIVERSAL RESETS
+	2.0 GENERIC CLASSES
+	3.0 HEADER / FOOTER
+	4.0 GENERAL STRUCTURE
+	5.0 HEADINGS
+	6.0 LINKS
+	7.0 PARAGRAPHS
+	8.0 BLOCKQUOTES AND CITATIONS
+	9.0 FORMS
+	10.0 LISTS
+	11.0 TABLES
+	12.0 MISC PRESENTATION ELEMENTS
+	13.0 IMAGES
+	14.0 META
+	15.0 COMPONENT SPECIFIC
+	16.0 PAGE SPECIFIC
+
+*************************************************************/
+
+/*
+1.0 UNIVERSAL RESETS
+------------------------------------------
+*/
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td 
+{margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent;}
+
+body{font-family:helvetica, sans-serif, arial; background-color:#000;}
+
+
+
+
+/*
+2.0 GENERIC CLASSES
+------------------------------------------
+*/
+
+.clear{clear:both; text-indent:-9999em; height:3px;}
+.float_right{float:right;}
+.float_left{float:left}
+
+/*
+3.0 HEADER / FOOTER
+------------------------------------------
+*/
+
+/*
+4.0 GENERAL STRUCTURE
+------------------------------------------
+*/
+body {font-family:Verdana;color:#FFF;font-size:11px;}
+
+
+/*
+5.0 HEADINGS
+------------------------------------------
+*/
+h1, h2, h3, h4{font-size:11px; font-weight:bold; font-family:helvetica, arial, sans-serif;}
+
+
+
+/*
+6.0 LINKS
+------------------------------------------
+*/
+
+/*
+7.0 PARAGRAPHS
+------------------------------------------
+*/
+
+/*
+8.0 BLOCKQUOTES, CITATIONS, HR
+------------------------------------------
+*/
+
+/*
+9.0 FORMS
+------------------------------------------
+*/
+
+
+/*
+10.0 LISTS
+------------------------------------------
+*/
+
+	
+
+/*6.0 */
+
+
+/*
+11.0 TABLES
+------------------------------------------
+*/
+
+
+
+/*
+12.0 MISC PRESENTATION ELEMENTS
+------------------------------------------
+*/
+.
+/*
+13.0 IMAGES
+------------------------------------------
+*/
+t;}
+/*
+14.0 META
+------------------------------------------
+*/
+
+/*
+15.0 COMPONENT SPECIFIC
+------------------------------------------
+-in alphabetical order-
+*/
+	
+
+			
+/*
+16.0 PAGE SPECIFIC
+------------------------------------------
+*/
+
+	
