@@ -1,0 +1,10 @@
+
+Used for minifying the files, good for speed optimization and lower bandwidth
+https://developers.google.com/speed/docs/insights/MinifyResources
+
+validation sites - Used to make sure HTML is upto the latest standards
+Will validate HTML, and CSS
+http://validator.w3.org/
+
+BootStrap CSS guide
+http://getbootstrap.com/css/
