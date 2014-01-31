@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sq_foot_total: 9.99
+  sq_foot_used: 9.99
+  time_used: 9.99
+  depreciation_rate: 9.99
+
+two:
+  sq_foot_total: 9.99
+  sq_foot_used: 9.99
+  time_used: 9.99
+  depreciation_rate: 9.99
