@@ -1,19 +1,40 @@
 *.rbc
 *.sassc
 .sass-cache
+
+# ignore files generated automatically by test suites
 capybara-*.html
 .rspec
 .rvmrc
-/.bundle
-/vendor/bundle
-/log/*
-/tmp/*
-/db/*.sqlite3
 /public/system/*
 /coverage/
 /spec/tmp/*
+
 **.orig
 rerun.txt
 pickle-email-*.html
 .project
+
+# Ignore bundler config.
+/.bundle
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+# Ignore other unneeded files.
+database.yml
+doc/
+*.swp
+*~
+.project
+.DS_Store
+.idea
+
+# don't put authenticity token or code that generates it on the repo
+.secret
 config/initializers/secret_token.rb
