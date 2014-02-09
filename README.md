@@ -35,12 +35,10 @@ Buitendorp Childcare Software for GVSU CIS 467 Capstone
  - d.	infant meal variations
  - e.	Food reimbursement calculator reflecting Tier I and Tier 2 rate difference with ability to change as they adjust annually in July
  - f.	Calculate data for meal tax deductions per calendar year; tied to meal counts and allowable rates
-*************************************************
 5.	Accounting
  - a.	Record of income: Parent payments and state payments. This should also include an "Other income" category such as Food Program Reimbursement (Kent Regional CCAFP or other approved food program), teaching commission, advisory board compensation, etc.
  - b.	Record of expenses — alphabetized and including utilities, education, an actual food expense, supplies, household supplies, supplies, toys, books, curriculum, child care furniture (beds, cribs, changing tables, tables, chairs, outside play equipment or maintenance (sand yard), appliances, office equipment, supplies and expenses, household maintenance and repairs, cleaning supplies, vehicle repairs and maintenance, depreciation, insurance on home, vehicles, liability, cost of second phone line, Internet, cable, etc. This category is not fully defined.
  - c.	Time-Space Calculator
  - d.	Vehicle mileage; should be tied directly to expense receipt entries.
-***************************************************
 6.	Other functions
  - a.	Calendar — to plan children in care on a daily basis, make notes of families needing openings when/if available, vacation schedules, staffing changes, training, curriculum planning and development, closings, school calendar, child arrival, departure, drop off or pick up changes. 
