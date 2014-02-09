@@ -1,7 +1,7 @@
 Buitendorp Childcare Software for GVSU CIS 467 Capstone
 =========
 
-Customer Specifications
+### Customer Specifications
 
 1.	Facility Information
  - a. General info: Name, address, contact information, and email
