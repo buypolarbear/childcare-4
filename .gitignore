@@ -35,6 +35,5 @@ doc/
 .DS_Store
 .idea
 
-# don't put authenticity token or code that generates it on the repo
+# don't put authenticity token on the repo
 .secret
-config/initializers/secret_token.rb
