@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140216213529) do
+ActiveRecord::Schema.define(version: 20140216214220) do
 
   create_table "expenses", force: true do |t|
     t.string   "type"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20140216213529) do
     t.integer  "zip"
     t.string   "password_digest"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
   create_table "vehicles", force: true do |t|
     t.string   "make"
