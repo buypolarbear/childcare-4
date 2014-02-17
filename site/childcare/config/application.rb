@@ -23,5 +23,8 @@ module Childcare
 	
 	# makes bootstrap-sass compatible with the asset pipeline
 	config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+	
+	# get rid of warnings in testing
+	I18n.enforce_available_locales = true
   end
 end
