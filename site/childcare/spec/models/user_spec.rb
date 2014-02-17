@@ -11,6 +11,15 @@ describe User do
 
   it { should respond_to(:fname) }
   it { should respond_to(:fname) }
+  it { should respond_to(:mname) }
+  it { should respond_to(:ssn) }
+  it { should respond_to(:phone_home) }
+  it { should respond_to(:phone_work) }
+  it { should respond_to(:phone_cell) }
+  it { should respond_to(:street_addr) }
+  it { should respond_to(:city) }
+  it { should respond_to(:state) }
+  it { should respond_to(:zip) }
   it { should respond_to(:email) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
