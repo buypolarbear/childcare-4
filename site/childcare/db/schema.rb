@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217235704) do
+ActiveRecord::Schema.define(version: 20140218010333) do
 
   create_table "expenses", force: true do |t|
     t.string   "type"
@@ -61,9 +61,11 @@ ActiveRecord::Schema.define(version: 20140217235704) do
     t.string   "state"
     t.integer  "zip"
     t.string   "password_digest"
+    t.string   "remember_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
   create_table "vehicles", force: true do |t|
     t.string   "make"
