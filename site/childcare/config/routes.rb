@@ -1,5 +1,13 @@
 Childcare::Application.routes.draw do
 
+  get "incomes/new"
+  get "incomes/create"
+  get "incomes/edit"
+  get "incomes/update"
+  get "incomes/show"
+  get "incomes/index"
+  get "incomes/destroy"
+  get "incomes/income_params"
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
