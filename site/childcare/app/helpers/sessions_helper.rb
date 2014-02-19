@@ -24,6 +24,16 @@ module SessionsHelper
 		self.current_user = user
 	end
 	
+	##############################################
+	# Signs the user out
+	##############################################
+	def sign_out
+		current_user.update_attribute(:remember_token,
+                                  User.encrypt(User.new_remember_token))
+		cookies.delete(:remember_token)
+		self.current_user = nil
+	end
+	
 	
 	##############################################
 	# Is there a currently signed-in user??
