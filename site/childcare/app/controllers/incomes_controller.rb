@@ -1,5 +1,6 @@
 class IncomesController < ApplicationController
   def new
+	@income = Income.new
   end
 
   def create
@@ -12,6 +13,7 @@ class IncomesController < ApplicationController
   end
 
   def show
+	@income = Income.find(params[:id])
   end
 
   def index
