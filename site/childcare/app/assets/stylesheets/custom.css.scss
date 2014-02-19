@@ -1,34 +1,53 @@
 @import "bootstrap";
 
-/* universal */
+/*************************************************************
+	website: 	
+	type:		
+	desc:		
+	Date:                     
+-----------------------------------------------------------
 
-html {
-  overflow-y: scroll;
-}
+	1.0 UNIVERSAL RESETS
+	2.0 GENERIC CLASSES
+	3.0 HEADER / FOOTER
+	4.0 GENERAL STRUCTURE
+	5.0 HEADINGS
+	6.0 LINKS
+	7.0 PARAGRAPHS
+	8.0 BLOCKQUOTES AND CITATIONS
+	9.0 FORMS
+	10.0 LISTS
+	11.0 TABLES
+	12.0 MISC PRESENTATION ELEMENTS
+	13.0 IMAGES
+	14.0 META
+	15.0 COMPONENT SPECIFIC
+	16.0 PAGE SPECIFIC
 
-body {
-  padding-top: 60px;
-}
+*************************************************************/
+/*
+1.0 UNIVERSAL RESETS
+------------------------------------------
+*/
+html {overflow-y: scroll;}
+body {padding-top: 60px;}
+section {overflow: auto;}
+textarea {resize: vertical;}
+.center {text-align: center;}
+.center h1 {margin-bottom: 10px;}
+/*
+2.0 GENERIC CLASSES
+------------------------------------------
+*/
+.clear{clear:both; text-indent:-9999em; height:3px;}
+.float_right{float:right;}
+.float_left{float:left}
 
-section {
-  overflow: auto;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.center {
-  text-align: center;
-}
-
-.center h1 {
-  margin-bottom: 10px;
-}
-
-
+/*
+3.0 HEADER / FOOTER
+------------------------------------------
+*/
 /* header */
-
 #logo {
   float: left;
   margin-right: 10px;
@@ -46,7 +65,10 @@ textarea {
   text-decoration: none;
 }
 
-
+#session_email, #session_password{margin-top:5px;}
+#sign-in{margin-top:-5px;}
+.navbar-inner{height:50px;}
+#newUser{font-size:10px;position: relative; top:-12px; left:330px;}
 /* footer */
 
 footer {
@@ -77,3 +99,84 @@ footer ul li {
   float: left;
   margin-left: 10px;
 }
+
+/*
+4.0 GENERAL STRUCTURE
+------------------------------------------
+*/
+
+
+
+/*
+5.0 HEADINGS
+------------------------------------------
+*/
+
+
+
+
+/*
+6.0 LINKS
+------------------------------------------
+*/
+
+/*
+7.0 PARAGRAPHS
+------------------------------------------
+*/
+
+/*
+8.0 BLOCKQUOTES, CITATIONS, HR
+------------------------------------------
+*/
+
+/*
+9.0 FORMS
+------------------------------------------
+*/
+
+
+/*
+10.0 LISTS
+------------------------------------------
+*/
+
+	
+
+/*6.0 */
+
+
+/*
+11.0 TABLES
+------------------------------------------
+*/
+
+
+
+/*
+12.0 MISC PRESENTATION ELEMENTS
+------------------------------------------
+*/
+
+/*
+13.0 IMAGES
+------------------------------------------
+*/
+/*
+14.0 META
+------------------------------------------
+*/
+
+/*
+15.0 COMPONENT SPECIFIC
+------------------------------------------
+-in alphabetical order-
+*/
+	
+
+			
+/*
+16.0 PAGE SPECIFIC
+------------------------------------------
+*/
+	
