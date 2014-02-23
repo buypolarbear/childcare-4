@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140218010333) do
+ActiveRecord::Schema.define(version: 20140223021902) do
 
   create_table "expenses", force: true do |t|
     t.string   "type"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140218010333) do
     t.decimal  "depreciation_rate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "incomes", force: true do |t|
