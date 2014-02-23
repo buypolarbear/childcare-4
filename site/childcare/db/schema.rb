@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223021902) do
+ActiveRecord::Schema.define(version: 20140223230338) do
 
   create_table "expenses", force: true do |t|
     t.string   "type"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20140223021902) do
     t.datetime "updated_at"
   end
 
+  add_index "expenses", ["date"], name: "index_expenses_on_date"
+
   create_table "facilities", force: true do |t|
     t.decimal  "sq_foot_total"
     t.decimal  "sq_foot_used"
@@ -36,6 +38,8 @@ ActiveRecord::Schema.define(version: 20140223021902) do
     t.string   "name"
   end
 
+  add_index "facilities", ["name"], name: "index_facilities_on_name"
+
   create_table "incomes", force: true do |t|
     t.decimal  "amount"
     t.datetime "date"
@@ -44,6 +48,8 @@ ActiveRecord::Schema.define(version: 20140223021902) do
     t.datetime "updated_at"
     t.string   "type"
   end
+
+  add_index "incomes", ["date"], name: "index_incomes_on_date"
 
   create_table "users", force: true do |t|
     t.string   "email"
@@ -77,5 +83,7 @@ ActiveRecord::Schema.define(version: 20140223021902) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "vehicles", ["license"], name: "index_vehicles_on_license"
 
 end
