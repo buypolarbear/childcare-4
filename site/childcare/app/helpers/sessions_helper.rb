@@ -54,11 +54,46 @@ module SessionsHelper
 	
 	
 	#############################################
+	# Checks to make sure that the passed user is
+	# the same one who is currently signed in;
+	# this prevents users from editing other users'
+	# information
+	##############################################
+	def current_user?(user)
+		user == current_user
+	end
+	
+	
+	#############################################
 	# Returns the user that is signed in to the
 	# current session
 	##############################################
 	def current_user
 		remember_token = User.encrypt(cookies[:remember_token])
 		@current_user ||= User.find_by(remember_token: remember_token)
+	end
+	
+	
+	#############################################
+	# Navigates the user's browser to either the
+	# passed "default" page, or to the return_to
+	# page that was stored in the user's session;
+	# used to implement smart redirects after sign
+	# in
+	##############################################
+	def redirect_back_or(default)
+		redirect_to(session[:return_to] || default)
+		session.delete(:return_to)
+	end
+
+	
+	#############################################
+	# Stores the current url in the user's session's
+	# return_to variable;
+	# used to implement smart redirects after sign
+	# in
+	##############################################
+	def store_location
+		session[:return_to] = request.url if request.get?
 	end
 end
