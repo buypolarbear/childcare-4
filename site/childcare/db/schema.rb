@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140218010333) do
+ActiveRecord::Schema.define(version: 20140224022401) do
+
+  create_table "documents", force: true do |t|
+    t.string  "category"
+    t.string  "title"
+    t.string  "path"
+    t.date    "expiration"
+    t.integer "user_id"
+  end
+
+  add_index "documents", ["title"], name: "index_documents_on_title"
 
   create_table "expenses", force: true do |t|
     t.string   "type"
@@ -24,7 +34,10 @@ ActiveRecord::Schema.define(version: 20140218010333) do
     t.decimal  "depreciation_rate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "expenses", ["date"], name: "index_expenses_on_date"
 
   create_table "facilities", force: true do |t|
     t.decimal  "sq_foot_total"
@@ -33,7 +46,11 @@ ActiveRecord::Schema.define(version: 20140218010333) do
     t.decimal  "depreciation_rate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.integer  "user_id"
   end
+
+  add_index "facilities", ["name"], name: "index_facilities_on_name"
 
   create_table "incomes", force: true do |t|
     t.decimal  "amount"
@@ -42,7 +59,10 @@ ActiveRecord::Schema.define(version: 20140218010333) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+    t.integer  "user_id"
   end
+
+  add_index "incomes", ["date"], name: "index_incomes_on_date"
 
   create_table "users", force: true do |t|
     t.string   "email"
@@ -74,7 +94,7 @@ ActiveRecord::Schema.define(version: 20140218010333) do
     t.string   "license"
     t.decimal  "depreciation_rate"
     t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
 end

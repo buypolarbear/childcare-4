@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
 	before_create :create_remember_token
 	
+	has_many :vehicles
+	has_many :incomes
+	has_many :expenses
+	
 	# before saving, convert the user-input email to all lowercase
 	before_save { self.email = email.downcase }
 	
