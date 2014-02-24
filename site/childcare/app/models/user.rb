@@ -16,17 +16,56 @@ class User < ActiveRecord::Base
 	has_secure_password
 	validates :password, length: { minimum: 6 }
 	
+	
+	
+	
+	####################################
+	# Returns the first,
+	# middle, and last names of the
+	# user concatenated into a friendly
+	# string
+	####################################
+	def full_name
+		full_name = fname + " " + lname
+	end
+	
+	
+	########################
+	# BEGIN PRIVATE METHODS
+	########################
+  private
+
+	####################################
+	# Generates a key that gets stored
+	# in a cookie on the user's computer;
+	# this is referenced with an encrypted
+	# version of the same key in the database
+	# to verify the user's identity and log
+	# the user on automatically.
+	####################################
+    def create_remember_token
+      self.remember_token = User.encrypt(User.new_remember_token)
+    end
+	
+	
+	####################################
+	# Generates a key that gets stored
+	# in a cookie on the user's computer;
+	# this is referenced with an encrypted
+	# version of the same key in the database
+	# to verify the user's identity and log
+	# the user on automatically.
+	####################################
 	def User.new_remember_token
 		SecureRandom.urlsafe_base64
 	end
 
+	
+	####################################
+	# Encrypts and returns the passed
+	# remember_token 
+	####################################
 	def User.encrypt(token)
 		Digest::SHA1.hexdigest(token.to_s)
 	end
-
-  private
-
-    def create_remember_token
-      self.remember_token = User.encrypt(User.new_remember_token)
-    end
 end
