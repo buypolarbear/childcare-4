@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	# only signed-in users can use the edit or update actions
-	before_action :signed_in_user, only: [:edit, :update]
+	before_action :signed_in_user, only: [:edit, :update, :index]
 	
 	# users can only edit their own information
 	before_action :correct_user,   only: [:edit, :update]
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password,
+      params.require(:user).permit(:fname, :lname, :email, :password,
                                    :password_confirmation)
     end
 
