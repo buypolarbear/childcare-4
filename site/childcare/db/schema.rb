@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224004246) do
+ActiveRecord::Schema.define(version: 20140224012710) do
 
-  create_table "documents_tables", force: true do |t|
-    t.string "category"
-    t.string "title"
-    t.string "path"
-    t.date   "expiration"
+  create_table "documents", force: true do |t|
+    t.string  "category"
+    t.string  "title"
+    t.string  "path"
+    t.date    "expiration"
+    t.integer "users_id"
   end
 
-  add_index "documents_tables", ["title"], name: "index_documents_tables_on_title"
+  add_index "documents", ["title"], name: "index_documents_on_title"
 
   create_table "expenses", force: true do |t|
     t.string   "type"
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140224004246) do
     t.decimal  "depreciation_rate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "users_id"
   end
 
   add_index "expenses", ["date"], name: "index_expenses_on_date"
@@ -45,6 +47,7 @@ ActiveRecord::Schema.define(version: 20140224004246) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.integer  "users_id"
   end
 
   add_index "facilities", ["name"], name: "index_facilities_on_name"
@@ -56,6 +59,7 @@ ActiveRecord::Schema.define(version: 20140224004246) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+    t.integer  "users_id"
   end
 
   add_index "incomes", ["date"], name: "index_incomes_on_date"
@@ -91,6 +95,7 @@ ActiveRecord::Schema.define(version: 20140224004246) do
     t.decimal  "depreciation_rate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "users_id"
   end
 
   add_index "vehicles", ["license"], name: "index_vehicles_on_license"
