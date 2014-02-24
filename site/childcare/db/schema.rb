@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223230338) do
+ActiveRecord::Schema.define(version: 20140224004246) do
+
+  create_table "documents_tables", force: true do |t|
+    t.string "category"
+    t.string "title"
+    t.string "path"
+    t.date   "expiration"
+  end
+
+  add_index "documents_tables", ["title"], name: "index_documents_tables_on_title"
 
   create_table "expenses", force: true do |t|
     t.string   "type"
