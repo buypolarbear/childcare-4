@@ -3,4 +3,5 @@
   <aside class="span4">
     <section>
       <h1> <%= @user.fname %> </h1> (<%= mail_to @user.email, @user.email %>)
+	  <%= @user.vehicles.first.make %>
 </div>
