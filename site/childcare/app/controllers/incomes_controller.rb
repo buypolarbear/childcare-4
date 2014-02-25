@@ -29,6 +29,7 @@ class IncomesController < ApplicationController
 
   def show
 	@income = Income.find(params[:id])
+	@user = User.find(@income.user_id)
   end
 
   def index
