@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 	has_many :vehicles
 	has_many :incomes
 	has_many :expenses
+	has_one :facility
 	
 	# before saving, convert the user-input email to all lowercase
 	before_save { self.email = email.downcase }
