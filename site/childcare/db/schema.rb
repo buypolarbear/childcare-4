@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224022401) do
+ActiveRecord::Schema.define(version: 20140224235436) do
 
   create_table "documents", force: true do |t|
     t.string  "category"
@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 20140224022401) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
     t.integer  "user_id"
+    t.string   "income_type"
   end
 
   add_index "incomes", ["date"], name: "index_incomes_on_date"
@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 20140224022401) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
     t.string   "fname"
     t.string   "lname"
     t.string   "mname"
@@ -82,6 +81,7 @@ ActiveRecord::Schema.define(version: 20140224022401) do
     t.integer  "zip"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.string   "user_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
