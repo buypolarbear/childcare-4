@@ -9,8 +9,8 @@
       <%= f.label :description %>
       <%= f.text_field :description %>
 	  
-	  <%= f.label :type %>
-      <%= f.text_field :type %>
+	  <%= f.label "Type" %>
+      <%= f.text_field :income_type %>
 
       <%= f.label :amount %>
       <%= f.text_field :amount %>
@@ -18,7 +18,9 @@
       <%= f.label :date %>
       <%= f.text_field :date %>
 	  <p></p>
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Save record", class: "btn btn-large btn-primary" %>
+	  
+	  <%= f.hidden_field :user_id, {:value => current_user.id}%>
     <% end %>
 	
   </div>
