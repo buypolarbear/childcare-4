@@ -1,2 +1,10 @@
-<h1>Incomes#show</h1>
-<p>Find me in app/views/incomes/show.html.erb</p>
+<% provide(:title, @income.description) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>Income Record</h1>
+	  <p>Created by <%= @user.full_name %>
+	  <p>Description: <%= @income.description %></p>
+	  <p>Type: <%= @income.income_type %></p>
+	  <p>Amount: <%= @income.amount %></p>
+</div>
