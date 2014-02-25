@@ -32,6 +32,7 @@ class IncomesController < ApplicationController
   end
 
   def index
+	@incomes = Income.all
   end
 
   def destroy
