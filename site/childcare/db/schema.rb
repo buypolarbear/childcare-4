@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140225031755) do
   add_index "documents", ["title"], name: "index_documents_on_title"
 
   create_table "expenses", force: true do |t|
+    t.string   "type"
     t.decimal  "amount"
     t.integer  "percent_home_useage"
     t.integer  "vehicle_id"
@@ -34,7 +35,6 @@ ActiveRecord::Schema.define(version: 20140225031755) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "expense_type"
   end
 
   add_index "expenses", ["date"], name: "index_expenses_on_date"
