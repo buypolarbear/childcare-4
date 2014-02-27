@@ -9,7 +9,8 @@
       <%= f.label :description %>
       <%= f.text_field :description %>
 	  
-	  <%= f.autocomplete_field :user_id, autocomplete_user_lname_users_path %>
+	  <%= f.label "Paid By" %>
+	  <p><%= f.autocomplete_field :user_id, autocomplete_user_lname_users_path %></p>
 	  
 	  <%= f.label "Type" %>
       <%= f.text_field :income_type %>
