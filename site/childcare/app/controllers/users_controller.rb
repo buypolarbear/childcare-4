@@ -4,6 +4,9 @@ class UsersController < ApplicationController
 	
 	# users can only edit their own information
 	before_action :correct_user,   only: [:edit, :update]
+	
+	# sets up an autocomplete action for users' last name
+	autocomplete :user, :lname, :display_value => :full_name, :extra_data => [:fname]
 
   def new
     @user = User.new

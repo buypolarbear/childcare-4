@@ -6,7 +6,9 @@ Childcare::Application.routes.draw do
   match '/contact', to: 'static_pages#contact', via: 'get'
   
   resources :incomes
-  resources :users
+  resources :users do
+	get :autocomplete_user_lname, :on => :collection
+  end
   resources :sessions, only: [:new, :create, :destroy]
   root  'sessions#new'
   match '/signup',  to: 'users#new',            via: 'get'
