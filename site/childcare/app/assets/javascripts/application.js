@@ -17,4 +17,6 @@
 //= require turbolinks
 //= require jquery.ui.autocomplete
 //= require jquery.ui.datepicker
+//= require jquery.ui.draggable
+//= require jquery.ui.droppable
 //= require_tree .
