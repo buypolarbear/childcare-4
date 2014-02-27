@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
+<!-- This is the basic frame work of everypage -->
+<!--
+Use render to bring in another html page from the view folder
+
+-->
 <head>
   <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-  <%= render 'partials/shim' %>
+  <%= render 'partials/shim' %> 
 </head>
 <body>
     <%= render 'partials/header' %>
@@ -13,6 +18,9 @@
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
+	 <% if signed_in? %>
+	<% else %>
+	<% end %>
 	<!-- Login is at site/childcare/app/views/sessions/new.html-->
       <%= yield %>
       <%= render 'partials/footer' %>

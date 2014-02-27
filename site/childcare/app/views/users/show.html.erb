@@ -1,6 +1,20 @@
 <% provide(:title, @user.fname) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span12">
     <section>
       <h1> <%= @user.fname %> </h1> (<%= mail_to @user.email, @user.email %>)
+	<div class="content pull-left">
+      <div id="timechart" class="well pull-left" style="height: 500px; width: 180px;">timechart</div>
+      <div id="alerts" class="well pull-left" style="margin-left: 10px; width: 650px;">
+			<h5>Alerts</h5>
+			<hr />
+			<p>alerts</p>
+		</div>
+      <div id="calender" class="well pull-left" style="margin-left:10px;">
+		<div style="width:650px; height:400px;background-color:#ffcc00; ">
+			<!-- Caledner placeholder -->
+		</div>
+	
+	   </div><!-- #calender -->
+    </div><!--content-->
 </div>
