@@ -2,5 +2,17 @@
 <div class="row">
   <aside class="span4">
     <section>
-      <h1> <%= @user.fname %> </h1> (<%= mail_to @user.email, @user.email %>)
+      <h1> <%= @user.full_name %> </h1>
+	  <h3>Contact Information</h3>
+	  <p>Email Address: <%= mail_to @user.email, @user.email %></p>
+	  <p>Home Phone: <%= number_to_phone(@user.phone_home, area_code: true) %></p>
+	  <p>Cell Phone: <%= number_to_phone(@user.phone_cell, area_code: true) %></p>
+	  <p>Work Phone: <%= number_to_phone(@user.phone_work, area_code: true) %></p>	  
+	  <p>SSN: <%= @user.ssn %></p>
+	  <p>Street Address: <%= @user.street_addr %></p>
+	  <p>City: <%= @user.city %></p>
+	  <p>State: <%= @user.state %></p>
+	  <p>ZIP: <%= @user.zip %></p>
+	  
+	  <%= link_to "Change Information", edit_user_path, class: "btn btn-large btn-primary" %>
 </div>

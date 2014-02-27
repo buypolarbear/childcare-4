@@ -81,6 +81,6 @@ class UsersController < ApplicationController
 	# own information
 	def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+      redirect_to root_url, notice: "You do not have permission to edit this user's information." unless current_user?(@user)
     end
 end
