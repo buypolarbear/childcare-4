@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140302005213) do
+=======
+ActiveRecord::Schema.define(version: 20140225031755) do
+>>>>>>> origin/income_reporting
 
   create_table "documents", force: true do |t|
     t.string  "category"
@@ -34,7 +38,10 @@ ActiveRecord::Schema.define(version: 20140302005213) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+<<<<<<< HEAD
     t.string   "expense_type"
+=======
+>>>>>>> origin/income_reporting
   end
 
   add_index "expenses", ["date"], name: "index_expenses_on_date"
@@ -60,8 +67,11 @@ ActiveRecord::Schema.define(version: 20140302005213) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "income_type"
+<<<<<<< HEAD
     t.boolean  "paid"
     t.string   "owed_by"
+=======
+>>>>>>> origin/income_reporting
   end
 
   add_index "incomes", ["date"], name: "index_incomes_on_date"

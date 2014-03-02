@@ -4,6 +4,9 @@ class UsersController < ApplicationController
 	
 	# users can only edit their own information
 	before_action :correct_user,   only: [:edit, :update]
+	
+	# sets up an autocomplete action for users' last name
+	autocomplete :user, :lname, :display_value => :full_name, :extra_data => [:fname]
 
   def new
     @user = User.new
@@ -78,6 +81,6 @@ class UsersController < ApplicationController
 	# own information
 	def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+      redirect_to root_url, notice: "You do not have permission to edit this user's information." unless current_user?(@user)
     end
 end
