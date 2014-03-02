@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225031755) do
+ActiveRecord::Schema.define(version: 20140302005213) do
 
   create_table "documents", force: true do |t|
     t.string  "category"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 20140225031755) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "income_type"
+    t.boolean  "paid"
+    t.string   "owed_by"
   end
 
   add_index "incomes", ["date"], name: "index_incomes_on_date"
