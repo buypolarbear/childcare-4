@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 	# string
 	####################################
 	def full_name
-		full_name = fname + " " + lname
+		"#{fname} #{lname}"
 	end
 	
 	

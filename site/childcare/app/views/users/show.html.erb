@@ -1,6 +1,6 @@
 <% provide(:title, @user.fname) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span8">
     <section>
       <h1> <%= @user.full_name %> </h1>
 	  <h3>Contact Information</h3>
@@ -15,4 +15,9 @@
 	  <p>ZIP: <%= @user.zip %></p>
 	  
 	  <%= link_to "Change Information", edit_user_path, class: "btn btn-large btn-primary" %>
+	 </section>
+</div>
+
+<div class="row">
+	<%= text_area(:user, :vehicles, :value => (render 'partials/users_vehicles', :object => @vehicles = @user.vehicles), cols: 90, rows: 10) %>
 </div>

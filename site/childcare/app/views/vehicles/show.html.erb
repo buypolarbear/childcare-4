@@ -4,7 +4,12 @@
     <section>
       <h3> <%= @vehicle.user.full_name.possessive %> <%= link_to @vehicle.full_description, vehicle_path(@vehicle.id)  %> </h3>
 	  
+	  <p>Year: <%= @vehicle.year  %> </p>
 	  <p>Make: <%= @vehicle.make  %> </p>
+	  <p>Model: <%= @vehicle.model  %> </p>
+	  <p>License Plate Number: <%= @vehicle.license  %> </p>
+	  <p>Depreciation Rate: <%= number_to_percentage(@vehicle.depreciation_rate, precision: 0)  %> </p>
+	  
 	  
 	  <%= link_to "Change Information", edit_vehicle_path, class: "btn btn-large btn-primary" %>
 </div>

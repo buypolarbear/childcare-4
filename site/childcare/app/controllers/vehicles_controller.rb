@@ -44,12 +44,14 @@ class VehiclesController < ApplicationController
 	# no longer needed since the before_filter actions already
 	# initialize this variable
     #@user = User.find(params[:id])
+	@vehicle = Vehicle.find(params[:id])
   end
 
   def update
 	# no longer needed since the before_filter actions already
 	# initialize this variable
     # @user = User.find(params[:id])
+	@vehicle = Vehicle.find(params[:id])
     if @vehicle.update_attributes(vehicle_params)
       flash[:success] = "Profile updated"
       redirect_to @vehicle

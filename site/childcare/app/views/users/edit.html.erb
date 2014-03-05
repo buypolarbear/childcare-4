@@ -40,7 +40,9 @@
 	  <%= f.label "ZIP Code" %>
       <%= f.text_field :zip %>
 	  
-      <p><%= f.submit "Save Changes", class: "btn btn-large btn-primary" %></p>
+      <p><%= f.submit "Save Changes", class: "btn btn-large btn-primary" %></p>	  
+	  <%= link_to "Cancel", user_path(@user.id), class: "btn btn-large btn-primary" %>
+	  
     <% end %>
   </div>
 </div>
