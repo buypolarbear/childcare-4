@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302005213) do
+ActiveRecord::Schema.define(version: 20140305222510) do
 
   create_table "documents", force: true do |t|
     t.string  "category"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20140302005213) do
   create_table "expenses", force: true do |t|
     t.string   "expense_type"
     t.decimal  "amount"
-    t.integer  "percent_home_useage"
     t.integer  "vehicle_id"
     t.decimal  "vehicle_mileage"
     t.datetime "date"
@@ -35,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140302005213) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.decimal  "percent_home_usage"
   end
 
   add_index "expenses", ["date"], name: "index_expenses_on_date"

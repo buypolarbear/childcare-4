@@ -13,18 +13,22 @@
       <%= f.text_field :amount %>
 	  
 	  <%= f.label "Percent Home Usage" %>
-	  <%= f.text_field :percent_home_useage %>
+	  <%= f.text_field :percent_home_usage %>
 	  
 	  <%= f.label :depreciation_rate %>
       <%= f.text_field :depreciation_rate %>
 	  
 	  <%= f.label "Type" %>
       <%= f.text_field :expense_type %>
-
-	  <%= collection_select(:vehicle, :id, @user.vehicles.all, :id, :full_description) %>
+	  
+	  <%= f.label "Vehicle" %>
+	  <%= collection_select(:vehicle, :id, @user.vehicles.all, :id, :full_description, include_blank: true) %>
+	  
+	  <%= f.label "Mileage" %>
+	  <%= f.text_field :vehicle_mileage %>
 	  
       <%= f.label :date %>
-      <%= f.text_field :date %>
+      <%= f.text_field :date, class: "datepicker" %>
 	  
 	  <%= f.hidden_field :user_id, {:value => @user.id}%>
 	  
