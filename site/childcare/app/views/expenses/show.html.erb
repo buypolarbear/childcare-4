@@ -1,0 +1,14 @@
+<% provide(:title, @income.description) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>Income Record</h1>
+	  <p>Created by <%= @user.full_name %>
+	  <p>Description: <%= @income.description %></p>
+	  <p>Type: <%= @income.income_type %></p>
+	  <p>Amount: <%= @income.amount %></p>
+	  <p>Created by <%= @user.full_name %> on <%= @income.date("%d/%m/%Y") %></p>
+	  <p>Description: <%= @income.description %></p>
+	  <p>Type: <%= @income.income_type %></p>
+	  <p>Amount: <%= @income.amount %></p>
+</div>

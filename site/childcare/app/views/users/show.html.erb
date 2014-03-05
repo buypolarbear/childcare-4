@@ -19,5 +19,5 @@
 </div>
 
 <div class="row">
-	<%= text_area(:user, :vehicles, :value => (render 'partials/users_vehicles', :object => @vehicles = @user.vehicles), cols: 90, rows: 10) %>
+	<%= text_area(:user, :vehicles, :value => (render 'partials/users/users_vehicles', :object => @vehicles = @user.vehicles), cols: 90, rows: 10) %>
 </div>

@@ -96,4 +96,22 @@ module SessionsHelper
 	def store_location
 		session[:return_to] = request.url if request.get?
 	end
+	
+	
+	#############################################
+	# Verifies that the current site user is signed in
+	##############################################
+    def signed_in_user
+	  store_location
+      redirect_to signin_url, notice: "Please sign in." unless signed_in?
+    end
+	
+	#############################################
+	# Checks to make sure that users can only edit
+	# their own information
+	#############################################
+	def correct_user
+      @user = User.find(params[:id])
+      redirect_to root_url, notice: "You do not have permission to view or edit this information." unless current_user?(@user)
+    end
 end

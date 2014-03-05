@@ -1,0 +1,12 @@
+<h3>Expense Records</h3>
+
+<ul class="expenses">
+  <% @expenses.each_with_index do |expense, i| %>
+    <li>
+	  <%= i+1 %>.)
+	  <%= link_to expense.description, expense_path(expense.id)  %>
+	  <%=  %>
+	<%end%>
+  
+</ul>
+<p></p>

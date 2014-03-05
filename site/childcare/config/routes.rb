@@ -1,5 +1,12 @@
 Childcare::Application.routes.draw do
 
+  get "expenses/new"
+  get "expenses/create"
+  get "expenses/edit"
+  get "expenses/update"
+  get "expenses/show"
+  get "expenses/index"
+  get "expenses/destroy"
   # static pages
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
