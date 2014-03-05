@@ -1,0 +1,12 @@
+<h3>Vehicles</h3>
+
+<ul class="users">
+  <% @vehicles.each_with_index do |vehicle, i| %>
+    <li>
+	  <%= i+1 %>.)
+	  <%= link_to vehicle.full_description, vehicle_path(vehicle.id)  %>
+	  <%=  %>
+	<%end%>
+  
+</ul>
+<p></p>

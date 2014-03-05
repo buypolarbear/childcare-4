@@ -1,0 +1,46 @@
+<% provide(:title, 'Edit Profile') %>
+<h1>Edit Profile</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@user) do |f| %>
+	
+	  <%= render 'shared/error_messages', :object => @user %>
+
+      <%= f.label "First Name" %>
+      <%= f.text_field :fname %>
+	  
+	  <%= f.label "Last Name" %>
+      <%= f.text_field :lname %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+	  
+	  <%= f.label "Home Phone" %>
+      <%= f.text_field :phone_home %>
+	  
+	  <%= f.label "Cell Phone" %>
+      <%= f.text_field :phone_cell %>
+	  
+	  <%= f.label "Work Phone" %>
+      <%= f.text_field :phone_work %>
+	  
+	  <%= f.label "Social Security Number" %>
+      <%= f.text_field :ssn %>
+	  
+	  <%= f.label "Street Address" %>
+      <%= f.text_field :street_addr %>
+	  
+	  <%= f.label "City" %>
+      <%= f.text_field :city %>
+	  
+	  <%= f.label "State" %>
+      <%= f.text_field :state %>
+	  
+	  <%= f.label "ZIP Code" %>
+      <%= f.text_field :zip %>
+	  
+      <p><%= f.submit "Save Changes", class: "btn btn-large btn-primary" %></p>
+    <% end %>
+  </div>
+</div>

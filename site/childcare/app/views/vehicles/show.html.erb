@@ -1,0 +1,10 @@
+<% provide(:title, @vehicle.full_description) %>
+<div class="row">
+  <aside class="span8">
+    <section>
+      <h3> <%= @vehicle.user.full_name.possessive %> <%= link_to @vehicle.full_description, vehicle_path(@vehicle.id)  %> </h3>
+	  
+	  <p>Make: <%= @vehicle.make  %> </p>
+	  
+	  <%= link_to "Change Information", edit_vehicle_path, class: "btn btn-large btn-primary" %>
+</div>
