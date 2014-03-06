@@ -33,7 +33,8 @@
 	  <%= f.hidden_field :user_id, {:value => @user.id}%>
 	  
 	  <p></p>
-      <%= f.submit "Save record", class: "btn btn-large btn-primary" %>  
+      <%= f.submit "Save record", class: "btn btn-large btn-primary" %>
+	  <%= link_to "Cancel", expenses_path, class: "btn btn-large btn-primary" %>
 	  
     <% end %>
 	

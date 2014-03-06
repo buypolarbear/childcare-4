@@ -1,24 +1,41 @@
-<% provide(:title, "Edit Income") %>
+<% provide(:title, "Edit Expense") %>
 <h1>Edit Expense Record</h1>
 
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@expense) do |f| %>
-      <%= render 'shared/error_messages', :object => @income %>
+      <%= render 'shared/error_messages', :object => @expense %>
 
-      <%= f.label :description %>
+	  <%= f.label :description %>
       <%= f.text_field :description %>
 	  
-	  <%= f.label "Type" %>
-      <%= f.text_field :income_type %>
-
       <%= f.label :amount %>
       <%= f.text_field :amount %>
-
+	  
+	  <%= f.label "Percent Home Usage" %>
+	  <%= f.text_field :percent_home_usage %>
+	  
+	  <%= f.label :depreciation_rate %>
+      <%= f.text_field :depreciation_rate %>
+	  
+	  <%= f.label "Type" %>
+      <%= f.text_field :expense_type %>
+	  
+	  <%= f.label "Vehicle" %>
+	  <%= collection_select(:vehicle, :id, @user.vehicles.all, :id, :full_description, include_blank: true) %>
+	  
+	  <%= f.label "Mileage" %>
+	  <%= f.text_field :vehicle_mileage %>
+	  
       <%= f.label :date %>
-      <%= f.text_field :date %>
+      <%= f.text_field :date, class: "datepicker" %>
+	  
+	  <%= f.hidden_field :user_id, {:value => @user.id}%>
+	  
 	  <p></p>
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Save record", class: "btn btn-large btn-primary" %> 
+	  <%= link_to "Cancel", expense_path(@expense.id), class: "btn btn-large btn-primary" %>
+	  
     <% end %>
 	
   </div>

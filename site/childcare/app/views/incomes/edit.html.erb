@@ -19,6 +19,7 @@
       <%= f.text_field :date, class: "datepicker"%>
 	  <p></p>
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+	  <%= link_to "Cancel", income_path(@income.id), class: "btn btn-large btn-primary" %>
     <% end %>
 	
   </div>

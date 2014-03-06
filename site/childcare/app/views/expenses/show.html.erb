@@ -1,14 +1,13 @@
-<% provide(:title, @income.description) %>
+<% provide(:title, @expense.description) %>
 <div class="row">
   <aside class="span4">
     <section>
-      <h1>Income Record</h1>
-	  <p>Created by <%= @user.full_name %>
-	  <p>Description: <%= @income.description %></p>
-	  <p>Type: <%= @income.income_type %></p>
-	  <p>Amount: <%= @income.amount %></p>
-	  <p>Created by <%= @user.full_name %> on <%= @income.date("%d/%m/%Y") %></p>
-	  <p>Description: <%= @income.description %></p>
-	  <p>Type: <%= @income.income_type %></p>
-	  <p>Amount: <%= @income.amount %></p>
+      <h1>Expense Record</h1>
+	  <p>Description: <%= @expense.description %></p>
+	  <p>Amount: <%= @expense.amount %></p>
+	  <p>Type: <%= @expense.expense_type %></p>
+	  <p>Percent Home Usage: <%= @expense.percent_home_usage %></p>
+	  <p>Depreciation Rate: <%= @expense.depreciation_rate %></p>
+	  <p>Vehicle: <%= link_to @expense.vehicle.full_description, vehicle_path(@expense.vehicle.id) %></p>
+	  <p>Mileage: <%= @expense.vehicle_mileage %></p>
 </div>

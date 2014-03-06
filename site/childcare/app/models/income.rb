@@ -31,7 +31,7 @@ class Income < ActiveRecord::Base
 	end
   
 	def date=(date)  
-		self[:date] = Date.parse(date)
+		self[:date] = Date.strptime(date, "%m/%d/%Y")
 	end
 	
 end

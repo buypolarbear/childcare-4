@@ -22,6 +22,7 @@ class ExpensesController < ApplicationController
   
   def show
     @expense = Expense.find(params[:id])
+	@user = @expense.user
   end
   
   def index
@@ -57,9 +58,8 @@ class ExpensesController < ApplicationController
   private
 
     def expense_params
-      params.require(:expense).permit(:fname, :lname, :email, :password,
-                                   :password_confirmation, :phone_home,
-								   :phone_cell, :phone_work, :ssn, :street_addr,
-								   :city, :state, :zip)
+      params.require(:expense).permit(:description, :amount, :percent_home_usage,
+									:depreciation_rate, :expense_type, :vehicle_id,
+									:vehicle_mileage, :date, :user_id)
     end
 end

@@ -8,8 +8,11 @@
 	  <p>Make: <%= @vehicle.make  %> </p>
 	  <p>Model: <%= @vehicle.model  %> </p>
 	  <p>License Plate Number: <%= @vehicle.license  %> </p>
-	  <p>Depreciation Rate: <%= number_to_percentage(@vehicle.depreciation_rate, precision: 0)  %> </p>
-	  
+	  <p>Depreciation Rate: <%= number_to_percentage(@vehicle.depreciation_rate, precision: 0)  %> </p>	  
 	  
 	  <%= link_to "Change Information", edit_vehicle_path, class: "btn btn-large btn-primary" %>
+</div>
+
+<div class="row">
+	<%= text_area(:vehicle, :expenses, :value => (render 'partials/vehicles/vehicle_expenses', :object => @expenses = @vehicle.expenses), cols: 90, rows: 10) %>
 </div>
