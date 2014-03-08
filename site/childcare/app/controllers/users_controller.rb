@@ -69,20 +69,4 @@ class UsersController < ApplicationController
 								   :phone_cell, :phone_work, :ssn, :street_addr,
 								   :city, :state, :zip)
     end
-
-    # Before filters
-
-	# verifies that the current site user is signed in
-    def signed_in_user
-	  store_location
-      redirect_to signin_url, notice: "Please sign in." unless signed_in?
-    end
-	
-	
-	# checks to make sure that users can only edit their
-	# own information
-	def correct_user
-      @user = User.find(params[:id])
-      redirect_to root_url, notice: "You do not have permission to edit this user's information." unless current_user?(@user)
-    end
 end

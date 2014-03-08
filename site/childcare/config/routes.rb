@@ -1,12 +1,5 @@
 Childcare::Application.routes.draw do
 
-  get "expenses/new"
-  get "expenses/create"
-  get "expenses/edit"
-  get "expenses/update"
-  get "expenses/show"
-  get "expenses/index"
-  get "expenses/destroy"
   # static pages
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
@@ -15,6 +8,7 @@ Childcare::Application.routes.draw do
   resources :incomes
   resources :expenses
   resources :vehicles
+  resources :documents
   resources :users do
 	get :autocomplete_user_lname, :on => :collection
   end
