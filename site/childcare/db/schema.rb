@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305222510) do
+ActiveRecord::Schema.define(version: 20140308005926) do
 
   create_table "documents", force: true do |t|
     t.string  "category"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140305222510) do
     t.string  "path"
     t.date    "expiration"
     t.integer "user_id"
+    t.integer "file_size"
   end
 
   add_index "documents", ["title"], name: "index_documents_on_title"

@@ -10,6 +10,7 @@
 	  <!-- Display if the user is signed in -->
           <% if signed_in? %>
             <li><%= link_to "Users", users_path %></li>
+			<li><%= link_to "Documents", documents_path %></li>
 			<li><%= link_to "Income Records", incomes_path %></li>
 			<li><%= link_to "Expenses", expenses_path %></li>
 			<li><%= link_to "Vehicles", vehicles_path %></li>

@@ -1,1 +1,7 @@
-<%= link_to "Download Document", @document.path.url, class: "btn btn-large btn-primary" %></p>
+<h3>Document</h3>
+
+<p>Title: <%= @document.title %></p>
+<p>Size (KB): <%= @document.size_kb  %></p>
+<p>Content Type: <%= @document.path.content_type  %></p>
+
+<p><%= link_to "Download Document", @document.path.url, class: "btn btn-large btn-primary" %></p>
