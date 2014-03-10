@@ -37,3 +37,6 @@ doc/
 
 # don't put authenticity token on the repo
 .secret
+
+# ignore file uploads
+/public/uploads/*
