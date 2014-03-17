@@ -1,5 +1,16 @@
 <h3>Documents</h3>
 
+<a href="/documents/new.html">Add new document</a>
+<div class="table-responsive">
+	<table class="table table-condensed documents">
+  	<% @documents.each_with_index do |document, i| %>
+	  <tr>
+	  	<td><%= i+1 %>.)</td>
+	  	<td><%= link_to document.title, document_path(document.id)  %></td>
+	  </tr>
+	<%end%>
+	</table>
+</div>
 <ul class="documents">
   <% @documents.each_with_index do |document, i| %>
     <li>

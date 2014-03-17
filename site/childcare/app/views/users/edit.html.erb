@@ -1,44 +1,58 @@
 <% provide(:title, 'Edit Profile') %>
-<h1>Edit Profile</h1>
+<h1>Edit Profile: <%= @user.full_name %></h1>
 
 <div class="row">
-  <div class="span6 offset3">
+  <div class="span8">
     <%= form_for(@user) do |f| %>
-	
 	  <%= render 'shared/error_messages', :object => @user %>
-
-      <%= f.label "First Name" %>
+	  <div class="table-responsive">
+	  <table class="table table-condensed">
+		<tr>
+			<td width="150px">Email Address: </td><!-- mail_to @user.email, -->
+			<td><%= f.text_field :email %></td>
+		</tr>
+		<tr >
+			<td width="150px">Home Phone:</td>
+			<td><%= f.text_field :phone_home %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">Cell Phone:</td>
+			<td><%= f.text_field :phone_cell %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">Work Phone:</td>
+			<td><%= f.text_field :phone_work %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">SSN:</td>
+			<td><%= f.text_field :ssn %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">Street Address:</td>
+			<td><%= f.text_field :street_addr %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">City:</td>
+			<td><%= f.text_field :city %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">State:</td>
+			<td><%= f.text_field :state %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">ZIP:</td>
+			<td><%= f.text_field :zip %></td>
+		</tr>
+	  </table>
+	  </div>
+<!--      
+<%= f.label "First Name" %>
       <%= f.text_field :fname %>
 	  
 	  <%= f.label "Last Name" %>
       <%= f.text_field :lname %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-	  
-	  <%= f.label "Home Phone" %>
-      <%= f.text_field :phone_home %>
-	  
-	  <%= f.label "Cell Phone" %>
-      <%= f.text_field :phone_cell %>
-	  
-	  <%= f.label "Work Phone" %>
-      <%= f.text_field :phone_work %>
-	  
-	  <%= f.label "Social Security Number" %>
-      <%= f.text_field :ssn %>
-	  
-	  <%= f.label "Street Address" %>
-      <%= f.text_field :street_addr %>
-	  
-	  <%= f.label "City" %>
-      <%= f.text_field :city %>
-	  
-	  <%= f.label "State" %>
-      <%= f.text_field :state %>
-	  
-	  <%= f.label "ZIP Code" %>
-      <%= f.text_field :zip %>
+-->
 	  
       <p><%= f.submit "Save Changes", class: "btn btn-large btn-primary" %></p>	  
 	  <%= link_to "Cancel", user_path(@user.id), class: "btn btn-large btn-primary" %>

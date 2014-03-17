@@ -2,14 +2,31 @@
 <div class="row">
   <aside class="span8">
     <section>
-      <h3> <%= @vehicle.user.full_name.possessive %> <%= link_to @vehicle.full_description, vehicle_path(@vehicle.id)  %> </h3>
-	  
-	  <p>Year: <%= @vehicle.year  %> </p>
-	  <p>Make: <%= @vehicle.make  %> </p>
-	  <p>Model: <%= @vehicle.model  %> </p>
-	  <p>License Plate Number: <%= @vehicle.license  %> </p>
-	  <p>Depreciation Rate: <%= number_to_percentage(@vehicle.depreciation_rate, precision: 0)  %> </p>	  
-	  
+      <h3> <%= @vehicle.user.full_name.possessive %>: <%= link_to @vehicle.full_description, vehicle_path(@vehicle.id)  %> </h3>
+	  <div class="table-responsive">
+	  <table class="table table-condensed">
+		<tr>
+			<td width="150px">Year: </td>
+			<td><%= @vehicle.year %></td>
+		</tr>
+		<tr>
+			<td width="150px">Make: </td>
+			<td><%= @vehicle.make %></td>
+		</tr>
+		<tr>
+			<td width="150px">Model: </td>
+			<td><%= @vehicle.model %></td>
+		</tr>
+		<tr>
+			<td width="150px">License Plate Number: </td>
+			<td><%= @vehicle.license %></td>
+		</tr>
+		<tr>
+			<td width="150px">Depreciation Rate: </td>
+			<td><%= number_to_percentage(@vehicle.depreciation_rate, precision: 0) %></td>
+		</tr>
+	  </table>
+	  </div> 
 	  <%= link_to "Change Information", edit_vehicle_path, class: "btn btn-large btn-primary" %>
 </div>
 

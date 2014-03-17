@@ -3,17 +3,46 @@
   <aside class="span8">
     <section>
       <h1> <%= @user.full_name %> </h1>
-	  <h3>Contact Information</h3>
-	  <p>Email Address: <%= mail_to @user.email, @user.email %></p>
-	  <p>Home Phone: <%= number_to_phone(@user.phone_home, area_code: true) %></p>
-	  <p>Cell Phone: <%= number_to_phone(@user.phone_cell, area_code: true) %></p>
-	  <p>Work Phone: <%= number_to_phone(@user.phone_work, area_code: true) %></p>	  
-	  <p>SSN: <%= @user.ssn %></p>
-	  <p>Street Address: <%= @user.street_addr %></p>
-	  <p>City: <%= @user.city %></p>
-	  <p>State: <%= @user.state %></p>
-	  <p>ZIP: <%= @user.zip %></p>
-	  
+	  <h3>Account Details: <%= @user.full_name %></h3>
+	  <div class="table-responsive">
+	  <table class="table table-condensed">
+		<tr>
+			<td width="150px">Email Address: </td><!-- mail_to @user.email, -->
+			<td><%= @user.email %></td>
+		</tr>
+		<tr >
+			<td width="150px">Home Phone:</td>
+			<td><%= number_to_phone(@user.phone_home, area_code: true) %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">Cell Phone:</td>
+			<td><%= number_to_phone(@user.phone_cell, area_code: true) %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">Work Phone:</td>
+			<td><%= number_to_phone(@user.phone_work, area_code: true) %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">SSN:</td>
+			<td><%= @user.ssn %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">Street Address:</td>
+			<td><%= @user.street_addr %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">City:</td>
+			<td><%= @user.city %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">State:</td>
+			<td><%= @user.state %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">ZIP:</td>
+			<td><%= @user.zip %></td>
+		</tr>
+	  </table>  
 	  <%= link_to "Change Information", edit_user_path, class: "btn btn-large btn-primary" %>
 	 </section>
 </div>

@@ -1,5 +1,18 @@
 <h3>Vehicles</h3>
 
+<!-- http://localhost:3000/vehicles/new <%= link_to "Add New Vehicle", users_path %>-->
+
+<a href="/vehicles/new">Add new vehcile</a>
+<table class="table table-hover users">
+	<% @vehicles.each_with_index do |vehicle, i| %>
+		<tr>
+			<td width="20px"><%= i+1 %>.)</td>
+			<td><%= link_to vehicle.full_description, vehicle_path(vehicle.id)  %></td>
+		</tr>
+	<%end%>
+</table>
+
+<!--
 <ul class="users">
   <% @vehicles.each_with_index do |vehicle, i| %>
     <li>
@@ -9,4 +22,5 @@
 	<%end%>
   
 </ul>
+-->
 <p></p>
