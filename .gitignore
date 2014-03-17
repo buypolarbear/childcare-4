@@ -39,4 +39,4 @@ doc/
 .secret
 
 # ignore file uploads
-childcare/public/uploads/
+site/childcare/public/uploads/
