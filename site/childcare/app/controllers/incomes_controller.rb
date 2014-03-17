@@ -92,6 +92,6 @@ class IncomesController < ApplicationController
 	# contain a description, income_type, etc.
 	##############################################
 	def income_params
-		params.require(:income).permit(:description, :income_type, :amount, :date, :user_id)
+		params.require(:income).permit(:description, :income_type, :amount, :date, :user_id, :paid)
 	end
 end
