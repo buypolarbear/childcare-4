@@ -4,11 +4,10 @@
 	<table class="table table-condensed table-hover table-striped table-bordered">
 		<tr>
 			<th width="60px">Date</th>
-			<th>Name</th>
-			<th>Income Type</th>
 			<th>Memo</th>
+			<th width="120px">Income Type</th>
 			<th width="20px">Paid</th>
-			<th>Amount</th>
+			<th width="120px">Amount</th>
 			<th width="80px"></th>
 		</tr>
 		<% @incomes.each_with_index do |income, i| %>
@@ -16,10 +15,7 @@
 			<td width="60px" ><%= income.date("%m/%d/%Y") %></td>
 	  		<td><%= link_to income.description, income_path(income.id)  %></td>
 			<td><%= income.income_type %></td>
-
-			<td><%= income.date("%m/%d/%Y") %></td>
-			<td><%= income.description %></td>
-			<td><%= income.paid %><input id="check1" type="checkbox" <% if income.paid %>  checked="checked" <% else %> <%end%> ></td>
+			<td><input id="check1" type="checkbox" <% if income.paid %>  checked="checked" readonly <% else %><%end%>></td>
 
 			<td><span class="pull-right"><%= income.amount %></span></td>
 			<td width="80px">
