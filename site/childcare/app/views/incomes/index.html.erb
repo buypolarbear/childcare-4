@@ -1,12 +1,58 @@
 <h3>Income Records</h3>
+<div class="table-responsive incomes">
+	<table class="table table-condensed table-hover table-striped table-bordered">
+		<tr>
+			<td></td>
+			<th>Name</th>
+			<th>Income Type</th>
+			<th>Amount</th>
+			<th>Date</th>
+			<th>Memo</th>
+			<th></th>
+		</tr>
+		<% @incomes.each_with_index do |income, i| %>
+		<tr data-link="<%= income_path(income.id) %>" >
+			<td><%= i+1 %>.)</td>
+	  		<td><%= link_to income.description, income_path(income.id)  %></td>
+			<td><%= income.income_type %></td>
+			<td><%= income.amount %></td>
 
-<ul class="incomes">
-  <% @incomes.each_with_index do |income, i| %>
-    <li>
-	  <%= i+1 %>.)
-	  <%= link_to income.description, income_path(income.id)  %>
-	  <%=  %>
-	<%end%>
-  
-</ul>
+			<td><%= income.date("%d/%m/%Y") %></td>
+			<td><%= income.description %></td>
+			<td width="50px">
+				<span class="pull-right">
+					Edit|Destroy
+				</span>
+			</td>
+		</tr>
+		<%end%>
+		<!-- add a new row -->
+		<tr>
+			<td colspan="7">
+				<a href="/incomes/new.html">				
+				<span class="pull-right">New Entry</span>
+				</a>
+			</td>
+		</tr>
+	
+	</table>
+</div>
+
+<!--
+
+-->
+<!--
+Description
+
+Paid by
+
+
+Type
+
+Amount
+
+Date
+
+
+->>
 <p></p>
