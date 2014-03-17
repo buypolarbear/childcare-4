@@ -19,11 +19,7 @@
       <%= f.check_box :paid %>
 
       <%= f.label :date %>
-<<<<<<< HEAD
-      <%= f.text_field :date, class: "datepicker"%> <!--to month day year -->
-=======
       <%= f.text_field :date, value: @income.date, class: "datepicker"%>
->>>>>>> 4b2d6df382ae52ec68aa87b3e82ea56971dc2b76
 	  <p></p>
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
 	  <%= link_to "Cancel", income_path(@income.id), class: "btn btn-large btn-primary" %>

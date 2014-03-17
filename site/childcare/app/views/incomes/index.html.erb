@@ -6,7 +6,6 @@
 			<th width="60px">Date</th>
 			<th>Name</th>
 			<th>Income Type</th>
-			
 			<th>Memo</th>
 			<th width="20px">Paid</th>
 			<th>Amount</th>
@@ -17,15 +16,11 @@
 			<td width="60px" ><%= income.date("%m/%d/%Y") %></td>
 	  		<td><%= link_to income.description, income_path(income.id)  %></td>
 			<td><%= income.income_type %></td>
-<<<<<<< HEAD
-			
-=======
-			<td><%= income.amount %></td>
 
 			<td><%= income.date("%m/%d/%Y") %></td>
->>>>>>> 4b2d6df382ae52ec68aa87b3e82ea56971dc2b76
 			<td><%= income.description %></td>
 			<td><%= income.paid %><input id="check1" type="checkbox" <% if income.paid %>  checked="checked" <% else %> <%end%> ></td>
+
 			<td><span class="pull-right"><%= income.amount %></span></td>
 			<td width="80px">
 				<span class="pull-right">
