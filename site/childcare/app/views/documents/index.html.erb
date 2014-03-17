@@ -1,6 +1,6 @@
 <h3>Documents</h3>
 
-<a href="/documents/new.html">Add new document</a>
+<%= link_to "Add new Document", new_document_path %>
 <div class="table-responsive">
 	<table class="table table-condensed documents">
   	<% @documents.each_with_index do |document, i| %>
