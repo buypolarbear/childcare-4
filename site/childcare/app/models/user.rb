@@ -36,6 +36,16 @@ class User < ActiveRecord::Base
 	end
 	
 	
+	####################################
+	# Returns true if the current user
+	# has administrator permissions; false
+	# otherwise
+	####################################
+	def admin?
+		self.user_type == "admin"
+	end
+	
+	
 	########################
 	# BEGIN PRIVATE METHODS
 	########################

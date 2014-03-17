@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 	# only signed-in users can use the edit or update actions
-	before_action :signed_in_user, only: [:edit, :update, :index]
+	before_action :signed_in_user, only: [:edit, :update, :index, :destroy]
+	before_action :admin_user, only: [:destroy]
 	
 	# users can only edit their own information
 	before_action :correct_user,   only: [:edit, :update]
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-	  sign_in @user
+	  sign_in @user unless signed_in?
 	  flash[:success] = "Signup successful"
       redirect_to @user
     else
@@ -29,6 +30,10 @@ class UsersController < ApplicationController
     end
   end
   
+  
+  #############################################
+  # 
+  ##############################################
   def show
     @user = User.find(params[:id])
   end
@@ -37,6 +42,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  
   #############################################
   # 
   ##############################################
@@ -45,7 +51,11 @@ class UsersController < ApplicationController
 	# initialize this variable
     #@user = User.find(params[:id])
   end
+  
 
+  #############################################
+  # Attempts to update a user's information
+  ##############################################
   def update
 	# no longer needed since the before_filter actions already
 	# initialize this variable
@@ -58,14 +68,25 @@ class UsersController < ApplicationController
     end
   end
 
+  
+  #############################################
+  # Attempts to delete the user with the passed
+  # ID
+  ##############################################
   def destroy
-	User.find(params[:id]).destroy
-    flash[:success] = "User deleted."
+	if User.find(params[:id]).destroy
+		flash[:success] = "User deleted."
+	else
+		flash[:error] = "There was a problem deleting this user."
+	end
     redirect_to users_url
   end
   
   private
 
+    #############################################
+    # Strong parameters for User model
+    ##############################################
     def user_params
       params.require(:user).permit(:fname, :lname, :email, :password,
                                    :password_confirmation, :phone_home,

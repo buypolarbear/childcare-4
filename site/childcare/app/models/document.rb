@@ -14,16 +14,6 @@ class Document < ActiveRecord::Base
 		end
 	end
 	
-	#def destroy_document
-	#	if path.present?
-	#		if self.remove_path!
-	#			if self.destroy
-	#				0
-	#			end
-	#			1
-	#		end
-	#	end
-	#end
   
 	private
   
