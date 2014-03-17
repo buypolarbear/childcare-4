@@ -2,23 +2,22 @@
 <div class="table-responsive incomes">
 	<table class="table table-condensed table-hover table-striped table-bordered">
 		<tr>
-			<td></td>
+			<th>Date</th>
 			<th>Name</th>
 			<th>Income Type</th>
 			<th>Amount</th>
-			<th>Date</th>
 			<th>Memo</th>
+			<th>Paid</th>
 			<th></th>
 		</tr>
 		<% @incomes.each_with_index do |income, i| %>
 		<tr data-link="<%= income_path(income.id) %>" >
-			<td><%= i+1 %>.)</td>
+			<td><%= income.date("%m/%d/%Y") %></td>
 	  		<td><%= link_to income.description, income_path(income.id)  %></td>
 			<td><%= income.income_type %></td>
 			<td><%= income.amount %></td>
-
-			<td><%= income.date("%d/%m/%Y") %></td>
 			<td><%= income.description %></td>
+			<td><%= income.paid %></td>
 			<td width="50px">
 				<span class="pull-right">
 					Edit|Destroy
