@@ -31,6 +31,14 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
+	@document = Document.find(params[:id])
+	if @document.destroy
+		flash[:success] = "Document deleted."
+	else
+		flash[:error] = "There was a problem deleting this document."
+	end
+		
+    redirect_to documents_url
   end
   
   private

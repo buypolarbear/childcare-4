@@ -39,4 +39,4 @@ doc/
 .secret
 
 # ignore file uploads
-/public/uploads/*
+public/uploads/

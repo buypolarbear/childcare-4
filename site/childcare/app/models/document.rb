@@ -13,6 +13,17 @@ class Document < ActiveRecord::Base
 			self.file_size/1024
 		end
 	end
+	
+	#def destroy_document
+	#	if path.present?
+	#		if self.remove_path!
+	#			if self.destroy
+	#				0
+	#			end
+	#			1
+	#		end
+	#	end
+	#end
   
 	private
   
@@ -21,5 +32,5 @@ class Document < ActiveRecord::Base
 			#self.content_type = self.path.content_type
 			self.file_size = self.path.size
 		end
-	end	
+	end
 end
