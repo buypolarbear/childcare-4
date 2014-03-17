@@ -1,2 +1,16 @@
-<h1>Documents#edit</h1>
-<p>Find me in app/views/documents/edit.html.erb</p>
+<%= form_for @document, :html => {:multipart => true} do |f| %>
+	<p>
+		<%= render 'shared/error_messages', :object => @document %>
+		
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+		
+		<p><%= f.file_field :path %><p>
+		
+		<%= f.hidden_field :user_id, {:value => current_user.id}%>
+		
+		<p><%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
+		
+		<%= link_to "Cancel", documents_path, class: "btn btn-large btn-primary" %></p>
+	</p>
+<% end %>
