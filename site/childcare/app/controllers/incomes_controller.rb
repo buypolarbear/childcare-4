@@ -77,6 +77,17 @@ class IncomesController < ApplicationController
 
   
   #############################################
+  # Populates the variables necessary for
+  # displaying a list of all income records
+  ##############################################
+  def toggle_paid
+	@income = Income.find(params[:id])
+    @income.paid = :paid
+	@income.save!
+  end
+  
+  
+  #############################################
   # Attempts to remove the income record with
   # the passed id from the database
   ##############################################

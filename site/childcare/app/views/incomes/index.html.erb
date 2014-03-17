@@ -15,7 +15,17 @@
 			<td width="60px" ><%= income.date("%m/%d/%Y") %></td>
 	  		<td><%= link_to income.description, income_path(income.id)  %></td>
 			<td><%= income.income_type %></td>
-			<td><input id="check1" type="checkbox" <% if income.paid %>  checked="checked" readonly <% else %><%end%>></td>
+			<td>
+			<%= form_tag url_for(:controller => 'incomes', :action => :toggle_paid, :id => income.id), :id => "indented", :method => 'get', :remote => true do %>
+				<%= check_box_tag 'income.paid', '1', income.paid, :class => 'submittable' %>
+			<% end %>
+			</td>
+			
+			<td><%= form_for(income, :remote => true) do |f| %>
+				<%= f.check_box :paid %>
+				<%= f.submit "Save", disable_with: "Saved", class: "btn btn-primary" %>
+				<% end %>
+			</td>
 
 			<td><span class="pull-right"><%= income.amount %></span></td>
 			<td width="80px">
