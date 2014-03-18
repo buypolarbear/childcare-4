@@ -1,7 +1,11 @@
 <h3>Income Records</h3>
 <%= link_to "Add new Invoice/Income Record", new_income_path %>
+<script>
+
+</script>
 <div class="table-responsive incomes">
-	<table class="table table-condensed table-hover table-striped table-bordered">
+	<table id="myTable" class="table table-condensed table-hover table-striped table-bordered tablesorter">
+		<thead>		
 		<tr>
 			<th width="60px">Date</th>
 			<th>Memo</th>
@@ -10,6 +14,8 @@
 			<th width="120px">Amount</th>
 			<th width="80px"></th>
 		</tr>
+		</thead>
+		<tbody>
 		<% @incomes.each_with_index do |income, i| %>
 		<tr data-link="<%= income_path(income.id) %>" >
 			<td width="60px" ><%= income.date("%m/%d/%Y") %></td>
@@ -30,6 +36,7 @@
 			</td>
 		</tr>
 		<%end%>
+		</tbody>
 		<!-- add a new row -->
 		<tr>
 			<td colspan="7">
