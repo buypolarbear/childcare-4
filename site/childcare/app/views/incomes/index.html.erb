@@ -6,7 +6,7 @@
 			<th width="60px">Date</th>
 			<th>Memo</th>
 			<th width="120px">Income Type</th>
-			<th width="20px">Paid</th>
+			<th width="75px">Paid</th>
 			<th width="120px">Amount</th>
 			<th width="80px"></th>
 		</tr>
@@ -15,8 +15,11 @@
 			<td width="60px" ><%= income.date("%m/%d/%Y") %></td>
 	  		<td><%= link_to income.description, income_path(income.id)  %></td>
 			<td><%= income.income_type %></td>
-			<td><input id="check1" type="checkbox" <% if income.paid %> readonly="readonly" checked="checked"  <%else%><%end%>></td>
-
+			<td><%= form_for(income, :remote => true) do |f| %>
+				<%= f.check_box :paid %>
+				<%= f.submit "Save", disable_with: "Saved", class: "btn btn-primary btn-small" %>
+				<% end %>
+			</td>
 			<td><span class="pull-right"><%= income.amount %></span></td>
 			<td width="80px">
 				<span class="pull-right">

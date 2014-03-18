@@ -20,3 +20,8 @@
 //= require jquery.ui.draggable
 //= require jquery.ui.droppable
 //= require_tree .
+
+// dynamically submits item completion checkboxes without page refresh
+$(document).on('change', '.submittable', function() {
+  $(this).parents('form:first').submit();
+});

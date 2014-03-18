@@ -5,7 +5,12 @@ Childcare::Application.routes.draw do
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
   
-  resources :incomes
+  resources :incomes do
+	member do
+		get 'toggle_paid'
+	end	
+  end 
+  
   resources :expenses
   resources :vehicles
   resources :documents

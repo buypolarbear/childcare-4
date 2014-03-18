@@ -2,13 +2,30 @@
 
 <%= link_to "Add new Document", new_document_path %>
 <div class="table-responsive">
-	<table class="table table-condensed documents">
-  	<% @documents.each_with_index do |document, i| %>
+	<table class="table table-condensed table-hover table-striped table-bordered documents">
+	<tr>
+		<th>File Name</th>
+		<th>Category</th>
+		<th>Owner</th>
+		<th>File Size</th>
+		<th></th>
+	</tr>  	
+	<% @documents.each_with_index do |document, i| %>
 	  <tr>
-	  	<td><%= i+1 %>.)</td>
 	  	<td><%= link_to document.title, document_path(document.id)  %></td>
+		
+		<td><%= document.category %></td>
+		<td><%= document.user_id %></td>
+		<td><%= document.file_size %></td>
+		<td width="80px">
+			<span class="pull-right">
+				<%= link_to "Edit", edit_document_path(document.id)%>
+				|
+				<%= link_to "Delete", document_path(document.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+			</span>
+		</td>
 	  </tr>
 	<%end%>
 	</table>
 </div>
-<p></p>
+
