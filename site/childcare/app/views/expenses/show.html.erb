@@ -9,5 +9,6 @@
 	  <p>Percent Home Usage: <%= @expense.percent_home_usage %></p>
 	  <p>Depreciation Rate: <%= @expense.depreciation_rate %></p>
 	  <p>Vehicle: <%= link_to @expense.vehicle.full_description, vehicle_path(@expense.vehicle.id) %></p>
+@vehicle.full_description
 	  <p>Mileage: <%= @expense.vehicle_mileage %></p>
 </div>
