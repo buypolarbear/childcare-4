@@ -1,12 +1,38 @@
 <h3>Users</h3>
 <%= link_to "Add new user", new_user_path %>
-<table class="table table-hover users">
+<div class="table-responsive incomes">
+	<table class="table table-condensed table-hover table-striped table-bordered users">
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>User Type</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Street</th>
+			<th>Zip</th>
+			<th>phone</th>
+			<th></th>
+		</tr>
 	<% @users.each_with_index do |user, i| %>
 		<tr>
-			<td width="20px"><%= i+1 %>.)</td>
-			<td><%= link_to user.full_name, user_path(user.id)  %></td>
+			<td><%= link_to user.fname, user_path(user.id)  %></td>
+			<td><%= link_to user.lname, user_path(user.id)  %></td>
+			<td><%= user.user_type %></td>
+			<td><%= user.city %></td>
+			<td><%= user.state %></td>
+			<td><%= user.street_addr %></td>
+			<td><%= user.zip %></td>
+			<td><%= number_to_phone(user.phone_home, area_code: true) %></td>
+			<td width="80px">
+				<span class="pull-right">
+					<%= link_to "Edit", edit_user_path(user.id)%>
+					|
+					<%= link_to "Delete", user_path(user.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+				</span>
+			</td>
 		</tr>
 	<%end%>
+<!-- fname lname, user_type, city, state, zip, phone_home/contact# -->
 
 </table>
 <!--

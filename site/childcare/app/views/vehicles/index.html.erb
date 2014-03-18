@@ -1,14 +1,33 @@
 <h3>Vehicles</h3>
 
 <%= link_to "Add new Vehicle", new_vehicle_path %>
-<table class="table table-hover users">
-	<% @vehicles.each_with_index do |vehicle, i| %>
+<div class="table-responsive incomes">
+	<table class="table table-condensed table-hover table-striped table-bordered users">
 		<tr>
-			<td width="20px"><%= i+1 %>.)</td>
-			<td><%= link_to vehicle.full_description, vehicle_path(vehicle.id)  %></td>
+			<th>Make</th>
+			<th>Model</th>
+			<th>Year</th>
+			<th>Licence</th>
+			<th></th>
+		</tr>
+		<% @vehicles.each_with_index do |vehicle, i| %>
+		<tr>
+			<td><%= link_to vehicle.make, vehicle_path(vehicle.id)  %></td>
+			<td><%= vehicle.model %></td>
+			<td><%= vehicle.year %></td>
+			<td><%= vehicle.license %></td>
+			<td width="80px">
+				<span class="pull-right">
+					<%= link_to "Edit", edit_vehicle_path(vehicle.id)%>
+					|
+					<%= link_to "Delete", vehicle_path(vehicle.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+				</span>
+			</td>
+
 		</tr>
 	<%end%>
-</table>
+	</table>
+</div>
 
 <!--
 <ul class="users">
