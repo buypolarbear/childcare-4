@@ -45,6 +45,14 @@ class User < ActiveRecord::Base
 		self.user_type == "admin"
 	end
 	
+	def employee?
+		self.user_type == "employee"
+	end
+	
+	def parent?
+		self.user_type == "parent"
+	end
+	
 	
 	########################
 	# BEGIN PRIVATE METHODS
