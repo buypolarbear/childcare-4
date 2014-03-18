@@ -4,5 +4,7 @@
 <p>Size (KB): <%= @document.size_kb  %></p>
 <p>Content Type: <%= @document.path.content_type  %></p>
 
+<%= link_to "Back", documents_path %>
+
 <p><%= link_to "Download Document", @document.path.url, class: "btn btn-large btn-primary" %></p>
 <p><%= link_to "Delete", document_path(@document.id), method: :delete, data: {confirm: "Are you sure you want to delete #{@document.title}?"}, class: "btn btn-large btn-primary" %></p>

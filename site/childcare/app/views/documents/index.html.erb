@@ -19,7 +19,7 @@
 		
 		<td><%= document.category %></td>
 		<td><%= document.user_id %></td>
-		<td><%= document.file_size %></td>
+		<td><span class="pull-right"><%= document.size_kb %>Kb</span></td>
 		<td width="80px">
 			<span class="pull-right">
 				<%= link_to "Edit", edit_document_path(document.id)%>
