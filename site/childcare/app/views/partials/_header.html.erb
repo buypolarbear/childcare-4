@@ -2,7 +2,12 @@
   <div class="navbar-inner">
     <div class="container">
       <!--<%= link_to "Storyland Childcare", '#', id: "logo" %>-->
-      <%= link_to "StoryLand Childcare", root_path, id: "logo" %>
+		<% if signed_in? %>
+			<%= link_to "StoryLand Childcare", signin_path, id: "logo" %>
+		<% else %>
+			<%= link_to "StoryLand Childcare", root_path, id:"logo"%>
+		<% end %>
+      
       <nav>
         <ul class="nav pull-right float_right">
         <!--  <li><%= link_to "Home", root_path %></li> -->
@@ -30,7 +35,6 @@
 	  <!-- If not don't show what is above and instead show this -->
           <% else %>
             <!--HTML Tag, Ruby code, "Name", where it is-->
-	   <!-- <li><%= link_to "About",   about_path %></li> -->
 		<!-- login code starts here -->
 	    <li id="login"><%= form_for(:session, url: sessions_path) do |f| %>
 <!--<%= f.label :email %>  <%= f.label :password %>-->
@@ -38,7 +42,7 @@
 
    		<%= f.password_field :password, placeholder: "password" %>
 		<%= f.submit "Sign in", class: "btn btn-medium btn-primary", id: "sign-in" %>
-	<div id="newUser">New user? <%= link_to "Sign up now!", signup_path %><div>
+		<div id="newUser">New user? <%= link_to "Sign up now!", signup_path %><div>
     	    <% end %></li><!-- End of login code -->
 
 <!--

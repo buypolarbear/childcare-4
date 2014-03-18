@@ -4,6 +4,8 @@ Childcare::Application.routes.draw do
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/home',	to: 'static_pages#home',	via: 'get'
+  
   
   resources :incomes do
 	member do
@@ -18,7 +20,8 @@ Childcare::Application.routes.draw do
 	get :autocomplete_user_lname, :on => :collection
   end
   resources :sessions, only: [:new, :create, :destroy]
-  root  'sessions#new'
+  #root  'sessions#new'
+  root	'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

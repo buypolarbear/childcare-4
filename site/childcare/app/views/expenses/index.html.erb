@@ -16,6 +16,12 @@
 			<td><%= expense.description %></td>		
 			<td><%= expense.amount %></td>
 		</tr>
+		<tr>
+			<td colspan="7">
+				<%= link_to "New Entry", new_expense_path, class: "pull-right" %>	
+				</a>
+			</td>
+		</tr>
 		<%end%>
 	</table>
 </div>
