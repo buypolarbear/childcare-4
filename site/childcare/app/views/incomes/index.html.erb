@@ -15,7 +15,7 @@
 			<td width="60px" ><%= income.date("%m/%d/%Y") %></td>
 	  		<td><%= link_to income.description, income_path(income.id)  %></td>
 			<td><%= income.income_type %></td>
-			<td><input id="check1" type="checkbox" <% if income.paid %>  checked="checked" readonly <% else %><%end%>></td>
+			<td><input id="check1" type="checkbox" <% if income.paid %> readonly="readonly" checked="checked"  <%else%><%end%>></td>
 
 			<td><span class="pull-right"><%= income.amount %></span></td>
 			<td width="80px">
