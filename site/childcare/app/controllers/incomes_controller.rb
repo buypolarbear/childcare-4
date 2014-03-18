@@ -92,6 +92,8 @@ class IncomesController < ApplicationController
   # the passed id from the database
   ##############################################
   def destroy
+	Income.find(params[:id]).destroy
+	redirect_to incomes_url
   end
 
   private

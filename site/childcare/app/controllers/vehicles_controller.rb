@@ -61,6 +61,8 @@ class VehiclesController < ApplicationController
   end
 
   def destroy
+	Vehicle.find(params[:id]).destroy
+	redirect_to vehicles_url
   end
   
   private
