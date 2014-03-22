@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140308005926) do
+ActiveRecord::Schema.define(version: 20140322221008) do
 
   create_table "documents", force: true do |t|
     t.string  "category"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20140308005926) do
   end
 
   add_index "documents", ["title"], name: "index_documents_on_title"
+
+  create_table "events", force: true do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "description"
+    t.boolean  "notify"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "expenses", force: true do |t|
     t.string   "expense_type"
@@ -66,6 +75,16 @@ ActiveRecord::Schema.define(version: 20140308005926) do
   end
 
   add_index "incomes", ["date"], name: "index_incomes_on_date"
+
+  create_table "kids", force: true do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "trusted_one"
+    t.string   "trusted_two"
+    t.string   "trusted_three"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email"
