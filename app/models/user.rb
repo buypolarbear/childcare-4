@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
 	validates :lname, presence: true, length: { maximum: 25 }
 	validates :lname, length: { maximum: 25 }
 	
+	validates :phone_home, length: { maximum: 12 }
+	validates :phone_cell, length: { maximum: 12 }
+	validates :phone_work, length: { maximum: 12 }
+	
 	# user a regular expression to confirm that the email address is in a recognizable form
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
