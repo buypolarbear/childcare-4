@@ -33,10 +33,8 @@ class ExpensesController < ApplicationController
   # 
   ##############################################
   def edit
-	# no longer needed since the before_filter actions already
-	# initialize this variable
-    #@user = User.find(params[:id])
 	@expense = Expense.find(params[:id])
+	@user = @expense.user
   end
 
   def update
