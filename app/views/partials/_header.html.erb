@@ -36,12 +36,15 @@
           <% else %>
             <!--HTML Tag, Ruby code, "Name", where it is-->
 		<!-- login code starts here -->
-	    <li id="login"><%= form_for(:session, url: sessions_path) do |f| %>
+<!-- <li id="login">-->
+	    <%= form_for(:session, url: sessions_path) do |f| %>
 <!--<%= f.label :email %>  <%= f.label :password %>-->
-		<%= f.text_field :login_param, placeholder: "phone number OR email" %>
+		<div id="session_login">
+		<%= f.text_field :login_param, placeholder: "Phone Number or Email" %>
+   		<%= f.password_field :password, placeholder: "Password" %>
 
-   		<%= f.password_field :password, placeholder: "password" %>
 		<%= f.submit "Sign in", class: "btn btn-medium btn-primary", id: "sign-in" %>
+		</div>
 		<div id="newUser">New user? <%= link_to "Sign up now!", signup_path %><div>
     	<% end %></li><!-- End of login code -->
 

@@ -42,7 +42,8 @@ textarea {resize: vertical;}
 .clear{clear:both; text-indent:-9999em; height:3px;}
 .float_right{float:right;}
 .float_left{float:left}
-
+.margin-top{margin-top:5px;}
+.center-element{margin-left:33%}
 /*
 3.0 HEADER / FOOTER
 ------------------------------------------
@@ -65,10 +66,12 @@ textarea {resize: vertical;}
   text-decoration: none;
 }
 
-#session_email, #session_password{margin-top:5px;}
-#sign-in{margin-top:-5px;}
+/*#session_email, #session_password{margin-top:5px;}*/
+
+#session_login{margin-top:5px;}
+#sign-in{margin-top:-10px;}
 .navbar-inner{height:50px;}
-#newUser{font-size:10px;position: relative; top:-12px; left:330px;}
+#newUser{font-size:10px;position: relative; top:-12px; left:330px; color:#E4D2D2;}
 /* footer */
 
 footer {

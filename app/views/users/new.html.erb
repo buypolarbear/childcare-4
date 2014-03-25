@@ -1,30 +1,55 @@
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+
 
 <div class="row">
-  <div class="span6 offset3">
+  <div class="center-element span6">
+	<h1>Sign up</h1>
     <%= form_for(@user) do |f| %>
-	
 	  <%= render 'shared/error_messages', :object => @user %>
-
-      <%= f.label "First Name" %>
-      <%= f.text_field :fname %>
-	  
-	  <%= f.label "Last Name" %>
-      <%= f.text_field :lname %>
-
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Password Confirmation" %>
-      <%= f.password_field :password_confirmation %>
-	  <p></p>
+	  <fieldset style="float:left;">
+			<section style="float:left;">
+      			<%= f.label "First Name" %>
+      			<%= f.text_field :fname, placeholder: "First Name" %>
+			</section>
+			<section style="float:left; margin-left:5px;">
+	  			<%= f.label "Last Name" %>
+      			<%= f.text_field :lname, placeholder: "Last Name"%>
+			</section>
+	  </fieldset>
+	  <fieldset>
+      	<section>
+			<%= f.label "email" %>
+			<%= f.text_field :email, placeholder: "Email" %>
+		</section>
+		<section style="float:left;">
+      		<%= f.label "password" %>
+      		<%= f.password_field :password, placeholder: "Password" %>
+		</section>
+		<section style="float:left; margin-left:5px;">
+      		<%= f.label "password_confirmation", "Password Confirmation" %>
+      		<%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+		</section>
+	  </section>
+	  <%= f.label  "Address" %>
+      <%= f.text_field :street_addr, placeholder: "Address" %>
+<!-- city, state, zip -->
+	  <section>
+		<section>
+	  		<%= f.label "Home Number" %>
+ 	  		<%= f.text_field :phone_home, placeholder: "Home Phone" %>
+		</section>
+		<section style="float: left;"> 	  
+			<%= f.label "Cell Number" %>
+	  		<%= f.text_field :phone_cell, placeholder: "Cell Phone" %>
+		</section>
+		<section style="float: left; margin-left:5px;">      
+			<%= f.label "Work Number" %>
+      		<%= f.text_field :phone_work, placeholder: "Work Phone" %>
+		</section>	  
+	</fieldset>
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
 	  <%= link_to "Cancel", users_path, class: "btn btn-large btn-primary" %>
-	  
+	 
     <% end %>
   </div>
 </div>
