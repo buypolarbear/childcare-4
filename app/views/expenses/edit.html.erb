@@ -28,7 +28,7 @@
 	  <%= f.text_field :vehicle_mileage %>
 	  
       <%= f.label :date %>
-      <%= f.text_field :date, class: "datepicker" %>
+      <%= f.text_field :date, value: @expense.date, class: "datepicker" %>
 	  
 	  <%= f.hidden_field :user_id, {:value => @user.id}%>
 	  
