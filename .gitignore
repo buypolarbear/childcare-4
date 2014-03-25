@@ -27,7 +27,6 @@ pickle-email-*.html
 /tmp
 
 # Ignore other unneeded files.
-database.yml
 doc/
 *.swp
 *~
