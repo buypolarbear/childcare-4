@@ -1,12 +1,32 @@
 <meta http-equiv="Refresh" content="incomes/index.html/" />
 <% provide(:title, @income.description) %>
 <div class="row">
-  <aside class="span4">
-    <section>
-      <h1>Income Record</h1>
-	  <p>Created by <%= @user.full_name %> on <%= @income.date("%d/%m/%Y") %></p>
-	  <p>Description: <%= @income.description %></p>
-	  <p>Type: <%= @income.income_type %></p>
-	  <p>Amount: <%= @income.amount %></p>
+	<div class="span6">
+		<h1> Income Record</h1>
+		<div class="table-responsive"><table class="table table-condensed">
+			<tr>
+				<td><span class="pull-right">Created By:</span></td>
+				<td><%= @user.full_name %> on <%= @income.date("%d/%m/%Y")  %></td>
+			</tr>
+			<tr>
+				<td><span class="pull-right">Description</span></td>
+				<td><%= @income.description %></td>
+			</tr>
+			<tr>
+				<td><span class="pull-right">Type:</span></td>
+				<td><%= @income.income_type %></td>
+			</tr>
+			<tr>
+				<td><span class="pull-right">Amount: </span></td>
+				<td><%= @income.amount %></td>
+			</tr>
+		</table></div>
+	<%= link_to "Back", incomes_path, class: "btn btn-primary btn-large" %>
+	</div>
 </div>
-<%= link_to "Back", incomes_path %>
+
+<div class="row">
+</div>
+
+
+

@@ -1,14 +1,38 @@
 <% provide(:title, @expense.description) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span6">
     <section>
       <h1>Expense Record</h1>
-	  <p>Description: <%= @expense.description %></p>
-	  <p>Amount: <%= @expense.amount %></p>
-	  <p>Type: <%= @expense.expense_type %></p>
-	  <p>Percent Home Usage: <%= @expense.percent_home_usage %></p>
-	  <p>Depreciation Rate: <%= @expense.depreciation_rate %></p>
-	  <p>Associated Vehicle: <%= link_to @expense.vehicle.full_description, vehicle_path(@expense.vehicle.id) %> <%=  %></p>
-	  <p>Mileage: <%= @expense.vehicle_mileage %></p>
+		<div class="table-responsive"><table class="table table-condensed">
+			<tr>
+				<td width="140px"><span class="pull-right">Description:</span></td>
+				<td><%= @expense.description %></td>
+			</tr>
+			<tr>
+				<td><span class="pull-right">Amount:</span></td>
+				<td> <%= @expense.amount %></td>
+			</tr>
+			<tr>
+				<td><span class="pull-right">Type:</span></td>
+				<td><%= @expense.expense_type %></td>
+			</tr>
+			<tr>
+				<td><span class="pull-right">Percent Home Usage:</span></td>
+				<td><%= @expense.percent_home_usage %></td>
+			</tr>
+			<tr>
+				<td><span class="pull-right">Depreciation Rate:</span></td>
+				<td><%= @expense.depreciation_rate %></td>
+			</tr>
+			<tr>
+				<td><span class="pull-right">Mileage</span></td>
+				<td><%= @expense.vehicle_mileage %></td>
+			</tr>
+		</table></div>
+<%= link_to "Back", expenses_path, class: "btn btn-primary btn-large" %>
+
+<!--
+
+-->
 </div>
-<%= link_to "Back", expenses_path %>
+

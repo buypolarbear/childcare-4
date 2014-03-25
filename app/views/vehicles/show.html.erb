@@ -1,35 +1,37 @@
 <% provide(:title, @vehicle.full_description) %>
 <div class="row">
   <aside class="span8">
-    <section>
       <h3> <%= @vehicle.user.full_name.possessive %>: <%= link_to @vehicle.full_description, vehicle_path(@vehicle.id)  %> </h3>
 	  <div class="table-responsive">
 	  <table class="table table-condensed">
 		<tr>
-			<td width="150px">Year: </td>
+			<td width="150px"><span class="pull-right">Year:</span></td>
 			<td><%= @vehicle.year %></td>
 		</tr>
 		<tr>
-			<td width="150px">Make: </td>
+			<td><span class="pull-right">Make:</span></td>
 			<td><%= @vehicle.make %></td>
 		</tr>
 		<tr>
-			<td width="150px">Model: </td>
+			<td><span class="pull-right">Model:</span></td>
 			<td><%= @vehicle.model %></td>
 		</tr>
 		<tr>
-			<td width="150px">License Plate Number: </td>
+			<td><span class="pull-right">License Plate Number:</span></td>
 			<td><%= @vehicle.license %></td>
 		</tr>
 		<tr>
-			<td width="150px">Depreciation Rate: </td>
+			<td><span class="pull-right">Depreciation Rate:</span></td>
 			<td><%= number_to_percentage(@vehicle.depreciation_rate, precision: 0) %></td>
 		</tr>
 	  </table>
 	  </div> 
+		<div class="row">
 	  <%= link_to "Change Information", edit_vehicle_path, class: "btn btn-large btn-primary" %>
+<%= link_to "Back", vehicles_path, class: "btn btn-large btn-primary" %>
+	</div>
 </div>
-<%= link_to "Back", vehicles_path %>
+
 <div class="row">
 	<%= text_area(:vehicle, :expenses, :value => (render 'partials/vehicles/vehicle_expenses', :object => @expenses = @vehicle.expenses), cols: 90, rows: 10) %>
 </div>
