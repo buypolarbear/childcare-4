@@ -62,10 +62,21 @@ textarea {resize: vertical;}
 }
 
 #logo:hover {
-  color: #fff;
+  color: dodgerBlue;
   text-decoration: none;
 }
 
+#navItem{
+	color: #fff;
+  	text-decoration: none;
+}
+#navItemCurrent{
+	color:deepPink
+}
+
+#navItem:hover{
+	color:dodgerBlue;
+}
 /*#session_email, #session_password{margin-top:5px;}*/
 
 #session_login{margin-top:5px;}
