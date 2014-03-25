@@ -1,36 +1,33 @@
 <% provide(:title, "New Income") %>
-<h1>New Income Record</h1>
-
-<div class="row">
   <div class="span6 offset3">
+	<h1>New Income Record</h1>
     <%= form_for(@income) do |f| %>
       <%= render 'shared/error_messages', :object => @income %>
 
       <%= f.label :description %>
-      <%= f.text_field :description %>
+      <%= f.text_field :description, placeholder: "Description" %>
 	  
 	  <%= f.label "Paid By" %>
-	  <p><%= f.autocomplete_field :user_id, autocomplete_user_lname_users_path %></p>
+	  <p><%= f.autocomplete_field :user_id, autocomplete_user_lname_users_path, placeholder: "Paid by" %></p>
 	  
 	  <%= f.label "Type" %>
-      <%= f.text_field :income_type %>
+      <%= f.text_field :income_type, placeholder: "Type" %>
 
       <%= f.label :amount %>
-      <%= f.text_field :amount %>
+      <%= f.text_field :amount, placeholder: "Amount" %>
 
 	  <%= f.label :paid %>
-      <%= f.check_box :paid %>
-
+      <%= f.check_box :paid, id: "roundCheck" %>
+	
       <%= f.label :date %>
       <%= f.text_field :date, class: "datepicker" %>
 	  
-	  <%= f.hidden_field :user_id, {:value => current_user.id}%>
+	  <%= f.hidden_field :user_id, {:value => current_user.id} %>
 	  
 	  <p></p>
       <%= f.submit "Save record", class: "btn btn-large btn-primary" %>
 	  <%= link_to "Cancel", incomes_path, class: "btn btn-large btn-primary" %>
 	  
     <% end %>
-	
-  </div>
 </div>
+<div class="row"></div>

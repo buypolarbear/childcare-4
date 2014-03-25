@@ -1,26 +1,24 @@
 <% provide(:title, 'Add a vehicle') %>
-<h1>Add a new vehicle</h1>
-
-<div class="row">
   <div class="span6 offset3">
+	<h1> New Vehcile </h1>
     <%= form_for(@vehicle) do |f| %>
 	
 	  <%= render 'shared/error_messages', :object => @vehicle %>
 
       <%= f.label "Make" %>
-      <%= f.text_field :make %>
+      <%= f.text_field :make, placeholder: "Make" %>
 	  
 	  <%= f.label "Model" %>
-      <%= f.text_field :model %>
+      <%= f.text_field :model, placeholder: "Model" %>
 
       <%= f.label :Year %>
-      <%= f.text_field :year %>
+      <%= f.text_field :year, placeholder: "Year" %>
 
       <%= f.label "License Plate Number" %>
-      <%= f.text_field :license %>
+      <%= f.text_field :license, placeholder: "License Plate Number" %>
 
       <%= f.label "Depreciation Rate" %>
-      <%= f.text_field :depreciation_rate %>
+      <%= f.text_field :depreciation_rate, placeholder: "Depreciation Rate" %>
 	  
 	  <%= f.hidden_field :user_id, {:value => current_user.id}%>
 	  
@@ -30,4 +28,4 @@
 	  
     <% end %>
   </div>
-</div>
+<div class="row"></div>
