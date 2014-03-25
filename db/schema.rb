@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140322221008) do
+ActiveRecord::Schema.define(version: 20140325021746) do
+
+  create_table "child_events", force: true do |t|
+    t.integer  "kid_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+  end
+
+  add_index "child_events", ["kid_id"], name: "index_child_events_on_kid_id"
 
   create_table "documents", force: true do |t|
     t.string  "category"
@@ -79,11 +87,13 @@ ActiveRecord::Schema.define(version: 20140322221008) do
   create_table "kids", force: true do |t|
     t.string   "fname"
     t.string   "lname"
-    t.string   "trusted_one"
-    t.string   "trusted_two"
-    t.string   "trusted_three"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "parennts_kids", force: true do |t|
+    t.integer "kid_id"
+    t.integer "parent_id"
   end
 
   create_table "users", force: true do |t|
@@ -104,6 +114,9 @@ ActiveRecord::Schema.define(version: 20140322221008) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "user_type"
+    t.string   "trusted_one"
+    t.string   "trusted_two"
+    t.string   "trusted_three"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
