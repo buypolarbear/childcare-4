@@ -33,10 +33,8 @@ class ExpensesController < ApplicationController
   # 
   ##############################################
   def edit
-	# no longer needed since the before_filter actions already
-	# initialize this variable
-    #@user = User.find(params[:id])
 	@expense = Expense.find(params[:id])
+	@user = @expense.user
   end
 
   def update
@@ -44,8 +42,10 @@ class ExpensesController < ApplicationController
 	# initialize this variable
     # @user = User.find(params[:id])
 	@expense = Expense.find(params[:id])
+	params[:expense][:vehicle_id] = params[:vehicle][:id]
+	
     if @expense.update_attributes(expense_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "Record updated (vehicle with id #{params[:expense][:vehicle_id]})"
       redirect_to @expense
     else
       render 'edit'

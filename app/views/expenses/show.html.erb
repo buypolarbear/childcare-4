@@ -8,8 +8,7 @@
 	  <p>Type: <%= @expense.expense_type %></p>
 	  <p>Percent Home Usage: <%= @expense.percent_home_usage %></p>
 	  <p>Depreciation Rate: <%= @expense.depreciation_rate %></p>
-
-
+	  <p>Associated Vehicle: <%= link_to @expense.vehicle.full_description, vehicle_path(@expense.vehicle.id) %> <%=  %></p>
 	  <p>Mileage: <%= @expense.vehicle_mileage %></p>
 </div>
 <%= link_to "Back", expenses_path %>
