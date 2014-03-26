@@ -1,4 +1,4 @@
-<h3>Expense Records for Fiscal Year XX</h3>
+<h3>Expense Records for Fiscal Year <%= @year.year %></h3>
 
 <div class="table-responsive incomes">
 	<table id="myTable" class="table table-condensed table-hover table-striped table-bordered users">
@@ -13,7 +13,7 @@
 		</thead>
 		<tbody>
 		<% @expenses.each_with_index do |expense, i| %>
-			<% @expenses_total = expense.amount_raw %>
+			<% @expenses_total += expense.amount_raw %>
 		<tr>
 			<td><%= expense.date  %></td>
 			<td><%= link_to expense.expense_type, expense_path(expense.id)  %></td>
@@ -32,7 +32,7 @@
 		<%end%>
 		<tr>
 			<td colspan="7">
-				Total Expenditures for Year: <%= @expenses_total %>
+				Total Expenditures for Year <%= @year.year %>: <%= ActionController::Base.helpers.number_to_currency(@expenses_total) %>
 				</a>
 			</td>
 		</tr>

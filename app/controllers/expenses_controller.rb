@@ -58,7 +58,8 @@ class ExpensesController < ApplicationController
   end
   
   def year_end_report
-	@expenses = Expense.all
+	@year = Date.new(params[:year].to_i)
+	@expenses = Expense.where(date: @year..(@year.advance(:years => +1)))
 	@expenses_total = 0.0
   end
   
