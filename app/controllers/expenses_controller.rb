@@ -45,7 +45,7 @@ class ExpensesController < ApplicationController
 	params[:expense][:vehicle_id] = params[:vehicle][:id]
 	
     if @expense.update_attributes(expense_params)
-      flash[:success] = "Record updated (vehicle with id #{params[:expense][:vehicle_id]})"
+      flash[:success] = "Record updated"
       redirect_to @expense
     else
       render 'edit'
@@ -55,6 +55,11 @@ class ExpensesController < ApplicationController
   def destroy
 	Expense.find(params[:id]).destroy
 	redirect_to expenses_url
+  end
+  
+  def year_end_report
+	@expenses = Expense.all
+	@expenses_total = 0.0
   end
   
   private
