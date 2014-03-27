@@ -87,6 +87,9 @@ ActiveRecord::Schema.define(version: 20140325021746) do
   create_table "kids", force: true do |t|
     t.string   "fname"
     t.string   "lname"
+    t.string   "trusted_one"
+    t.string   "trusted_two"
+    t.string   "trusted_three"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
