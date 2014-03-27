@@ -1,5 +1,5 @@
 <h3>Income Records</h3>
-<%= link_to "Add new Invoice/Income Record", new_income_path %>
+<%= link_to "Add new Invoice/Income Record", new_income_path, class: "btn btn-primary" %>
 <script>
 
 </script>
@@ -27,11 +27,11 @@
 				<% end %>
 			</td>
 			<td><span class="pull-right"><%= income.amount %></span></td>
-			<td width="80px">
+			<td width="115px">
 				<span class="pull-right">
-					<%= link_to "Edit", edit_income_path(income.id)%>
+					<%= link_to "Edit", edit_income_path(income.id), class: "btn btn-primary btn-small" %>
 					|
-					<%= link_to "Delete", income_path(income.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+					<%= link_to "Delete", income_path(income.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-small" %>
 				</span>
 			</td>
 		</tr>
@@ -40,29 +40,10 @@
 		<!-- add a new row -->
 		<tr>
 			<td colspan="7">
-				<%= link_to "New Entry", new_income_path, class: "pull-right" %>	
+				<%= link_to "New Entry", new_income_path, class: "pull-right btn btn-primary" %>	
 				</a>
 			</td>
 		</tr>
 	
 	</table>
 </div>
-
-<!--
-
--->
-<!--
-Description
-
-Paid by
-
-
-Type
-
-Amount
-
-Date
-
-
-->>
-<p></p>

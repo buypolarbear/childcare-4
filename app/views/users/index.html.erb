@@ -29,11 +29,11 @@
 			<td><%= user.street_addr %></td>
 			<td><%= user.zip %></td>
 			<td><%= number_to_phone(user.phone_home, area_code: true) %></td>
-			<td width="80px">
+			<td width="115px">
 				<span class="pull-right">
-					<%= link_to "Edit", edit_user_path(user.id)%>
+					<%= link_to "Edit", edit_user_path(user.id), class: "btn btn-primary btn-small" %>
 					|
-					<%= link_to "Delete", user_path(user.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+					<%= link_to "Delete", user_path(user.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-small" %>
 				</span>
 			</td>
 		</tr>

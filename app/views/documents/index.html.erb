@@ -1,6 +1,6 @@
 <h3>Documents</h3>
 
-<%= link_to "Add new Document", new_document_path %>
+<%= link_to "Add new Document", new_document_path, class: "btn btn-primary" %>
 <div class="table-responsive">
 	<table id="myTable" class="table table-condensed table-hover table-striped table-bordered documents">
 	<thead>
@@ -20,11 +20,11 @@
 		<td><%= document.category %></td>
 		<td><%= document.user_id %></td>
 		<td><span class="pull-right"><%= document.size_kb %>Kb</span></td>
-		<td width="80px">
+		<td width="115px">
 			<span class="pull-right">
-				<%= link_to "Edit", edit_document_path(document.id)%>
+				<%= link_to "Edit", edit_document_path(document.id), class: "btn btn-primary btn-small" %>
 				|
-				<%= link_to "Delete", document_path(document.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+				<%= link_to "Delete", document_path(document.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-small" %>
 			</span>
 		</td>
 	  </tr>
@@ -32,7 +32,7 @@
 	</tbody>
 		<tr>
 			<td colspan="7">
-				<%= link_to "New Entry", new_document_path, class: "pull-right" %>	
+				<%= link_to "New Entry", new_document_path, class: "pull-right btn btn-primary" %>	
 				</a>
 			</td>
 		</tr>
