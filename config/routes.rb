@@ -10,10 +10,12 @@ Childcare::Application.routes.draw do
   resources :incomes do
 	member do
 		get 'toggle_paid'
-	end	
+	end
   end 
   
+  match '/expenses/year_end_report',	to: 'expenses#year_end_report',	via: 'get'
   resources :expenses
+  
   resources :vehicles
   resources :documents
   resources :users do
