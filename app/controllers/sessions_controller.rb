@@ -9,11 +9,20 @@ class SessionsController < ApplicationController
   # corresponds with the one passed in.
   ##############################################
   def create
-	if is_email params[:session][:login_param]
-		user = User.find_by(email: params[:session][:login_param].downcase)
-	else
-		user = User.find_by(phone_home: params[:session][:login_param])
-	end
+	
+	name_array = params[:session][:login_param].split
+	
+	user = User.where("users.fname = ? AND users.lname = ?", name_array[0], name_array[1]).first
+	
+	params[:session][:user] = user.to_s
+  
+    # use this code to log in with either an email address or a home phone number
+	##if !user && is_email params[:session][:login_param]
+	#	user = User.find_by(email: params[:session][:login_param].downcase)
+	#else
+	#	user = User.find_by(phone_home: params[:session][:login_param])
+	#end
+	#
 	
     if user && user.authenticate(params[:session][:password])
       sign_in user
