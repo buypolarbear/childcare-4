@@ -12,9 +12,8 @@ class SessionsController < ApplicationController
 	
 	name_array = params[:session][:login_param].split
 	
-	user = User.where("users.fname = ? AND users.lname = ?", name_array[0], name_array[1]).first
-	
-	params[:session][:user] = user.to_s
+	# get all the users with this full name
+	users = User.where("users.fname = ? AND users.lname = ?", name_array[0], name_array[1])
   
     # use this code to log in with either an email address or a home phone number
 	##if !user && is_email params[:session][:login_param]
@@ -24,12 +23,20 @@ class SessionsController < ApplicationController
 	#end
 	#
 	
-    if user && user.authenticate(params[:session][:password])
-      sign_in user
-      redirect_back_or user
+	# if there is at least 1 user in the database with the passed name
+    if users.count > 0
+	
+		# loop through all users with the passed name and try logging them in with the passed password
+		users.each do |user|
+			if user.authenticate(params[:session][:password])
+				sign_in user
+				redirect_back_or user
+			end
+		end		
+		
     else
-      flash[:error] = 'Invalid email or phone and password combination'
-      redirect_to root_url
+		flash[:error] = 'There is no user with the name #{params[:session][:login_param]}'
+		redirect_to root_url
     end
   end
 
