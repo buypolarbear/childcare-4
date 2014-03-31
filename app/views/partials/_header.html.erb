@@ -40,7 +40,7 @@
 	    <%= form_for(:session, url: sessions_path) do |f| %>
 <!--<%= f.label :email %>  <%= f.label :password %>-->
 		<div id="session_login">
-		<%= f.text_field :login_param, placeholder: "Phone Number or Email" %>
+		<%= f.text_field :login_param, placeholder: "Full Name" %>
    		<%= f.password_field :password, placeholder: "Password" %>
 
 		<%= f.submit "Sign in", class: "btn btn-medium btn-primary", id: "sign-in" %>

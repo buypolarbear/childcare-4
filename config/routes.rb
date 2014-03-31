@@ -1,5 +1,8 @@
 Childcare::Application.routes.draw do
 
+  get "child_arrive_depart/last_names"
+  get "child_arrive_depart/children"
+  get "child_arrive_depart/parents"
   # static pages
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'

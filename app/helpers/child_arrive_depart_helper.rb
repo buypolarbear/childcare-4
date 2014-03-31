@@ -1,0 +1,2 @@
+module ChildArriveDepartHelper
+end
