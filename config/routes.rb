@@ -1,8 +1,5 @@
 Childcare::Application.routes.draw do
 
-  get "child_arrive_depart/last_names"
-  get "child_arrive_depart/children"
-  get "child_arrive_depart/parents"
   # static pages
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
@@ -30,6 +27,10 @@ Childcare::Application.routes.draw do
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  
+  match '/child_signin/last_names',    to: 'child_arrive_depart#last_names',    via: 'get'
+  match '/child_signin/children',    to: 'child_arrive_depart#children',    via: 'get'
+  match '/child_signin/parents',    to: 'child_arrive_depart#parents',    via: 'get'
   
   
 
