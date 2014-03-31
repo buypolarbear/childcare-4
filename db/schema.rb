@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325021746) do
+ActiveRecord::Schema.define(version: 20140330225045) do
 
   create_table "child_events", force: true do |t|
     t.integer  "kid_id"
@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 20140325021746) do
   end
 
   add_index "child_events", ["kid_id"], name: "index_child_events_on_kid_id"
+
+  create_table "children", force: true do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "trusted_one"
+    t.string   "trusted_two"
+    t.string   "trusted_three"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "children_parents", force: true do |t|
+    t.integer "kid_id"
+    t.integer "parent_id"
+  end
 
   create_table "documents", force: true do |t|
     t.string  "category"
@@ -83,21 +98,6 @@ ActiveRecord::Schema.define(version: 20140325021746) do
   end
 
   add_index "incomes", ["date"], name: "index_incomes_on_date"
-
-  create_table "kids", force: true do |t|
-    t.string   "fname"
-    t.string   "lname"
-    t.string   "trusted_one"
-    t.string   "trusted_two"
-    t.string   "trusted_three"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "parennts_kids", force: true do |t|
-    t.integer "kid_id"
-    t.integer "parent_id"
-  end
 
   create_table "users", force: true do |t|
     t.string   "email"
