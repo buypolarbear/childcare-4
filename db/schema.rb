@@ -11,29 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330225045) do
+ActiveRecord::Schema.define(version: 20140401010845) do
 
   create_table "child_events", force: true do |t|
-    t.integer  "kid_id"
+    t.integer  "child_id"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.datetime "actual_start"
+    t.datetime "actual_end"
   end
 
-  add_index "child_events", ["kid_id"], name: "index_child_events_on_kid_id"
+  add_index "child_events", ["child_id"], name: "index_child_events_on_child_id"
 
   create_table "children", force: true do |t|
     t.string   "fname"
     t.string   "lname"
-    t.string   "trusted_one"
-    t.string   "trusted_two"
-    t.string   "trusted_three"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "children_parents", force: true do |t|
-    t.integer "kid_id"
-    t.integer "parent_id"
+    t.integer  "parent_id"
+    t.decimal  "rate"
   end
 
   create_table "documents", force: true do |t|
@@ -98,6 +94,24 @@ ActiveRecord::Schema.define(version: 20140330225045) do
   end
 
   add_index "incomes", ["date"], name: "index_incomes_on_date"
+
+  create_table "parents", force: true do |t|
+    t.string  "email"
+    t.string  "fname"
+    t.string  "lname"
+    t.string  "phone_home"
+    t.string  "phone_cell"
+    t.string  "phone_work"
+    t.string  "street_addr"
+    t.string  "city"
+    t.string  "state"
+    t.integer "zip"
+  end
+
+  create_table "parents_chilren", force: true do |t|
+    t.integer "kid_id"
+    t.integer "parent_id"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email"
