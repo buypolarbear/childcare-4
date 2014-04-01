@@ -4,14 +4,15 @@ class ChildArriveDepartController < ApplicationController
   end
 
   def children
-	@children
-	Child.all.each_with_index |child, i| do
-		if child.lname[0] == params[:first_letter]
-			@children += child
+	@children = []
+	User.all.each_with_index do |child, i|
+		if child.lname[0].casecmp(params[:first_letter]) == 0
+			@children << child
 		end
-	end	
+	end
   end
 
   def parents
+	@child = User.find(params[:child_id])
   end
 end
