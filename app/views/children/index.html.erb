@@ -1,0 +1,53 @@
+<h3>Users</h3>
+<!--
+<%= link_to "Add new child", new_child_path %>
+
+-->
+<div class="table-responsive incomes">
+	<table id="myTable" class="table table-condensed table-hover table-striped table-bordered users">
+		<thead>		
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>User Type</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Street</th>
+			<th>Zip</th>
+			<th>phone</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+	<% @children.each_with_index do |child, i| %>
+		<tr>
+			<td><%= link_to child.fname, child_path(child.id)  %></td>
+			<td><%= link_to child.lname, child_path(child.id)  %></td>
+			<td><%= child.user_type %></td>
+			<td><%= child.city %></td>
+			<td><%= child.state %></td>
+			<td><%= child.street_addr %></td>
+			<td><%= child.zip %></td>
+			<td><%= number_to_phone(child.phone_home, area_code: true) %></td>
+			<td width="115px">
+				<span class="pull-right">
+					<%= link_to "Edit", edit_child_path(child.id), class: "btn btn-primary btn-small" %>
+					|
+					<%= link_to "Delete", child_path(child.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-small" %>
+				</span>
+			</td>
+		</tr>
+
+	<%end%>
+	</tbody>
+<!--
+	<tr>
+			<td colspan="9">
+				<%= link_to "New Entry", new_child_path, class: "pull-right" %>	
+				</a>
+			</td>
+		</tr>
+<!-- fname lname, user_type, city, state, zip, phone_home/contact# -->
+
+</table>
+<p></p>

@@ -1,0 +1,68 @@
+<% provide(:title, @user.fname) %>
+<div class="row">
+  <aside class="span6">
+    <section>
+	  <h3>Account Details: <%= @user.full_name %></h3>
+	  <div class="table-responsive">
+	  <table class="table table-condensed">
+		<tr>
+			<td><span class="pull-right">Email Address: </span></td>
+	<!-- mail_to @user.email, -->
+			<td><%= @user.email %></td>
+		</tr>
+		<tr >
+			<td width="100px"><span class="pull-right">Home Phone:</span></td>
+			<td><%= number_to_phone(@user.phone_home, area_code: true) %></td>
+		</tr>
+		<tr width="150px">
+			<td><span class="pull-right">Cell Phone:</span></td>
+			<td><%= number_to_phone(@user.phone_cell, area_code: true) %></td>
+		</tr>
+		<tr width="150px">
+			<td><span class="pull-right">Work Phone:</span></td>
+			<td><%= number_to_phone(@user.phone_work, area_code: true) %></td>
+		</tr>
+		<tr width="150px">
+			<td><span class="pull-right">SSN:</span></td>
+			<td><%= @user.ssn %></td>
+		</tr>
+		<tr width="150px">
+			<td><span class="pull-right">Street Address:</span></td>
+			<td><%= @user.street_addr %></td>
+		</tr>
+		<tr width="150px">
+			<td><span class="pull-right">City:</span></td>
+			<td><%= @user.city %></td>
+		</tr>
+		<tr width="150px">
+			<td><span class="pull-right">State:</span></td>
+			<td><%= @user.state %></td>
+		</tr>
+		<tr width="150px">
+			<td><span class="pull-right">ZIP:</span></td>
+			<td><%= @user.zip %></td>
+		</tr>
+	  </table> 
+
+
+
+	 </section>
+	<section class="pull-left span3" style="margin-left:0px">
+		<%= text_area(:user, :vehicles, :value => (render 'partials/users/user_vehicles', :object => @vehicles = @user.vehicles), cols: 90, rows: 10) %>
+	</section>
+	<section class="pull-right span3 " style="margin-left:0px;">
+	  <%= link_to "Change Information", edit_user_path, class: "btn btn-large btn-primary pull-left" %>
+	  <% if !current_user?(@user) %>
+		<p><%= link_to "Delete", user_path(@user.id), method: :delete, data: {confirm: "Are you sure you want to delete user #{@user.full_name}?"}, class: "btn btn-large btn-primary" %></p>
+	  <%end%>
+
+
+	<%= link_to "Back", users_path, class: "btn btn-large btn-primary pull-left  margin-top" %>
+	</section>
+
+
+	
+</div>
+
+
+
