@@ -1,4 +1,4 @@
 class Child < ActiveRecord::Base
-	has_many :parents
+	has_and_belongs_to_many :parents
 	
 end
