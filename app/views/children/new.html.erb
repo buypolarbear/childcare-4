@@ -1,11 +1,12 @@
 <div class="center-element span8">
-<% provide(:title, 'Sign up') %>
+<% provide(:title, 'Add Child') %>
 
-	<h1>Sign up</h1>
-    <%= form_for(@user) do |f| %>
-	  <%= render 'shared/error_messages', :object => @user %>
+	<h1>Add New Child</h1>
+    <%= form_for(@child) do |f| %>
+	  <%= render 'shared/error_messages', :object => @child %>
 		<small>Please fill all required fields with a </small><span class="required">*</span>
-	  <fieldset style="float:left;">
+		<section>
+	      <fieldset style="float:left;">
 			<section style="float:left;">
       			<%= f.label "First Name" %>
       			<span class="required">*</span>
@@ -16,130 +17,29 @@
 				<span class="required">*</span>
       			<%= f.text_field :lname, placeholder: "Last Name"%>
 			</section>
-	  </fieldset>
-	  <fieldset>
-      	<div class="form-group has-success"; >
-			<%= f.label "email", id: "txtEmailLabel" %>
-			<span class="required">*</span>
-			<%= f.text_field :email, placeholder: "Email", id: "txtEmail"%>
-			<div id="emailWarning" class="warning"></div>
-		</div>
-
-		<section style="float:left;">
-      		<%= f.label "password", id: "txtPasswordLabel" %>
-			<span class="required">*</span>
-      		<%= f.password_field :password, placeholder: "Password" %>
-		</section>
-
-		<section style="float:left; margin-left:5px;">
-      		<%= f.label "password_confirmation", "Password Confirmation",id: "txtPasswordLabel" %>
-			<span class="required">*</span>
-      		<%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
-		</section>
-	  </section>
-	  <section style="float:left;">
-		  	<%= f.label  "Address" %>
-			<span class="required">*</span>
-      		<%= f.text_field :street_addr, placeholder: "Address" %>
-	  </section>
-	  <section style="float:left;">
-			<div class="pull-left" style="margin-left:8px;">
-	  		<%= f.label  "City" %>
-      		<%= f.text_field :city, placeholder: "city" %>
-			</div> 			
-			<div class="pull-left" style="margin-left: 12px">
-	  		<%= f.label  "Zip" %>	
-      		<%= f.text_field :zip, placeholder: "Zip" %>
-			</div>
-			<div class="pull-left" style="margin-left: 5px">
-	  		<%= f.label  "State" %>	
-      		<%= f.text_field :state, placeholder: "State" %>
-			</div>
-	  </section>
-	</fieldset>
-<!-- city, state, zip -->
-	<fieldset>
-	  <section style="pull-left">
+	      </fieldset>
+	    </section>
+		
 		<section>
-	  		<%= f.label "Home Number" %>
-			<span class="required">*</span>
- 	  		<%= f.text_field :phone_home, placeholder: "Home Phone" %>
-		</section>
-		<section style="float: left;"> 	  
-			<%= f.label "Cell Number" %>
-			<span class="required">*</span>
-	  		<%= f.text_field :phone_cell, placeholder: "Cell Phone" %>
-		</section>
-		<section style="float: left; margin-left:12px;">      
-			<%= f.label "Work Number" %>
-      		<%= f.text_field :phone_work, placeholder: "Work Phone" %>
-		</section>
-	</section>	  
-	</fieldset>
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-	  <%= link_to "Cancel", users_path, class: "btn btn-large btn-primary" %>
-	 
-    <% end %>
+	      <fieldset style="float:left;">
+			<section style="float:left;">
+      			<%= f.label "Parent 1" %>
+      			<span class="required">*</span>
+				<%= f.text_field :fname, placeholder: "First Name" %>
+			</section>
+			<section style="float:left; margin-left:5px;">
+	  			<%= f.label "Last Name" %>
+				<span class="required">*</span>
+      			<%= f.text_field :lname, placeholder: "Last Name"%>
+			</section>
+	      </fieldset>
+	    </section>
+		
+	    <section>
+          <%= f.submit "Save child", class: "btn btn-large btn-primary" %>
+	      <%= link_to "Cancel", children_path, class: "btn btn-large btn-primary" %>
+	    </section>
+	<% end %>
   </div>
 <div class="row"></div>
-<script>
-var Ipassword;
-var CPassword;
-$("input").change(function () {
-	var $input = $( this );
-	var id = '#'+$input.attr("id");
-	var idLabel = id+'Label';
-	//gets text from the tag
-	var str = $(id).val();
-	//finds case in jQuery	
-	tag = warningCheck(id,str);
-	//results
-
-	
-	if($.trim(str).length == 0){
-		$(idLabel).css({
-			'color' : '#333'
-			
-		});
-	}else{
-
-		if(tag){
-			$(idLabel).css({
-				'color' : '#090'
-			});
-		}else{
-			$(idLabel).css({
-				'color': '#D22'
-			});
-		}
-	}
-
-
-
-
- //   $(tag).text( str );
-});
-function warningCheck(id,str){
-	var result
-	switch (id) { 
-        case '#txtEmail':
-			var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-		    if (filter.test(str)) {
-        		result = true;
-    		}else {
-        		result = false;
-   			}
-		break;
-		case '#password':
-			if(IPassword == CPassword){
-				result = true;
-			}else{
-				result = false;
-			
-		break;
-	}
-	return result;
-}
-
-</script>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401135302) do
+ActiveRecord::Schema.define(version: 20140402213826) do
 
   create_table "child_events", force: true do |t|
     t.integer  "child_id"
@@ -111,6 +111,14 @@ ActiveRecord::Schema.define(version: 20140401135302) do
     t.string  "city"
     t.string  "state"
     t.integer "zip"
+  end
+
+  create_table "rates", force: true do |t|
+    t.string   "name"
+    t.decimal  "rate_per_unit"
+    t.integer  "unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
