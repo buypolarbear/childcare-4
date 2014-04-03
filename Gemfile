@@ -11,7 +11,7 @@ gem 'jquery-ui-rails'
 # encrypted password plugin
 gem 'bcrypt-ruby', '3.1.2'
 
-gem 'rails3-jquery-autocomplete', '1.0.12'
+gem 'rails3-jquery-autocomplete', '1.0.14'
 
 # only used in development and test environments
 group :development, :test do

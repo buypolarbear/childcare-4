@@ -26,11 +26,7 @@
       			<%= f.label "Parent 1" %>
       			<span class="required">*</span>
 				<%= f.text_field :fname, placeholder: "First Name" %>
-			</section>
-			<section style="float:left; margin-left:5px;">
-	  			<%= f.label "Last Name" %>
-				<span class="required">*</span>
-      			<%= f.text_field :lname, placeholder: "Last Name"%>
+				<%= f.autocomplete_field :parent_one_id, autocomplete_user_lname_users_path, placeholder: "Start typing a last name" %>
 			</section>
 	      </fieldset>
 	    </section>
