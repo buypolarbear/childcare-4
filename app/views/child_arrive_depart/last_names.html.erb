@@ -1,4 +1,4 @@
-<h3>Tap your child's last name</h3>
+<h3>Tap the first letter of your child's last name</h3>
 
 <% @letters.each do |letter| %>
 	<%= link_to letter, {:controller => "child_arrive_depart", :action => "children", :first_letter => letter } %> &nbsp; | &nbsp;
