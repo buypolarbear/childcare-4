@@ -1,1 +1,5 @@
-<p><%= link_to "Dummy link that will act like a user clicked the letter 'D'", {:controller => "child_arrive_depart", :action => "children", :first_letter => "D" } %></p>
+<h3>Tap your child's last name</h3>
+
+<% @letters.each do |letter| %>
+	<%= link_to letter, {:controller => "child_arrive_depart", :action => "children", :first_letter => letter } %> &nbsp; | &nbsp;
+<%end%>
