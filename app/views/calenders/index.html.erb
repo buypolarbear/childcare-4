@@ -1,0 +1,30 @@
+<h1>Listing calenders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @calenders.each do |calender| %>
+      <tr>
+        <td><%= link_to 'Show', calender %></td>
+        <td><%= link_to 'Edit', edit_calender_path(calender) %></td>
+        <td><%= link_to 'Destroy', calender, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Calender', new_calender_path %>
+
+<%= cal = Google::Calendar.new(:username => 'jarvisan@mail.gvsu.edu',
+                           :password => '',
+                           :app_name => 'test') 
+                           puts cal.events%>

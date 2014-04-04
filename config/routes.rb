@@ -1,5 +1,7 @@
 Childcare::Application.routes.draw do
 
+  resources :calenders
+
   # static pages
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'

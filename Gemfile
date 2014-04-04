@@ -4,6 +4,8 @@ ruby '2.0.0'
 
 gem "carrierwave"
 
+gem "google_calendar"
+
 gem 'rails', '4.0.2'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'jquery-ui-rails'
