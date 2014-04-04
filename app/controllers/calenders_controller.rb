@@ -5,7 +5,7 @@ class CalendersController < ApplicationController
   # GET /calenders.json
   def index
     @cal = Google::Calendar.new(:username => 'paynejac@mail.gvsu.edu',
-                           :password => '239390016',
+                           :password => '',
                            :app_name => 'test')
   end
 
