@@ -1,6 +1,9 @@
 <h3>Expense Records</h3>
 
 <%= link_to "Add expenses", new_expense_path, class: "btn btn-primary" %>
+<%= link_to "Year-End Report" ,{:controller => "expenses", :action => "year_end_report", :year => Time.now.year}, class: "btn btn-info pull-right" %>
+
+
 <div class="table-responsive incomes">
 	<table id="myTable" class="table table-condensed table-hover table-striped table-bordered users">
 		<thead>
@@ -9,7 +12,7 @@
 			<th>Expense</th>
 			<th>Memo</th>
 			<th>Amount</th>
-			<th></th>
+			<th width="125px"></th>
 		</tr>
 		</thead>
 		<tbody>
@@ -19,7 +22,7 @@
 			<td><%= link_to expense.expense_type, expense_path(expense.id)  %></td>
 			<td><%= expense.description %></td>		
 			<td><%= expense.amount %></td>
-			<td width="115px">
+			<td >
 			<span class="pull-right">
 				<%= link_to "Edit", edit_expense_path(expense.id), class: "btn btn-primary btn-small" %>
 				|
@@ -37,5 +40,6 @@
 			</td>
 		</tr>
 	</table>
+
 </div>
 

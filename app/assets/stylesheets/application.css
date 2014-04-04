@@ -13,3 +13,29 @@
  *= require jquery.ui.datepicker
  *= require_tree .
  */
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+	.yes-print, .yes-print *
+	{
+		display: block !important;
+	}
+	.table-print, table-print *
+	{
+		clear:both;
+	}
+}
+@media screen
+{
+  .no-screen, .no-screen *
+	{
+		display:none !important;
+	}
+  .yes-screen, .yes-screen *
+	{
+		display:block !important;
+	}
+}

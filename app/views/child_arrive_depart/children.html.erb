@@ -1,4 +1,5 @@
 <h3>Children Whose Last Names Start With '<%= @first_letter %>'</h3>
+
 <% @children.each_with_index do |child, i| %>
 	<p><%= link_to child.full_name, {:controller => "child_arrive_depart", :action => "parents", :child_id => child.id } %></p>
 <% end %>
