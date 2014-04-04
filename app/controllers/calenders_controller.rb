@@ -4,7 +4,9 @@ class CalendersController < ApplicationController
   # GET /calenders
   # GET /calenders.json
   def index
-    @calenders = Calender.all
+    @cal = Google::Calendar.new(:username => 'paynejac@mail.gvsu.edu',
+                           :password => '239390016',
+                           :app_name => 'test')
   end
 
   # GET /calenders/1
@@ -14,7 +16,9 @@ class CalendersController < ApplicationController
 
   # GET /calenders/new
   def new
-    @calender = Calender.new
+    @cal = Google::Calendar.new(:username => 'paynejac@mail.gvsu.edu',
+                           :password => '239390016',
+                           :app_name => 'test')
   end
 
   # GET /calenders/1/edit

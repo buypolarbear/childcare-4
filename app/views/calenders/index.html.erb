@@ -10,13 +10,11 @@
   </thead>
 
   <tbody>
-    <% @calenders.each do |calender| %>
-      <tr>
-        <td><%= link_to 'Show', calender %></td>
-        <td><%= link_to 'Edit', edit_calender_path(calender) %></td>
-        <td><%= link_to 'Destroy', calender, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+	<p><%= @cal.events.first.id %></p>
+	<p><%= @cal.events.first.title %></p>
+	<p><%= @cal.events.first.where %></p>
+	<%= @cal.events %>
+	
   </tbody>
 </table>
 
@@ -24,7 +22,4 @@
 
 <%= link_to 'New Calender', new_calender_path %>
 
-<%= cal = Google::Calendar.new(:username => 'jarvisan@mail.gvsu.edu',
-                           :password => '',
-                           :app_name => 'test') 
-                           puts cal.events%>
+
