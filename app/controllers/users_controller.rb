@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 	before_action :admin_user, only: [:destroy]
 	
 	# users can only edit their own information
-	before_action :correct_user,   only: [:edit, :update]
+	before_action :correct_user,   only: [:edit, :update] unless :admin_user
 	
 	# sets up an autocomplete action for users' last name
 	autocomplete :user, :lname, :display_value => :full_name, :extra_data => [:fname]
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   def edit
 	# no longer needed since the before_filter actions already
 	# initialize this variable
-    #@user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
   
 
@@ -63,7 +63,7 @@ class UsersController < ApplicationController
   def update
 	# no longer needed since the before_filter actions already
 	# initialize this variable
-    # @user = User.find(params[:id])
+    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user

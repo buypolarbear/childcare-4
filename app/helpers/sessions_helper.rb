@@ -46,7 +46,7 @@ module SessionsHelper
 	#############################################
 	# Assigns the passed user variable to the
 	# current session's current_user variable;
-	# this lets us do things like "if current_user.admin? ..."
+	# this lets us do things like "if @current_user.admin? ..."
 	##############################################
 	def current_user=(user)
 		@current_user = user
