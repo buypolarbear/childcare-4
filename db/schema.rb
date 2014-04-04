@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402215619) do
+ActiveRecord::Schema.define(version: 20140404192751) do
 
   create_table "child_events", force: true do |t|
     t.integer  "child_id"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20140402215619) do
     t.string   "income_type"
     t.boolean  "paid"
     t.string   "owed_by"
+    t.decimal  "amount_paid"
   end
 
   add_index "incomes", ["date"], name: "index_incomes_on_date"
