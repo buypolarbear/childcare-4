@@ -96,6 +96,8 @@ ActiveRecord::Schema.define(version: 20140404192751) do
     t.boolean  "paid"
     t.string   "owed_by"
     t.decimal  "amount_paid"
+    t.datetime "start_date"
+    t.datetime "end_date"
   end
 
   add_index "incomes", ["date"], name: "index_incomes_on_date"
