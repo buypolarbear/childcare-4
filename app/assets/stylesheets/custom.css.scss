@@ -79,10 +79,16 @@ textarea {resize: vertical;}
 }
 /*#session_email, #session_password{margin-top:5px;}*/
 
-#session_login{margin-top:5px;}
-#sign-in{margin-top:-10px;}
-.navbar-inner{height:50px;}
-#newUser{font-size:10px;position: relative; top:-12px; left:330px; color:#E4D2D2;}
+#session_login{
+	margin-top:10px;
+}
+#sign-in{
+	margin-top:-10px;
+}
+.navbar-inner{
+	height:50px;
+}
+#newUser{font-size:10px;position: relative; top:-5px; left:330px; color:#E4D2D2;}
 /* footer */
 
 footer {
