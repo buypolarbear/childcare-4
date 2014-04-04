@@ -1,5 +1,24 @@
 <h3>Children Whose Last Names Start With '<%= @first_letter %>'</h3>
 
+
+<div class="row">
+  <div class="col-lg-4"></div>
+
+  <div class="col-lg-4">
+
 <% @children.each_with_index do |child, i| %>
-	<p><%= link_to child.full_name, {:controller => "child_arrive_depart", :action => "parents", :child_id => child.id } %></p>
+	<% if i%2 %>
+		<button type="button" class="btn btn-primary btn-lg btn-block">	
+		<%= link_to child.full_name, {:controller => "child_arrive_depart", :action => "parents", :child_id => child.id }, style: "color: white" %>
+	<% else %>
+		<button type="button" class="btn btn-default btn-lg btn-block">
+		<%= link_to child.full_name, {:controller => "child_arrive_depart", :action => "parents", :child_id => child.id }, style: "color: black" %>
+	<% end %>
+
+
+	</button>
 <% end %>
+
+	</div>
+  <div class="col-lg-4"></div>
+</div>

@@ -33,6 +33,8 @@
   .no-screen, .no-screen *
 	{
 		display:none !important;
+		position: absolute;
+		left:-9999px;
 	}
   .yes-screen, .yes-screen *
 	{
