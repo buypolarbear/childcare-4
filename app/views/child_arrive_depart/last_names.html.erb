@@ -2,9 +2,39 @@
 
 <div class="btn-group">
 <% @letters.each do |letter| %>
+<!--
 	<label class="btn btn-primary">
-	<%= link_to letter,  {:controller => "child_arrive_depart", :action => "children", :first_letter => letter  }, style: "color:white" %></label>
+	<%= link_to letter,  {:controller => "child_arrive_depart", :action => "children", :first_letter => letter  }, style: "color:white" %>
+	</label>
+-->
+	<label class="btn btn-primary">
+		<%= letter %>
+	</label>
 <%end%>
+
+<div id="options" style="display: none">
+	<h3>All children starting with:<span id="letter"></span></h3>
+	<form role="form">
+		<div class="form-group">
+			<!-- place form associating with the letter -->			
+				<!-- letter clicked is located as var txt, or in span with id "letter" -->
+			<!-- end of form -->
+		</div>
+	</form>
+</div> <!-- options -->
+<script>
+var txt = "";
+$("label").click(function() {
+  $( "#options" ).show( "fast" );
+});
+$("label").click(function(e) {
+  txt = $(e.target).text();
+  console.log(txt);
+  $("#letter").text(txt);
+});
+</script>
+
+
 </div>
 <div id="child-container" class="row">
 <hr />
