@@ -81,10 +81,7 @@ class ChildrenController < ApplicationController
     # Strong parameters for Child model
     ##############################################
     def child_params
-      params.require(:child).permit(:fname, :lname, :email, :password,
-                                   :password_confirmation, :phone_home,
-								   :phone_cell, :phone_work, :ssn, :street_addr,
-								   :city, :state, :zip)
+      params.require(:child).permit(:fname, :lname, :rate)
     end
 
 end
