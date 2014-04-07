@@ -1,14 +1,12 @@
-<div class="center-element span8">
+<div class="row">
+<div class="span8" style="margin:0 auto; margin-left:20%; ">
 <% provide(:title, 'Add Child') %>
 
 	<h1>Add New Child</h1>
     <%= form_for(@child) do |f| %>
 	  <%= render 'shared/error_messages', :object => @child %>
 		<small>Please fill all required fields with a </small><span class="required">*</span>
-		
-		<!-- BEGIN PARENT ONE -->
-		
-		<section>
+		<section id="child_Info"><!-- BEGIN Child Info -->
 	      <fieldset style="float:left;">
 			<p><b>Child's Information</b><p>
 			<section style="float:left;">				
@@ -16,30 +14,42 @@
       			<span class="required">*</span>
 				<%= f.text_field :fname, placeholder: "First Name" %>
 			</section>
-			<section style="float:left; margin-left:5px;">
+			<section class="pull-left" style="margin-left:5px;">
 	  			<%= f.label "Last Name" %>
 				<span class="required">*</span>
       			<%= f.text_field :lname, placeholder: "Last Name"%>
 			</section>
-			<section style="float:left; margin-left:5px;">
+			<section class="pull-left" style="margin-left:5px;">
 	  			<%= f.label "Rate" %>
 				<span class="required">*</span>
-      			<%= f.text_field :lname, placeholder: "Last Name"%>
+      			<%= f.text_field :rate, placeholder: "Rate"%>
 			</section>
+			
 	      </fieldset>
 		  <fieldset>
-			<section>
-				<%= label_tag "Create a new parent" %>
-				<%= check_box_tag "p1_new" %>
-			</section>
-	      </fieldset>
-		</section>
-		
-		<section id="parent_one" style="display:none">
-	      <fieldset style="float:left;">
-			<section style="float:left;">
+
+			<section class="pull-left" >
 				<p><b>Parent 1's Information</b><p>
 				<%= autocomplete_field_tag 'parent_one_id', '', autocomplete_user_lname_users_path, :placeholder => "Start typing a last name" %>	
+			</section>
+
+			<section class="pull-left" id="par2" style="margin-left:10px">
+				<p><b>Parent 2's Information</b><p>
+				<%= autocomplete_field_tag 'parent_two_id', '', autocomplete_user_lname_users_path, :placeholder => "Start typing a last name" %>	
+			</section><!-- END #par2 -->
+			<section class="pull-right" >
+				<!--<%= label_tag "Add a Parent" %>-->
+				<span style="font-weight:bold" >Add a Parent</span>
+				<%= check_box_tag "p1_new" %>
+			</section>
+
+	      </fieldset>
+		</section><!-- END Child Info -->
+
+		<section id="parent_one" style="display:none"><!--BEGIN Parent_one -->
+	      <fieldset style="float:left;">
+			<section style="float:left;">
+				
 		
 			<fieldset style="float:left;">
 				<section style="float:left;">
@@ -73,7 +83,7 @@
 				<section style="float:left;">
 					<div class="pull-left" style="margin-left:8px;">
 						<%= label_tag  "City" %>
-						<%= text_field_tag "p1_city", nil, placeholder: "city" %>
+						<%= text_field_tag "p1_city", nil, placeholder: "City" %>
 					</div> 			
 					<div class="pull-left" style="margin-left: 12px">
 						<%= label_tag  "Zip" %>	
@@ -102,22 +112,24 @@
 						<%= text_field_tag "p1_phone_work", nil, placeholder: "Work Phone" %>
 					</section>
 				</section>
-			</fieldset>
-		</section>
-		
-		<!-- END PARENT ONE -->
-		
-		
-		<!-- BEGIN PARENT TWO -->
-		
-		<!--
-		<section>
+			</fieldset>	
+
+<hr />
+			<section id="Parent2" class="pull-right"><!-- Parent2 -->
+				<b>Add Second Parent</b>
+				<%= check_box_tag "p2_new" %>
+			</section><!-- End Parent2-->
+
+		</section> <!-- End Parent One -->
+	</fieldset>
+</section>
+
+		<section id="parent_two" style="display:none"><!-- BEGIN PARENT TWO -->
 	      <fieldset>
 			<section style="float:left;">
-				<p><b>Parent 2's Information</b><p>
-				<%= check_box_tag "p1_new" %>
+				
+				
 				<%= autocomplete_field_tag 'parent_one_id', '', autocomplete_user_lname_users_path, :placeholder => "Start typing a last name" %>	
-		
 			<fieldset style="float:left;">
 				<section style="float:left;">
 					<%= label_tag "First Name" %>
@@ -150,7 +162,7 @@
 				<section style="float:left;">
 					<div class="pull-left" style="margin-left:8px;">
 						<%= label_tag  "City" %>
-						<%= text_field_tag "p1_city", nil, placeholder: "city" %>
+						<%= text_field_tag "p1_city", nil, placeholder: "City" %>
 					</div> 			
 					<div class="pull-left" style="margin-left: 12px">
 						<%= label_tag  "Zip" %>	
@@ -180,25 +192,40 @@
 					</section>
 				</section>
 			</fieldset>
-		</section>
-		-->
-		
-		<!-- END PARENT TWO -->
-		
-		
-	    <section>
+		</fieldset>
+		</section><!-- END PARENT TWO -->
+	    <section id="submision">
+			<br />
           <%= f.submit "Save child", class: "btn btn-large btn-primary" %>
 	      <%= link_to "Cancel", children_path, class: "btn btn-large btn-primary" %>
-	    </section>
+	    </section><!-- #submission -->
 	<% end %>
   </div>
+</div>
 <div class="row"></div>
 
-<script>
+<script type="text/javascript">
 $("#p1_new").click(function() {
-	if($('#p1_new').is(":checked"))   
-		$( "#parent_one" ).show( "fast" );
-	else
-		$( "#parent_one" ).hide( "fast" );  
+	if($('#p1_new').is(":checked")){   
+		$( "#parent_one" ).show( "slow" );
+		$("#parent_one_id").hide("fast");
+		$("#par2").hide("fast");
+		
+		if($('#p2_new').is(":checked")){
+			$("#parent_two").show("fast");
+		}
+	}else{
+		$( "#parent_one" ).hide( 400 );
+		$("#parent_two").hide(400);
+		$("#parent_one_id").show(200);
+		$("#par2").show(200);
+	}	  
+});
+$("#p2_new").click(function(){
+	if($('#p2_new').is(":checked")){
+		$( "#parent_two").show("fast");
+	}else{
+		$( "#parent_two").hide(400);
+	}
 });
 </script>
