@@ -1,4 +1,4 @@
-class Child < ActiveRecord::Base
+class Rate < ActiveRecord::Base
 	has_many :children
 	
 end
