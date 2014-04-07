@@ -18,7 +18,7 @@
 		<div class="form-group">
 			<!-- place form associating with the letter -->			
 				<!-- letter clicked is located as var txt, or in span with id "letter" -->
-				<%= render 'partials/children/children', :object => { @children => Child.all, @first_letter => "D"} %>
+				<%= render 'partials/children/parents', :object => @child = User.find(1) %>
 			<!-- end of form -->
 		</div>
 	</form>
