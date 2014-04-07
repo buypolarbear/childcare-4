@@ -27,13 +27,18 @@
       			<%= f.text_field :lname, placeholder: "Last Name"%>
 			</section>
 	      </fieldset>
-	    </section>
+		  <fieldset>
+			<section>
+				<%= label_tag "Create a new parent" %>
+				<%= check_box_tag "p1_new" %>
+			</section>
+	      </fieldset>
+		</section>
 		
-		<section>
+		<section id="parent_one" style="display:none">
 	      <fieldset style="float:left;">
 			<section style="float:left;">
 				<p><b>Parent 1's Information</b><p>
-				<%= check_box_tag "p1_new" %>
 				<%= autocomplete_field_tag 'parent_one_id', '', autocomplete_user_lname_users_path, :placeholder => "Start typing a last name" %>	
 		
 			<fieldset style="float:left;">
@@ -189,3 +194,11 @@
   </div>
 <div class="row"></div>
 
+<script>
+$("#p1_new").click(function() {
+	if($('#p1_new').is(":checked"))   
+		$( "#parent_one" ).show( "fast" );
+	else
+		$( "#parent_one" ).hide( "fast" );  
+});
+</script>
