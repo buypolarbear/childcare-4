@@ -1,8 +1,12 @@
 class ChildrenController < ApplicationController
 	
+  #############################################
+  # Sets up the view for creating a new child
+  ##############################################
   def new
     @child = Child.new
   end
+  
   
   #############################################
   # Attempts to store a new child with the passed
