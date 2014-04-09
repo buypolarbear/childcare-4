@@ -1,62 +1,46 @@
-<% provide(:title, 'Edit Profile') %>
-<h1>Edit Profile: <%= @user.full_name %></h1>
-
 <div class="row">
-  <div class="span8">
-    <%= form_for(@user) do |f| %>
-	  <%= render 'shared/error_messages', :object => @user %>
-	  <div class="table-responsive">
-	  <table class="table table-condensed">
-		<tr>
-			<td width="150px">Email Address: </td><!-- mail_to @user.email, -->
-			<td><%= f.text_field :email %></td>
-		</tr>
-		<tr >
-			<td width="150px">Home Phone:</td>
-			<td><%= f.text_field :phone_home %></td>
-		</tr>
-		<tr width="150px">
-			<td width="150px">Cell Phone:</td>
-			<td><%= f.text_field :phone_cell %></td>
-		</tr>
-		<tr width="150px">
-			<td width="150px">Work Phone:</td>
-			<td><%= f.text_field :phone_work %></td>
-		</tr>
-		<tr width="150px">
-			<td width="150px">SSN:</td>
-			<td><%= f.text_field :ssn %></td>
-		</tr>
-		<tr width="150px">
-			<td width="150px">Street Address:</td>
-			<td><%= f.text_field :street_addr %></td>
-		</tr>
-		<tr width="150px">
-			<td width="150px">City:</td>
-			<td><%= f.text_field :city %></td>
-		</tr>
-		<tr width="150px">
-			<td width="150px">State:</td>
-			<td><%= f.text_field :state %></td>
-		</tr>
-		<tr width="150px">
-			<td width="150px">ZIP:</td>
-			<td><%= f.text_field :zip %></td>
-		</tr>
-	  </table>
-	  </div>
-<!--      
-<%= f.label "First Name" %>
-      <%= f.text_field :fname %>
-	  
-	  <%= f.label "Last Name" %>
-      <%= f.text_field :lname %>
-
--->
-	  
-      <p><%= f.submit "Save Changes", class: "btn btn-large btn-primary" %></p>	  
-	  <%= link_to "Cancel", user_path(@user.id), class: "btn btn-large btn-primary" %>
-	  
-    <% end %>
-  </div>
+  <aside class="span6">
+	<h3>Account Details: <%= @child.full_name %></h3>
+	
+	<%= form_for(@child) do |f| %>
+	  <%= render 'shared/error_messages', :object => @child %>
+		<small>Please fill all required fields with a </small><span class="required">*</span>
+		<section id="child_Info"><!-- BEGIN Child Info -->
+	      <fieldset style="float:left;">
+			<p><b>Child's Information</b><p>
+			<section style="float:left;">
+      			<%= f.label "First Name" %>
+      			<span class="required">*</span>
+				<%= f.text_field :fname, placeholder: "First Name" %>
+			</section>
+			<section class="pull-left" style="margin-left:5px;">
+	  			<%= f.label "Last Name" %>
+				<span class="required">*</span>
+      			<%= f.text_field :lname, placeholder: "Last Name"%>
+			</section>
+			<section class="pull-left" style="margin-left:5px;">
+	  			<%= f.label "Rate" %>
+				<span class="required">*</span>
+      			<%= f.text_field :rate_id, placeholder: "Rate"%>
+			</section>
+			<p>Parents </p>
+			<section class="pull-left" style="margin-left:5px;">
+					<%= f.fields_for :parents do |builder| %>
+						<fieldset>
+							<%= builder.label :fname, "First Name NESTED " %><br/>
+							<%= builder.text_field :fname %>
+							<%= builder.label :lname, "Last Name NESTED " %><br/>
+							<%= builder.text_field :lname %>
+						</fieldset>
+					<% end %>
+			</section>
+			
+	      </fieldset>
+		</section> <!-- END Child Info -->
+		
+		<section class="pull-right span3 " style="margin-left:0px;">
+			<p><%= f.submit "Save Changes", class: "btn btn-large btn-primary" %></p>	  
+			<%= link_to "Cancel", child_path(@child.id), class: "btn btn-large btn-primary" %>
+		</section>
+	<% end %>
 </div>

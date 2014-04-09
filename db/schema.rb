@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404192751) do
+ActiveRecord::Schema.define(version: 20140409214525) do
+
+  create_table "calenders", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "child_events", force: true do |t|
     t.integer  "child_id"
@@ -28,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140404192751) do
     t.string   "lname"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "rate"
+    t.integer  "rate_id"
   end
 
   create_table "children_parents", force: true do |t|

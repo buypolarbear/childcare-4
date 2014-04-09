@@ -55,7 +55,7 @@ class ParentsController < ApplicationController
   ##############################################
   def update
     @parent = Parent.find(params[:id])
-    if @parent.update_attributes(child_params)
+    if @parent.update_attributes(parent_params)
       flash[:success] = "Profile updated"
       redirect_to @parent
     else
