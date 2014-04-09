@@ -54,8 +54,6 @@ class ParentsController < ApplicationController
   # Attempts to update a child's information
   ##############################################
   def update
-	# no longer needed since the before_filter actions already
-	# initialize this variable
     @parent = Parent.find(params[:id])
     if @parent.update_attributes(child_params)
       flash[:success] = "Profile updated"
@@ -85,27 +83,16 @@ class ParentsController < ApplicationController
     # Strong parameters for Parent model
     ##############################################
     def parent_params
-      params.require(:parent).permit(:fname, :lname, :rate,
- :p1_fname,
- :p1_lname,
- :p1_email,
- :p1_street_addr,
- :p1_city,
- :p1_zip,
- :p1_state,
- :p1_phone_home,
- :p1_phone_cell,
- :p1_phone_work,
- :p2_fname,
- :p2_lname,
- :p2_email,
- :p2_street_addr,
- :p2_city,
- :p2_zip,
- :p2_state,
- :p2_phone_home,
- :p2_phone_cell,
- :p2_phone_work)
+      params.require(:parent).permit(:fname, :lname,
+		:email,
+		:street_addr,
+		:city,
+		:zip,
+		:state,
+		:phone_home,
+		:phone_cell,
+		:phone_work
+	  )
     end
 
 end
