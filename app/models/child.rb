@@ -7,7 +7,7 @@ class Child < ActiveRecord::Base
 	####################################
 	# Returns the first,
 	# middle, and last names of the
-	# user concatenated into a friendly
+	# child concatenated into a friendly
 	# string
 	####################################
 	def full_name
