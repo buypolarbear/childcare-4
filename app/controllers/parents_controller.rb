@@ -1,10 +1,10 @@
-class ChildrenController < ApplicationController
+class ParentsController < ApplicationController
 	
   #############################################
   # Sets up the view for creating a new child
   ##############################################
   def new
-    @child = Child.new
+    @parent = Parent.new
   end
   
   
@@ -15,11 +15,11 @@ class ChildrenController < ApplicationController
   # failure
   ##############################################
   def create
-    @child = Child.new(child_params)
-    if @child.save
-	  sign_in @child unless signed_in?
+    @parent = Parent.new(parent_params)
+    if @parent.save
+	  sign_in @parent unless signed_in?
 	  flash[:success] = "Signup successful"
-      redirect_to @child
+      redirect_to @parent
     else
       render 'new'
     end
@@ -30,7 +30,7 @@ class ChildrenController < ApplicationController
   # 
   ##############################################
   def show
-    @child = Child.find(params[:id])
+    @parent = Parent.find(params[:id])
   end
   
   
@@ -38,7 +38,7 @@ class ChildrenController < ApplicationController
   # 
   ##############################################
   def index
-    @children = Child.all
+    @parents = Parent.all
   end
 
   
@@ -46,7 +46,7 @@ class ChildrenController < ApplicationController
   # 
   ##############################################
   def edit
-    @child = Child.find(params[:id])
+    @parent = Parent.find(params[:id])
   end
   
 
@@ -54,12 +54,10 @@ class ChildrenController < ApplicationController
   # Attempts to update a child's information
   ##############################################
   def update
-	# no longer needed since the before_filter actions already
-	# initialize this variable
-    @child = Child.find(params[:id])
-    if @child.update_attributes(child_params)
+    @parent = Parent.find(params[:id])
+    if @parent.update_attributes(parent_params)
       flash[:success] = "Profile updated"
-      redirect_to @child
+      redirect_to @parent
     else
       render 'edit'
     end
@@ -71,35 +69,30 @@ class ChildrenController < ApplicationController
   # ID
   ##############################################
   def destroy
-	if Child.find(params[:id]).destroy
-		flash[:success] = "Child deleted."
+	if Parent.find(params[:id]).destroy
+		flash[:success] = "Parent deleted."
 	else
 		flash[:error] = "There was a problem deleting this child."
 	end
-    redirect_to children_url
+    redirect_to parents_url
   end
   
   private
 
     #############################################
-    # Strong parameters for Child model
+    # Strong parameters for Parent model
     ##############################################
-    def child_params
-		params.require(:child).permit(:fname, :lname, :rate_id,
-			parents_attributes: [
-				:id,
-				:fname,
-				:lname,
-				:email,
-				:street_addr,
-				:city,
-				:zip,
-				:state,
-				:phone_home,
-				:phone_cell,
-				:phone_work
-			]
-		)
+    def parent_params
+      params.require(:parent).permit(:fname, :lname,
+		:email,
+		:street_addr,
+		:city,
+		:zip,
+		:state,
+		:phone_home,
+		:phone_cell,
+		:phone_work
+	  )
     end
 
 end

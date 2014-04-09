@@ -9,7 +9,7 @@
 		<section id="child_Info"><!-- BEGIN Child Info -->
 	      <fieldset style="float:left;">
 			<p><b>Child's Information</b><p>
-			<section style="float:left;">				
+			<section style="float:left;">
       			<%= f.label "First Name" %>
       			<span class="required">*</span>
 				<%= f.text_field :fname, placeholder: "First Name" %>
@@ -22,12 +22,20 @@
 			<section class="pull-left" style="margin-left:5px;">
 	  			<%= f.label "Rate" %>
 				<span class="required">*</span>
-      			<%= f.text_field :rate, placeholder: "Rate"%>
+      			<%= f.text_field :rate_id, placeholder: "Rate"%>
 			</section>
+			<section>
 			
+					<%= f.fields_for :parents do |builder| %>
+							<%= builder.label :fname, "First Name NESTED " %><br/>
+							<%= builder.text_field :fname %>
+							<%= builder.label :lname, "Last Name NESTED " %><br/>
+							<%= builder.text_field :lname %>
+					<% end %>
+			</section>			
 	      </fieldset>
+		  
 		  <fieldset>
-
 			<section class="pull-left" >
 				<p><b>Parent 1's Information</b><p>
 				<%= autocomplete_field_tag 'parent_one_id', '', autocomplete_user_lname_users_path, :placeholder => "Start typing a last name" %>	
@@ -49,10 +57,8 @@
 		<section id="parent_one" style="display:none"><!--BEGIN Parent_one -->
 	      <fieldset style="float:left;">
 			<section style="float:left;">
-				
-		
 			<fieldset style="float:left;">
-				<section style="float:left;">
+				<section style="float:left;">					
 					<%= label_tag "First Name" %>
 					<span class="required">*</span>
 					<%= text_field_tag "p1_fname", nil, placeholder: "First Name" %>
@@ -129,17 +135,17 @@
 			<section style="float:left;">
 				
 				
-				<%= autocomplete_field_tag 'parent_one_id', '', autocomplete_user_lname_users_path, :placeholder => "Start typing a last name" %>	
+				<%= autocomplete_field_tag 'parent_two_id', '', autocomplete_user_lname_users_path, :placeholder => "Start typing a last name" %>	
 			<fieldset style="float:left;">
 				<section style="float:left;">
 					<%= label_tag "First Name" %>
 					<span class="required">*</span>
-					<%= text_field_tag "p1_fname", nil, placeholder: "First Name" %>
+					<%= text_field_tag "p2_fname", nil, placeholder: "First Name" %>
 				</section>
 				<section style="float:left; margin-left:5px;">
 					<%= label_tag "Last Name" %>
 					<span class="required">*</span>
-					<%= text_field_tag "p1_lname", nil, placeholder: "Last Name"%>
+					<%= text_field_tag "p2_lname", nil, placeholder: "Last Name"%>
 				</section>
 			</fieldset>
 			<fieldset>
@@ -147,7 +153,7 @@
 					<div class="form-group has-success"; >
 						<%= label_tag "Email" %>
 						<span class="required">*</span>
-						<%= text_field_tag "p1_email", nil, placeholder: "Email"%>
+						<%= text_field_tag "p2_email", nil, placeholder: "Email"%>
 						<div id="emailWarning" class="warning"></div>
 					</div>
 				</section>
@@ -157,20 +163,20 @@
 				<section style="float:left;">
 					<%= label_tag  "Address" %>
 					<span class="required">*</span>
-					<%= text_field_tag "p1_street_addr", nil, placeholder: "Address" %>
+					<%= text_field_tag "p2_street_addr", nil, placeholder: "Address" %>
 				</section>
 				<section style="float:left;">
 					<div class="pull-left" style="margin-left:8px;">
 						<%= label_tag  "City" %>
-						<%= text_field_tag "p1_city", nil, placeholder: "City" %>
+						<%= text_field_tag "p2_city", nil, placeholder: "City" %>
 					</div> 			
 					<div class="pull-left" style="margin-left: 12px">
 						<%= label_tag  "Zip" %>	
-						<%= text_field_tag "p1_zip", nil, placeholder: "Zip" %>
+						<%= text_field_tag "p2_zip", nil, placeholder: "Zip" %>
 					</div>
 					<div class="pull-left" style="margin-left: 5px">
 						<%= label_tag  "State" %>	
-						<%= text_field_tag "p1_state", nil, placeholder: "State" %>
+						<%= text_field_tag "p2_state", nil, placeholder: "State" %>
 					</div>
 				</section>
 			</fieldset>
@@ -179,16 +185,16 @@
 					<section>
 						<%= label_tag "Home Number" %>
 						<span class="required">*</span>
-						<%= text_field_tag "p1_phone_home", nil, placeholder: "Home Phone" %>
+						<%= text_field_tag "p2_phone_home", nil, placeholder: "Home Phone" %>
 					</section>
 					<section style="float: left;"> 	  
 						<%= label_tag "Cell Number" %>
 						<span class="required">*</span>
-						<%= text_field_tag "p1_phone_cell", nil, placeholder: "Cell Phone" %>
+						<%= text_field_tag "p2_phone_cell", nil, placeholder: "Cell Phone" %>
 					</section>
 					<section style="float: left; margin-left:12px;">      
 						<%= label_tag "Work Number" %>
-						<%= text_field_tag "p1_phone_work", nil, placeholder: "Work Phone" %>
+						<%= text_field_tag "p2_phone_work", nil, placeholder: "Work Phone" %>
 					</section>
 				</section>
 			</fieldset>
