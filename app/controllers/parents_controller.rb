@@ -15,7 +15,7 @@ class ParentsController < ApplicationController
   # failure
   ##############################################
   def create
-    @parent = Parent.new(child_params)
+    @parent = Parent.new(parent_params)
     if @parent.save
 	  sign_in @parent unless signed_in?
 	  flash[:success] = "Signup successful"
@@ -86,8 +86,6 @@ class ParentsController < ApplicationController
     ##############################################
     def parent_params
       params.require(:parent).permit(:fname, :lname, :rate,
- :parent_one_id,
- :parent_two_id,
  :p1_fname,
  :p1_lname,
  :p1_email,
