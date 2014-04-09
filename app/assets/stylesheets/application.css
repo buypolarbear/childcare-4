@@ -25,8 +25,14 @@
 	}
 	.table-print, table-print *
 	{
-		clear:both;
+		clear:both !important;
+        padding: 0 !important;
+        border: 0 !important;
 	}
+    
+    .button-hover:hover, .button-hover a:hover{
+        color:#FFF;
+    }
 }
 @media screen
 {

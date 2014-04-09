@@ -16,7 +16,7 @@
 	
 	  <!-- Display if the user is signed in -->
           <% if signed_in? %>
-			<li><%= link_to "Child Signin", child_signin_last_names_path, id: "navItem" %></li>
+            <li><%= link_to "Children", children_path, id: "navItem" %></li>
             <li><%= link_to "Users", users_path, id: "navItem" %></li>
 			<li><%= link_to "Documents", documents_path, id: "navItem" %></li>
 			<li><%= link_to "Incomes", incomes_path, id: "navItem" %></li>
