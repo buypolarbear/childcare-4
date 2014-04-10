@@ -1,19 +1,9 @@
 <h3>Tap your child's name</h3>
 
-<!--
-<div class="btn-group">
-<% @letters.each do |letter| %>
-	<label class="btn btn-primary">
-		<%= link_to letter,  {:controller => "child_arrive_depart", :action => "children", :first_letter => letter, :remote => true  }, style: "color:white" %>
-	</label>
-<% end %>
--->
-
-
 <% @children.each do |child| %>
 	
-	<label class="btn btn-primary">
-		<%= link_to child.full_name,  {:controller => "child_arrive_depart", :action => "children", :remote => true, :id => child.id  }, style: "color:white" %>
+	<label class="btn btn-primary btn-block span6">
+		<b><%= link_to child.full_name,  {:controller => "child_arrive_depart", :action => "children", :remote => true, :id => child.id  }, style: "color:white" %></b>
 	</label>
 
 <%end%>
@@ -41,18 +31,7 @@ $("label").click(function(e) {
 
 
 </div>
-<div id="child-container" class="row">
 <hr />
-<!--
-<div id="sign-inOut" style="width:500px">
-	<div style="margin: 0 auto;">
-	<button type="button" class="btn btn-info">Sign-in</button>
-	<button type="button" class="btn btn-warning">Sign-out</button>
-	</div>
-</div>
-<br />
-
-<div><!-- child container -->
 <script>
 $('#element').popover('show')
 $('.btn').button()
