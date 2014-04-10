@@ -2,7 +2,7 @@
 	<!-- CHILD BUTTON -->
 	<label id=<%= parent.id %>>
 		<b><%= link_to parent.full_name,  {:controller => "child_arrive_depart", :action => "toggle_signin", :remote => true,
-			:child_id => @child.id, :parent_guardian_id => parent.id  }, style: "color:white", class: "btn btn-primary btn-block span6" %></b>
+			:child_id => @child.id, :parent_guardian_id => parent.id  }, style: "color:black", class: "btn btn-block span6" %></b>
 	</label>
 	<!-- END Child button -->
 <% end %>

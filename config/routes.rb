@@ -33,6 +33,7 @@ Childcare::Application.routes.draw do
 
   match '/child_signin',    to: 'child_arrive_depart#last_names',    via: 'get'
   match '/child_signin/children',    to: 'child_arrive_depart#children',    via: 'get'
+  match '/child_signin/toggle_signin',    to: 'child_arrive_depart#toggle_signin',    via: 'get'
   
   
 
