@@ -12,16 +12,8 @@ class ChildArriveDepartController < ApplicationController
 		end
 	end
 	
-	puts @children
-	
 	respond_to do |format|
-		format.js { render :partial => 'parents', :locals =>
-			{
-				:children => @children,
-				:first_letter => params[:first_letter]
-			}
-		}
+		format.js { }
 	end
   end
-
 end
