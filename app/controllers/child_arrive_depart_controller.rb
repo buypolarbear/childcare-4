@@ -1,19 +1,15 @@
 class ChildArriveDepartController < ApplicationController
   def last_names
 	@letters = ('A'..'Z').to_a
+	@children = Child.find(:all, :order => "lname desc")
   end
 
   def children
-	@first_letter = params[:first_letter]
-	@children = []
-	Child.all.each_with_index do |child, i|
-		if child.lname[0].casecmp(@first_letter) == 0
-			@children << child
-		end
-	end
-	
+	@child = Child.find(params[:id])
+	@parents = @child.parents.all
 	respond_to do |format|
 		format.js { }
 	end
   end
+  
 end
