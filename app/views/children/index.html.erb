@@ -17,9 +17,23 @@
 		<tr>
 			<td><%= link_to child.fname, child_path(child.id)  %></td>
 			<td><%= link_to child.lname, child_path(child.id)  %></td>
-			<td><%= child.rate.name %></td>
-			<td><%= child.parents.first.full_name %></td>
-			<td><%= child.parents.second.full_name %></td>
+			<% if child.rate %>
+				<td><%= child.rate.name %></td>
+			<% else %>
+				<td></td>
+			<% end %>			
+			
+			<% if child.parents.first %>
+				<td><%= child.parents.first.full_name %></td>
+			<% else %>
+				<td></td>
+			<% end %>
+			
+			<% if child.parents.second %>
+				<td><%= child.parents.second.full_name %></td>
+			<% else %>
+				<td></td>
+			<% end %>
 			<td width="115px">
 				<span class="pull-right">
 					<%= link_to "Edit", edit_child_path(child.id), class: "btn btn-primary btn-small" %>

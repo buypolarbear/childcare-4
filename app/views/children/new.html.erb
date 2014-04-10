@@ -22,7 +22,8 @@
 			<section class="pull-left" style="margin-left:5px;">
 	  			<%= f.label "Rate" %>
 				<span class="required">*</span>
-      			<%= autocomplete_field_tag 'rate_id', '', autocomplete_rate_name_rates_path, :placeholder => "Start typing a rate's name" %>
+      			<%= autocomplete_field_tag 'rate_autocomplete', '', autocomplete_rate_name_rates_path, :placeholder => "Start typing a rate's name", :id_element => '#rate_id' %>
+				<%= f.hidden_field :rate_id, :id => "rate_id" %>
 			</section>
 			<section>
 			
@@ -39,13 +40,16 @@
 		  <fieldset>
 			<section class="pull-left" >
 				<p><b>Parent 1's Information</b><p>
-				<%= autocomplete_field_tag 'parent_one_id', '', autocomplete_parent_lname_parents_path, :placeholder => "Start typing a last name" %>	
+				<%= autocomplete_field_tag 'parent_one_auto', '', autocomplete_parent_lname_parents_path, :placeholder => "Start typing a last name", :id_element => '#parent_one_id' %>
+				<%= hidden_field_tag :parent_one_id, :id => "parent_one_id" %>
 			</section>
 
 			<section class="pull-left" id="par2" style="margin-left:10px">
 				<p><b>Parent 2's Information</b><p>
-				<%= autocomplete_field_tag 'parent_two_id', '', autocomplete_parent_lname_parents_path, :placeholder => "Start typing a last name" %>	
+				<%= autocomplete_field_tag 'parent_two_auto', '', autocomplete_parent_lname_parents_path, :placeholder => "Start typing a last name", :id_element => '#parent_two_id' %>
+				<%= hidden_field_tag :parent_two_id, :id => "parent_two_id" %>
 			</section><!-- END #par2 -->
+			
 			<section class="pull-right" >
 				<!--<%= label_tag "Add a Parent" %>-->
 				<span style="font-weight:bold" >Add a Parent</span>
@@ -134,9 +138,6 @@
 		<section id="parent_two" style="display:none"><!-- BEGIN PARENT TWO -->
 	      <fieldset>
 			<section style="float:left;">
-				
-				
-				<%= autocomplete_field_tag 'parent_two_id', '', autocomplete_user_lname_users_path, :placeholder => "Start typing a last name" %>	
 			<fieldset style="float:left;">
 				<section style="float:left;">
 					<%= label_tag "First Name" %>

@@ -14,8 +14,18 @@ class ChildrenController < ApplicationController
   # profile page on success, and to "new" view on
   # failure
   ##############################################
-  def create
-    @child = Child.new(child_params)
+  def create  
+	@child = Child.new(child_params)	
+	
+	if (params[:parent_one_id].to_i > 0) && parent_one = Parent.find(params[:parent_one_id])
+		@child.parents << parent_one
+	end
+	
+	if (params[:parent_two_id].to_i > 0) && parent_two = Parent.find(params[:parent_two_id])
+		@child.parents << parent_two
+	end
+	
+    
     if @child.save
 	  sign_in @child unless signed_in?
 	  flash[:success] = "Signup successful"
