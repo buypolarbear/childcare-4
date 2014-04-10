@@ -29,6 +29,8 @@ Childcare::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   
+
+
   match '/child_signin',    to: 'child_arrive_depart#last_names',    via: 'get'
   match '/child_signin/children',    to: 'child_arrive_depart#children',    via: 'get'
   
