@@ -13,6 +13,11 @@
 
 ActiveRecord::Schema.define(version: 20140410002742) do
 
+  create_table "calenders", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "child_events", force: true do |t|
     t.integer  "child_id"
     t.datetime "start_time"
@@ -166,6 +171,7 @@ ActiveRecord::Schema.define(version: 20140410002742) do
     t.string   "trusted_three"
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
   create_table "vehicles", force: true do |t|
