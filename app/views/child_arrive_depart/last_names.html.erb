@@ -2,40 +2,35 @@
 
 <% @children.each do |child| %>
 	
-	<label class="btn btn-primary btn-block span6">
-		<b><%= link_to child.full_name,  {:controller => "child_arrive_depart", :action => "children", :remote => true, :id => child.id  }, style: "color:white" %></b>
+	<!-- CHILD BUTTON -->
+	<label id=<%= child.id %>>
+		<b><%= link_to child.full_name,  {:controller => "child_arrive_depart", :action => "children", :remote => true, :id => child.id  }, style: "color:white", class: "btn btn-primary btn-block span6" %></b>
 	</label>
+	<!-- END Child button -->
+	
+	<!-- Parents button -->
+	<div id="parent_list_<%= child.id %>" style="display: none">
+			<!-- this will get replaced with the content of the child's parents -->
+	</div>
+	<!-- END parents button -->
 
 <%end%>
 
-<div id="options" style="display: none">
-	<!-- <h3>All children starting with: <span id="letter"></span></h3> -->
-		<div id="parent_list">
-			<!-- place form associating with the letter -->			
-				<!-- letter clicked is located as var txt, or in span with id "letter" -->
-			<!-- end of form -->
 
-		</div>
-</div> <!-- options -->
+
 <script type="text/javascript">
-var txt = "";
-$("label").click(function() {
-  $( "#options" ).show( "fast" );
-});
 $("label").click(function(e) {
-  txt = $(e.target).text();
-  console.log(txt);
-  $("#letter").text(txt);
+  var id=$(this).attr('id');
+   alert("ID:"+id);
+  $( "#parent_list_"+id ).show( "fast" );
 });
 </script>
 
-
-</div>
-<hr />
 <script>
 $('#element').popover('show')
 $('.btn').button()
 </script>
+
 
 
 

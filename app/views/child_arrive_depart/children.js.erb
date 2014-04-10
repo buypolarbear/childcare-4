@@ -1,1 +1,1 @@
-$('#parent_list').html('<%= escape_javascript render("parents") %>');
+$('#parent_list_<%= @child.id %>').html('<%= escape_javascript render("parents") %>');
