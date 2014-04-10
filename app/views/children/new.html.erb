@@ -22,7 +22,7 @@
 			<section class="pull-left" style="margin-left:5px;">
 	  			<%= f.label "Rate" %>
 				<span class="required">*</span>
-      			<%= f.text_field :rate_id, placeholder: "Rate"%>
+      			<%= autocomplete_field_tag 'rate_id', '', autocomplete_rate_name_rates_path, :placeholder => "Start typing a rate's name" %>
 			</section>
 			<section>
 			

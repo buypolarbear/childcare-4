@@ -24,6 +24,9 @@ Childcare::Application.routes.draw do
   resources :parents do
 	get :autocomplete_parent_lname, :on => :collection
   end
+  resources :rates do
+	get :autocomplete_rate_name, :on => :collection
+  end
   resources :children
   resources :sessions, only: [:new, :create, :destroy]
   #root  'sessions#new'

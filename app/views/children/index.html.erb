@@ -1,8 +1,4 @@
-<h3>Users</h3>
-<!--
-<%= link_to "Add new child", new_child_path %>
-
--->
+<h3>Children</h3>
 <%= link_to "Add new child", new_child_path, class: "btn btn-primary" %>
 <div class="table-responsive incomes">
 	<table id="myTable" class="table table-condensed table-hover table-striped table-bordered users">
@@ -32,23 +28,15 @@
 				</span>
 			</td>
 		</tr>
-        <tr>
+	<%end%>
+	
+		<tr>
 			<td colspan="7">
 				<%= link_to "New Child", new_child_path, class: "pull-right btn btn-primary" %>
 				</a>
 			</td>
 		</tr>
-
-	<%end%>
 	</tbody>
-<!--
-	<tr>
-			<td colspan="9">
-				<%= link_to "New Entry", new_child_path, class: "pull-right" %>	
-				</a>
-			</td>
-		</tr>
-<!-- fname lname, user_type, city, state, zip, phone_home/contact# -->
 
 </table>
 <p></p>
