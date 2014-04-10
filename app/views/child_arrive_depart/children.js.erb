@@ -1,1 +1,10 @@
+/**
+ This is executed when the child_arrive_depart#children
+ controller method is called with the "js"
+ format (i.e. AJAX call instead of a redirect).
+ Finds the element with the id
+ "parent_list_#{child's id}" and replaces it
+ with the content of the _parents.html.erb partial
+ */
 $('#parent_list_<%= @child.id %>').html('<%= escape_javascript render("parents") %>');
+$( "#parent_list_<%= @child.id %>").fadeToggle( "fast" );
