@@ -1,0 +1,63 @@
+<% provide(:title, @parent.fname) %>
+<div class="row">
+  <aside class="span9">
+    <section class="span5">
+	  <h3>Account Details: <%= @parent.full_name %></h3>
+	  <div class="table-responsive">
+	  <table class="table table-condensed">
+		<tr>
+			<td width="120px"><span class="pull-right">Email Address: </span></td>
+	<!-- mail_to @parent.email, -->
+			<td><%= @parent.email %></td>
+		</tr>
+		<tr >
+			<td width="100px"><span class="pull-right">Home Phone:</span></td>
+			<td><%= number_to_phone(@parent.phone_home, area_code: true) %></td>
+		</tr>
+		<tr width="150px">
+			<td><span class="pull-right">Cell Phone:</span></td>
+			<td><%= number_to_phone(@parent.phone_cell, area_code: true) %></td>
+		</tr>
+		<tr width="150px">
+			<td><span class="pull-right">Work Phone:</span></td>
+			<td><%= number_to_phone(@parent.phone_work, area_code: true) %></td>
+		</tr>
+		<tr width="150px">
+			<td><span class="pull-right">SSN:</span></td>
+			<td><%= @parent.ssn %></td>
+		</tr>
+		<tr width="150px">
+			<td><span class="pull-right">Street Address:</span></td>
+			<td><%= @parent.street_addr %></td>
+		</tr>
+		<tr width="150px">
+			<td><span class="pull-right">City:</span></td>
+			<td><%= @parent.city %></td>
+		</tr>
+		<tr width="150px">
+			<td><span class="pull-right">State:</span></td>
+			<td><%= @parent.state %></td>
+		</tr>
+		<tr width="150px">
+			<td><span class="pull-right">ZIP:</span></td>
+			<td><%= @parent.zip %></td>
+		</tr>
+	  </table> 
+	 </section>
+
+	<section class="pull-right span3 " style="margin-top:20px; ">
+	  <%= link_to "Change Information", edit_user_path, class: "btn btn-large btn-primary pull-left" %>
+	  <% if !current_user?(@parent) %>
+		<div>
+		<%= link_to "Delete", parent_path(@parent.id), method: :delete, data: {confirm: "Are you sure you want to delete parent #{@parent.full_name}?"}, class: "btn btn-large btn-primary", style: "margin-top:5px" %>
+
+		</div>
+	  <%end%>
+	<%= link_to "Back", parents_path, class: "btn btn-large btn-primary pull-left  margin-top" %>
+	</section>
+
+	
+</div>
+
+
+

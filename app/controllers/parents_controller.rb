@@ -1,4 +1,7 @@
 class ParentsController < ApplicationController
+
+  # sets up an autocomplete action for users' last name
+  autocomplete :parent, :lname, :display_value => :full_name, :extra_data => [:fname]
 	
   #############################################
   # Sets up the view for creating a new child

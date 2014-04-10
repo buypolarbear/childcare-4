@@ -20,7 +20,10 @@ Childcare::Application.routes.draw do
   resources :documents
   resources :users do
 	get :autocomplete_user_lname, :on => :collection
-  end  
+  end
+  resources :parents do
+	get :autocomplete_parent_lname, :on => :collection
+  end
   resources :children
   resources :sessions, only: [:new, :create, :destroy]
   #root  'sessions#new'
