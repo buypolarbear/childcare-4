@@ -3,6 +3,7 @@
 <%= link_to "Add new child", new_child_path %>
 
 -->
+<%= link_to "Add new child", new_child_path, class: "btn btn-primary" %>
 <div class="table-responsive incomes">
 	<table id="myTable" class="table table-condensed table-hover table-striped table-bordered users">
 		<thead>
@@ -29,6 +30,12 @@
 					|
 					<%= link_to "Delete", child_path(child.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-small" %>
 				</span>
+			</td>
+		</tr>
+        <tr>
+			<td colspan="7">
+				<%= link_to "New Child", new_child_path, class: "pull-right btn btn-primary" %>
+				</a>
 			</td>
 		</tr>
 

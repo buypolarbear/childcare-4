@@ -2,28 +2,30 @@
 <div class="row">
   <aside class="span6">
 	<h3>Account Details: <%= @child.full_name %></h3>
-	
+	  <aside class="span6">
+      <h3>Account Details: <%= @child.full_name %></h3>
+      <div class="table-responsive">
+	  <table class="table table-condensed">
+          <tr>
+            <td width="120px"><span class="pull-right"> First Name: </span></td>
+            <td><%= @child.fname %></td>
+          </tr>
+          <tr>
+            <td><span class="pull-right">Last Name: </span></td>
+            <td><%= @child.lname %></td>
+          </tr>
+            <tr>
+            <td><span class="pull-right">Rate: </span></td>
+            <td><%= @child.rate %></td>
+          </tr>
+      </table>
+      </div>
+    </aside>
+
 	<%= form_for(@child) do |f| %>
 	  <%= render 'shared/error_messages', :object => @child %>
-		<small>Please fill all required fields with a </small><span class="required">*</span>
 		<section id="child_Info"><!-- BEGIN Child Info -->
 	      <fieldset style="float:left;">
-			<p><b>Child's Information</b><p>
-			<section style="float:left;">
-      			<%= f.label "First Name" %>
-      			<span class="required">*</span>
-				<%= f.text_field :fname, placeholder: "First Name" %>
-			</section>
-			<section class="pull-left" style="margin-left:5px;">
-	  			<%= f.label "Last Name" %>
-				<span class="required">*</span>
-      			<%= f.text_field :lname, placeholder: "Last Name"%>
-			</section>
-			<section class="pull-left" style="margin-left:5px;">
-	  			<%= f.label "Rate" %>
-				<span class="required">*</span>
-      			<%= f.text_field :rate, placeholder: "Rate"%>
-			</section>
 			<p>Parents </p>
 			<section class="pull-left" style="margin-left:5px;">
 					<%= f.fields_for :parents do |builder| %>
