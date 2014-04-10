@@ -1,0 +1,4 @@
+<%= first_letter %>
+<% children.each_with_index do |child, i| %>
+	<%= child.parents.first.full_name %>
+<% end %>
