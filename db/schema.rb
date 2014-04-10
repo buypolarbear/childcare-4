@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410002742) do
+ActiveRecord::Schema.define(version: 20140410051154) do
 
   create_table "calenders", force: true do |t|
     t.datetime "created_at"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140410002742) do
     t.datetime "end_time"
     t.datetime "actual_start"
     t.datetime "actual_end"
+    t.integer  "parent_id"
   end
 
   add_index "child_events", ["child_id"], name: "index_child_events_on_child_id"

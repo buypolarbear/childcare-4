@@ -23,20 +23,26 @@ class ChildArriveDepartController < ApplicationController
   #############################################
   # If the child whose parent was selected is
   # currently signed in, sign the child out.
-  # Otherwise, sign the child in
+  # Otherwise, sign the child in.
   ##############################################
   def toggle_signin
   
 	@child = Child.find(params[:child_id])
 	@parent_guardian = Parent.find(params[:parent_guardian_id])
+	
+	# create a new event for this child
+	@event = @child.child_events.build(start_time: Time.now, parent_id: params[:parent_guardian_id])
+	
+	if !@child.save
+		flash.now[:error] = "Event could not be logged"
+		render child_signin_path
+	else
+		flash.now[:success] = "Event logged"
+	end
+	
 	respond_to do |format|
 		format.js { }
 	end
-	
-	# if signed_in
-		# sign out
-	# else
-		# sign in
   
   end
   

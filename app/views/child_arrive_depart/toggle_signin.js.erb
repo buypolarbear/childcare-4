@@ -4,4 +4,4 @@
  format (i.e. AJAX call instead of a redirect).
  */
 
- alert("Parent: <%= @parent_guardian.full_name %>"); /* Just for debugging */
+ alert("<%= @parent_guardian.full_name %> created child event with timestamp <%= @event.start_time %> for <%= @child.full_name %>"); /* Just for debugging */
