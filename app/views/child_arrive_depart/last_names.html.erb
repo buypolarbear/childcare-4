@@ -1,29 +1,31 @@
-<h3>Tap the first letter of the child's last name</h3>
-
-<div class="btn-group">
-<% @letters.each do |letter| %>
-
-	<label class="btn btn-primary">
-		<%= link_to letter,  {:controller => "child_arrive_depart", :action => "children", :first_letter => letter, :remote => true  }, style: "color:white", class: "monkey" %>
-	</label>
+<h3>Tap your child's name</h3>
 
 <!--
+<div class="btn-group">
+<% @letters.each do |letter| %>
 	<label class="btn btn-primary">
-		<%= letter %>
+		<%= link_to letter,  {:controller => "child_arrive_depart", :action => "children", :first_letter => letter, :remote => true  }, style: "color:white" %>
 	</label>
+<% end %>
 -->
+
+
+<% @children.each do |child| %>
+	
+	<label class="btn btn-primary">
+		<%= link_to child.full_name,  {:controller => "child_arrive_depart", :action => "children", :remote => true, :id => child.id  }, style: "color:white" %>
+	</label>
+
 <%end%>
 
 <div id="options" style="display: none">
-	<h3>All children starting with:<span id="letter"></span></h3>
-	<form role="form">
-		<div class="form-group" id="parent_list">
+	<!-- <h3>All children starting with: <span id="letter"></span></h3> -->
+		<div id="parent_list">
 			<!-- place form associating with the letter -->			
 				<!-- letter clicked is located as var txt, or in span with id "letter" -->
 			<!-- end of form -->
 
 		</div>
-	</form>
 </div> <!-- options -->
 <script type="text/javascript">
 var txt = "";
@@ -56,10 +58,5 @@ $('#element').popover('show')
 $('.btn').button()
 </script>
 
-<script>
-$('.monkey').bind('ajax:success', function(evt, data, status, xhr){
-	console.log(data);
-	$('#parent_list').html(data);
-})
-</script>
+
 

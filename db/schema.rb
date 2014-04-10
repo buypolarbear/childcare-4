@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409214525) do
-
-  create_table "calenders", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20140410002742) do
 
   create_table "child_events", force: true do |t|
     t.integer  "child_id"
@@ -36,10 +31,14 @@ ActiveRecord::Schema.define(version: 20140409214525) do
     t.integer  "rate_id"
   end
 
+  add_index "children", ["id"], name: "index_children_on_id"
+
   create_table "children_parents", force: true do |t|
     t.integer "child_id"
     t.integer "parent_id"
   end
+
+  add_index "children_parents", ["id"], name: "index_children_parents_on_id"
 
   create_table "documents", force: true do |t|
     t.string  "category"
@@ -60,6 +59,8 @@ ActiveRecord::Schema.define(version: 20140409214525) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "events", ["id"], name: "index_events_on_id"
 
   create_table "expenses", force: true do |t|
     t.string   "expense_type"
@@ -89,6 +90,16 @@ ActiveRecord::Schema.define(version: 20140409214525) do
   end
 
   add_index "facilities", ["name"], name: "index_facilities_on_name"
+
+  create_table "income_payments", force: true do |t|
+    t.datetime "date_paid"
+    t.decimal  "amount_paid"
+    t.integer  "parent_id"
+    t.integer  "income_id"
+    t.string   "type"
+  end
+
+  add_index "income_payments", ["id"], name: "index_income_payments_on_id"
 
   create_table "incomes", force: true do |t|
     t.decimal  "amount"
@@ -120,6 +131,8 @@ ActiveRecord::Schema.define(version: 20140409214525) do
     t.integer "zip"
   end
 
+  add_index "parents", ["id"], name: "index_parents_on_id"
+
   create_table "rates", force: true do |t|
     t.string   "name"
     t.decimal  "rate_per_unit"
@@ -127,6 +140,8 @@ ActiveRecord::Schema.define(version: 20140409214525) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "rates", ["name"], name: "index_rates_on_name"
 
   create_table "users", force: true do |t|
     t.string   "email"
@@ -151,7 +166,6 @@ ActiveRecord::Schema.define(version: 20140409214525) do
     t.string   "trusted_three"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
   create_table "vehicles", force: true do |t|
