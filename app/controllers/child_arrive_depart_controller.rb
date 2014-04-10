@@ -19,4 +19,25 @@ class ChildArriveDepartController < ApplicationController
 	end
   end
   
+  
+  #############################################
+  # If the child whose parent was selected is
+  # currently signed in, sign the child out.
+  # Otherwise, sign the child in
+  ##############################################
+  def toggle_signin
+  
+	@child = Child.find(params[:child_id])
+	@parent_guardian = Parent.find(params[:parent_guardian_id])
+	respond_to do |format|
+		format.js { }
+	end
+	
+	# if signed_in
+		# sign out
+	# else
+		# sign in
+  
+  end
+  
 end

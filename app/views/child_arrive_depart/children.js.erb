@@ -7,4 +7,6 @@
  with the content of the _parents.html.erb partial
  */
 $('#parent_list_<%= @child.id %>').html('<%= escape_javascript render("parents") %>');
+
+/* Toggles the visibility of the list of parents for the current child */
 $( "#parent_list_<%= @child.id %>").fadeToggle( "fast" );
