@@ -6,6 +6,7 @@ class CreateDocumentsTable < ActiveRecord::Migration
     t.index :title
     t.string :path
     t.date :expiration
+	t.belongs_to :user
     end
   end
 end

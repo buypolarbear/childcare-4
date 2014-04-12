@@ -18,10 +18,5 @@ class AddUserIdtoTables < ActiveRecord::Migration
 	change_table :vehicles do |t|
 		t.belongs_to :user
 	end
-	
-	
-	change_table :documents do |t|
-		t.belongs_to :user
-	end
   end
 end
