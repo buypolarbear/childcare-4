@@ -26,15 +26,8 @@
 				<%= f.hidden_field :rate_id, :id => "rate_id" %>
 			</section>
 			<section>
-			
-					<%= f.fields_for :parents do |builder| %>
-							<%= builder.label :fname, "First Name" %><br/>
-							<%= builder.text_field :fname %>
-							
-							<%= builder.label :lname, "Last Name" %><br/>
-							<%= builder.text_field :lname %>
-					<% end %>
-			</section>			
+				<%= link_to_add_fields f, :parents %>
+			</section>	
 	      </fieldset>
 		  
 		  <fieldset>
