@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140410051154) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "calenders", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -27,7 +30,7 @@ ActiveRecord::Schema.define(version: 20140410051154) do
     t.integer  "parent_id"
   end
 
-  add_index "child_events", ["child_id"], name: "index_child_events_on_child_id"
+  add_index "child_events", ["child_id"], name: "index_child_events_on_child_id", using: :btree
 
   create_table "children", force: true do |t|
     t.string   "fname"
@@ -37,14 +40,14 @@ ActiveRecord::Schema.define(version: 20140410051154) do
     t.integer  "rate_id"
   end
 
-  add_index "children", ["id"], name: "index_children_on_id"
+  add_index "children", ["id"], name: "index_children_on_id", using: :btree
 
   create_table "children_parents", force: true do |t|
     t.integer "child_id"
     t.integer "parent_id"
   end
 
-  add_index "children_parents", ["id"], name: "index_children_parents_on_id"
+  add_index "children_parents", ["id"], name: "index_children_parents_on_id", using: :btree
 
   create_table "documents", force: true do |t|
     t.string  "category"
@@ -55,7 +58,16 @@ ActiveRecord::Schema.define(version: 20140410051154) do
     t.integer "file_size"
   end
 
-  add_index "documents", ["title"], name: "index_documents_on_title"
+  add_index "documents", ["title"], name: "index_documents_on_title", using: :btree
+
+  create_table "documents_tables", force: true do |t|
+    t.string "category"
+    t.string "title"
+    t.string "path"
+    t.date   "expiration"
+  end
+
+  add_index "documents_tables", ["title"], name: "index_documents_tables_on_title", using: :btree
 
   create_table "events", force: true do |t|
     t.datetime "start_date"
@@ -66,7 +78,7 @@ ActiveRecord::Schema.define(version: 20140410051154) do
     t.datetime "updated_at"
   end
 
-  add_index "events", ["id"], name: "index_events_on_id"
+  add_index "events", ["id"], name: "index_events_on_id", using: :btree
 
   create_table "expenses", force: true do |t|
     t.string   "expense_type"
@@ -82,7 +94,7 @@ ActiveRecord::Schema.define(version: 20140410051154) do
     t.decimal  "percent_home_usage"
   end
 
-  add_index "expenses", ["date"], name: "index_expenses_on_date"
+  add_index "expenses", ["date"], name: "index_expenses_on_date", using: :btree
 
   create_table "facilities", force: true do |t|
     t.decimal  "sq_foot_total"
@@ -95,7 +107,7 @@ ActiveRecord::Schema.define(version: 20140410051154) do
     t.integer  "user_id"
   end
 
-  add_index "facilities", ["name"], name: "index_facilities_on_name"
+  add_index "facilities", ["name"], name: "index_facilities_on_name", using: :btree
 
   create_table "income_payments", force: true do |t|
     t.datetime "date_paid"
@@ -105,7 +117,7 @@ ActiveRecord::Schema.define(version: 20140410051154) do
     t.string   "type"
   end
 
-  add_index "income_payments", ["id"], name: "index_income_payments_on_id"
+  add_index "income_payments", ["id"], name: "index_income_payments_on_id", using: :btree
 
   create_table "incomes", force: true do |t|
     t.decimal  "amount"
@@ -122,7 +134,7 @@ ActiveRecord::Schema.define(version: 20140410051154) do
     t.datetime "end_date"
   end
 
-  add_index "incomes", ["date"], name: "index_incomes_on_date"
+  add_index "incomes", ["date"], name: "index_incomes_on_date", using: :btree
 
   create_table "parents", force: true do |t|
     t.string  "email"
@@ -137,7 +149,7 @@ ActiveRecord::Schema.define(version: 20140410051154) do
     t.integer "zip"
   end
 
-  add_index "parents", ["id"], name: "index_parents_on_id"
+  add_index "parents", ["id"], name: "index_parents_on_id", using: :btree
 
   create_table "rates", force: true do |t|
     t.string   "name"
@@ -147,7 +159,7 @@ ActiveRecord::Schema.define(version: 20140410051154) do
     t.datetime "updated_at"
   end
 
-  add_index "rates", ["name"], name: "index_rates_on_name"
+  add_index "rates", ["name"], name: "index_rates_on_name", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email"
@@ -172,8 +184,8 @@ ActiveRecord::Schema.define(version: 20140410051154) do
     t.string   "trusted_three"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
   create_table "vehicles", force: true do |t|
     t.string   "make"
@@ -185,6 +197,6 @@ ActiveRecord::Schema.define(version: 20140410051154) do
     t.integer  "user_id"
   end
 
-  add_index "vehicles", ["license"], name: "index_vehicles_on_license"
+  add_index "vehicles", ["license"], name: "index_vehicles_on_license", using: :btree
 
 end
