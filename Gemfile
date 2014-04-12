@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 #ruby-gemset=childcare
 
+gem 'pg', '0.15.1'
+
 gem "carrierwave"
 
 gem 'rails', '4.0.2'
@@ -21,11 +23,10 @@ end
 
 # only used in production environment
 group :production do
-	# postgresql database
-	gem 'pg', '0.15.1'
+	# postgresql database	
   
   # only needed if we deploy to heroku
-  # gem 'rails_12factor', '0.0.2'
+  gem 'rails_12factor', '0.0.2'
 end
 
 gem 'sass-rails', '~> 4.0.0'
