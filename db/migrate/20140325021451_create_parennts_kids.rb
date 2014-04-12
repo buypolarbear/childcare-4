@@ -1,7 +1,7 @@
 class CreateParenntsKids < ActiveRecord::Migration
   def change
-    create_table :parennts_kids do |t|
-		t.integer :kid_id
+    create_table :children_parents do |t|
+		t.integer :child_id
 		t.integer :parent_id
     end
   end
