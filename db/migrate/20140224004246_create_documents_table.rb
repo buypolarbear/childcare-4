@@ -7,6 +7,7 @@ class CreateDocumentsTable < ActiveRecord::Migration
     t.string :path
     t.date :expiration
 	t.belongs_to :user
+	t.integer :file_size
     end
   end
 end
