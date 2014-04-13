@@ -1,7 +1,70 @@
-<fieldset>
-	<%= f.label :fname, "First Name" %><br/>
-	<%= f.text_field :fname %>
-							
-	<%= f.label :lname, "Last Name" %><br/>
-	<%= f.text_field :lname %>
-</fieldset>
+<fieldset style="float:left;">
+			<section style="float:left;">
+      			<%= f.label "First Name" %>
+      			<span class="required">*</span>
+				<%= f.text_field :fname, placeholder: "First Name" %>
+			</section>
+			<section style="float:left; margin-left:5px;">
+	  			<%= f.label "Last Name" %>
+				<span class="required">*</span>
+      			<%= f.text_field :lname, placeholder: "Last Name"%>
+			</section>
+	  </fieldset>
+	  <fieldset style="float:left;">
+      	<div class="form-group has-success"; >
+			<%= f.label "email", id: "txtEmailLabel" %>
+			<span class="required">*</span>
+			<%= f.text_field :email, placeholder: "Email", id: "txtEmail"%>
+			<div id="emailWarning" class="warning"></div>
+		</div>
+
+		<section style="float:left;">
+      		<%= f.label "password", id: "txtPasswordLabel" %>
+			<span class="required">*</span>
+      		<%= f.password_field :password, placeholder: "Password" %>
+		</section>
+
+		<section style="float:left; margin-left:5px;">
+      		<%= f.label "password_confirmation", "Password Confirmation",id: "txtPasswordLabel" %>
+			<span class="required">*</span>
+      		<%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+		</section>
+	  <section style="float:left;">
+		  	<%= f.label  "Address" %>
+			<span class="required">*</span>
+      		<%= f.text_field :street_addr, placeholder: "Address" %>
+	  </section>
+	  <section style="float:left;">
+			<div class="pull-left" style="margin-left:8px;">
+	  		<%= f.label  "City" %>
+      		<%= f.text_field :city, placeholder: "city" %>
+			</div> 			
+			<div class="pull-left" style="margin-left: 12px">
+	  		<%= f.label  "Zip" %>	
+      		<%= f.text_field :zip, placeholder: "Zip" %>
+			</div>
+			<div class="pull-left" style="margin-left: 5px">
+	  		<%= f.label  "State" %>	
+      		<%= f.text_field :state, placeholder: "State" %>
+			</div>
+	  </section>
+	</fieldset>
+<!-- city, state, zip -->
+	<fieldset style="float:left;">
+	  <section style="pull-left">
+		<section>
+	  		<%= f.label "Home Number" %>
+			<span class="required">*</span>
+ 	  		<%= f.text_field :phone_home, placeholder: "Home Phone" %>
+		</section>
+		<section style="float: left;"> 	  
+			<%= f.label "Cell Number" %>
+			<span class="required">*</span>
+	  		<%= f.text_field :phone_cell, placeholder: "Cell Phone" %>
+		</section>
+		<section style="float: left; margin-left:12px;">      
+			<%= f.label "Work Number" %>
+      		<%= f.text_field :phone_work, placeholder: "Work Phone" %>
+		</section>
+	</section>	  
+	</fieldset>
