@@ -8,7 +8,7 @@
       <%= f.text_field :description, placeholder: "Description" %>
 	  
 	  <%= f.label "Paid By" %>
-	  <p><%= f.autocomplete_field :user_id, autocomplete_user_lname_users_path, placeholder: "Paid by" %></p>
+	  <p><%= f.autocomplete_field :user_id, autocomplete_parent_lname_parents_path, placeholder: "Paid by" %></p>
 	  
 	  <%= f.label "Type" %>
       <%= f.text_field :income_type, placeholder: "Type" %>

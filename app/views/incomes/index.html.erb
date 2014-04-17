@@ -23,7 +23,7 @@
 			<td><%= income.income_type %></td>
 			<td><%= form_for(income, :remote => true) do |f| %>
 				<%= f.check_box :paid %>
-				<%= f.submit "Save", disable_with: "Saved", class: "btn btn-primary btn-small" %>
+				<%= f.submit "Save", disable_with: "Saved", class: "btn btn-primary btn-small", data: { confirm: 'Are you sure?' } %>
 				<% end %>
 			</td>
 			<td><span class="pull-right"><%= income.amount %></span></td>
