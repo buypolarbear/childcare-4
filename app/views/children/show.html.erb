@@ -19,11 +19,11 @@
           </tr>
 		  <tr>
             <td><span class="pull-right">Parent 1: </span></td>
-            <td><%= @child.parents.first.full_name %></td>
+            <td><%= link_to @child.parents.first.full_name, parent_path(@child.parents.first.id) %></td>
           </tr>
 		  <tr>
             <td><span class="pull-right">Parent 2: </span></td>
-            <td><%= @child.parents.second.full_name %></td>
+            <td><%= link_to @child.parents.second.full_name, parent_path(@child.parents.second.id) %></td>
           </tr>
       </table>
       </div>

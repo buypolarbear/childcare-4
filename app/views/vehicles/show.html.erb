@@ -31,7 +31,3 @@
 <%= link_to "Back", vehicles_path, class: "btn btn-large btn-primary" %>
 	</div>
 </div>
-
-<div class="row">
-	<%= text_area(:vehicle, :expenses, :value => (render 'partials/vehicles/vehicle_expenses', :object => @expenses = @vehicle.expenses), cols: 90, rows: 10) %>
-</div>

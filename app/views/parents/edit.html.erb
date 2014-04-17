@@ -1,14 +1,14 @@
 <% provide(:title, 'Edit Profile') %>
-<h1>Edit Profile: <%= @user.full_name %></h1>
+<h1>Edit Profile: <%= @parent.full_name %></h1>
 
 <div class="row">
   <div class="span8">
-    <%= form_for(@user) do |f| %>
-	  <%= render 'shared/error_messages', :object => @user %>
+    <%= form_for(@parent) do |f| %>
+	  <%= render 'shared/error_messages', :object => @parent %>
 	  <div class="table-responsive">
 	  <table class="table table-condensed">
 		<tr>
-			<td width="150px">Email Address: </td><!-- mail_to @user.email, -->
+			<td width="150px">Email Address: </td><!-- mail_to @parent.email, -->
 			<td><%= f.text_field :email %></td>
 		</tr>
 		<tr >
@@ -22,10 +22,6 @@
 		<tr width="150px">
 			<td width="150px">Work Phone:</td>
 			<td><%= f.text_field :phone_work %></td>
-		</tr>
-		<tr width="150px">
-			<td width="150px">SSN:</td>
-			<td><%= f.text_field :ssn %></td>
 		</tr>
 		<tr width="150px">
 			<td width="150px">Street Address:</td>
@@ -47,7 +43,7 @@
 	  </div>
 	  
       <p><%= f.submit "Save Changes", class: "btn btn-large btn-primary" %></p>	  
-	  <%= link_to "Cancel", user_path(@user.id), class: "btn btn-large btn-primary" %>
+	  <%= link_to "Cancel", user_path(@parent.id), class: "btn btn-large btn-primary" %>
 	  
     <% end %>
   </div>
