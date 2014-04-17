@@ -3,5 +3,21 @@
  controller method is called with the "js"
  format (i.e. AJAX call instead of a redirect).
  */
+ 
+ /**
+$("#modal").dialog({
+  autoOpen: true,
+  height: 600,
+  width: 600,
+  modal: true,
+  title: 'Edit Person',
+  buttons: {
+    "Edit": function() { $("#edit_user_<%= @child.id %>").submit() },
+  },
+  open: function() {
+    $("#modal").html("<%= escape_javascript(render('modal')) %>")
+  },
+});
+*/
 
- alert("<%= @parent_guardian.full_name %> created child event with timestamp <%= @event.start_time %> for <%= @child.full_name %>"); /* Just for debugging */
+ alert("<%= @child.full_name %> was signed in by <%= @parent_guardian.full_name %> at <%= @event.start_time %>"); /* Just for debugging */
