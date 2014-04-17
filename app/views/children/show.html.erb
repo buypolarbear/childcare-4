@@ -3,7 +3,6 @@
   <aside class="span6">
 	<h3>Account Details: <%= @child.full_name %></h3>
 	  <aside class="span6">
-      <h3>Account Details: <%= @child.full_name %></h3>
       <div class="table-responsive">
 	  <table class="table table-condensed">
           <tr>
@@ -14,33 +13,42 @@
             <td><span class="pull-right">Last Name: </span></td>
             <td><%= @child.lname %></td>
           </tr>
-            <tr>
+          <tr>
             <td><span class="pull-right">Rate: </span></td>
             <td><%= @child.rate %></td>
+          </tr>
+		  <tr>
+            <td><span class="pull-right">Parent 1: </span></td>
+            <td><%= @child.parents.first.full_name %></td>
+          </tr>
+		  <tr>
+            <td><span class="pull-right">Parent 2: </span></td>
+            <td><%= @child.parents.second.full_name %></td>
           </tr>
       </table>
       </div>
     </aside>
 
+	<!--
 	<%= form_for(@child) do |f| %>
 	  <%= render 'shared/error_messages', :object => @child %>
-		<section id="child_Info"><!-- BEGIN Child Info -->
-	      <fieldset style="float:left;">
+		<section id="child_Info" class="pull-left span6 " style="margin-left:0px;">
+	      
 			<p>Parents </p>
-			<section class="pull-left" style="margin-left:5px;">
+			<fieldset style="float:left;">
 					<%= f.fields_for :parents do |builder| %>
 						<fieldset>
-							<%= builder.label :fname, "First Name NESTED " %><br/>
+							<%= builder.label :fname, "First Name" %><br/>
 							<%= builder.text_field :fname %>
-							<%= builder.label :lname, "Last Name NESTED " %><br/>
+							<%= builder.label :lname, "Last Name" %><br/>
 							<%= builder.text_field :lname %>
 						</fieldset>
 					<% end %>
-			</section>
-			
-	      </fieldset>
-		</section> <!-- END Child Info -->
+			</fieldset>			
+	      
+		</section>
 	<% end %>
+	-->
 	
 	
 	<section class="pull-right span3 " style="margin-left:0px;">
