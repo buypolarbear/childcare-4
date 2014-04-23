@@ -12,4 +12,17 @@ class Parent < ActiveRecord::Base
 		"#{fname} #{lname}"
 	end
 	
+	
+	####################################
+	# Sets this parent's verified var to
+	# true (i.e. Lori has visually
+	# verified this person's identity and
+	# they don't have to do anything
+	# special on next child signin)
+	####################################
+	def verify
+		self.verified = true
+		self.save
+	end
+	
 end

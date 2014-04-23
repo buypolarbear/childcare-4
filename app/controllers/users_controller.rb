@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	before_action :signed_in_user, only: [:edit, :update, :index, :destroy]
 	before_action :admin_user, only: [:destroy]
 	
-	# users can only edit their own information
+	# users can only edit their own information (but admins can edit anyone's)
 	before_action :correct_user,   only: [:edit, :update] unless :admin_user
 	
 	# sets up an autocomplete action for users' last name

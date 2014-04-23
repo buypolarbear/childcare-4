@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410051154) do
+ActiveRecord::Schema.define(version: 20140423185025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,6 +147,7 @@ ActiveRecord::Schema.define(version: 20140410051154) do
     t.string  "city"
     t.string  "state"
     t.integer "zip"
+    t.boolean "verified"
   end
 
   add_index "parents", ["id"], name: "index_parents_on_id", using: :btree
