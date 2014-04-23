@@ -30,20 +30,21 @@ class ChildArriveDepartController < ApplicationController
 	@child = Child.find(params[:child_id])
 	@parent_guardian = Parent.find(params[:parent_guardian_id])
 	
-		# create a new event for this child
-		@event = @child.child_events.build(start_time: Time.now, parent_id: params[:parent_guardian_id])
+	# create a new event for this child
+	@event = @child.child_events.build(start_time: Time.now, parent_id: params[:parent_guardian_id])
 	
-		if !@child.save
-			flash.now[:error] = "Event could not be logged"
-			render child_signin_path
-		else
-			flash.now[:success] = "Event logged"
-		end
+	if !@child.save
+		flash.now[:error] = "Event could not be logged"
+		render child_signin_path
+	else
+		flash.now[:success] = "Event logged"
+	end
 	
-		respond_to do |format|
-			format.js {  render :action => "toggle_signin_and_verify" unless @parent_guardian.verified? }
-		end
+	respond_to do |format|
+		format.js {  render :action => "toggle_signin_and_verify" unless @parent_guardian.verified? }
+	end
   
   end
+  
   
 end

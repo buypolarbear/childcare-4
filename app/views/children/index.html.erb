@@ -4,6 +4,7 @@
 	<table id="myTable" class="table table-condensed table-hover table-striped table-bordered users">
 		<thead>
 		<tr>
+			<th>In Care</th>
 			<th>First Name</th>
 			<th>Last Name</th>
 			<th>Rate</th>
@@ -15,6 +16,11 @@
 		<tbody>
 	<% @children.each_with_index do |child, i| %>
 		<tr>
+			<td>
+				<% if child.in_care? %>
+					<span class="glyphicon glyphicon-star">					
+				<% end %>			
+			</td>
 			<td><%= link_to child.fname, child_path(child.id)  %></td>
 			<td><%= link_to child.lname, child_path(child.id)  %></td>
 			<% if child.rate %>
