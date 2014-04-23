@@ -2,8 +2,13 @@
 	<!-- TODO: indent this button (shift it to the right) under its parent child... oh god. term inception -->
 	<!-- PARENT BUTTON -->
 	<label id=<%= parent.id %>>
-		<b><%= link_to parent.full_name,  {:controller => "child_arrive_depart", :action => "toggle_signin", :remote => true,
-			:child_id => @child.id, :parent_guardian_id => parent.id  }, style: "color:black", class: "btn btn-block span6" %></b>
+		<% if parent.verified? %>
+			<b><%= link_to parent.full_name,  {:controller => "child_arrive_depart", :action => "toggle_signin", :remote => true,
+				:child_id => @child.id, :parent_guardian_id => parent.id  }, style: "color:black", class: "btn btn-block span6" %></b>
+		<% else %>
+			<b><%= link_to parent.full_name,  {:controller => "child_arrive_depart", :action => "toggle_signin", :remote => true,
+				:child_id => @child.id, :parent_guardian_id => parent.id  }, style: "color:black", class: "btn btn-block btn-danger span6" %></b>
+		<% end %>
 	</label>
 	<!-- END parent button -->
 <% end %>
