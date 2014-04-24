@@ -21,3 +21,6 @@ $("#modal").dialog({
 */
 
 alert("Please have your photo ID ready for the administrator; you must be verified before you can pick up or drop off children"); /* Just for debugging */
+
+/* Toggles the visibility of the list of parents for the current child */
+$( "#parent_list_<%= @child.id %>").fadeToggle( "fast" );

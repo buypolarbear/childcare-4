@@ -1,7 +1,8 @@
 /**
  This is executed when the child_arrive_depart#toggle_signin
  controller method is called with the "js"
- format (i.e. AJAX call instead of a redirect).
+ format (i.e. AJAX call instead of a redirect) AND a verified
+ parent/guardian is being signed in
  */
  
  /**
@@ -21,3 +22,6 @@ $("#modal").dialog({
 */
 
 alert("<%= @child.full_name %> was signed in by <%= @parent_guardian.full_name %> at <%= @event.start_time %>"); /* Just for debugging */
+
+/* Toggles the visibility of the list of parents for the current child */
+$( "#parent_list_<%= @child.id %>").fadeToggle( "fast" );
