@@ -15,5 +15,5 @@ $modalFooter = $('.modal .modal-footer');
 $modalHeading.html("<%= @child.full_name %>");
 $modalFooter.html("<%= escape_javascript(render('partials/modal_arrive_depart')) %>");
 
-$modalBody.html("<%= @child.full_name %> was signed in by <%= @parent_guardian.full_name %> at <%= @event.start_time %>");
+$modalBody.html("<%= escape_javascript(render('partials/modal_verify_body')) %>");
 $modal.modal();
