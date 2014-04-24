@@ -4,24 +4,17 @@
  format (i.e. AJAX call instead of a redirect) AND a verified
  parent/guardian is being signed in
  */
- 
- /**
-$("#modal").dialog({
-  autoOpen: true,
-  height: 600,
-  width: 600,
-  modal: true,
-  title: 'Edit Person',
-  buttons: {
-    "Edit": function() { $("#edit_user_<%= @child.id %>").submit() },
-  },
-  open: function() {
-    $("#modal").html("<%= escape_javascript(render('modal')) %>")
-  },
-});
-*/
-
-alert("<%= @child.full_name %> was signed in by <%= @parent_guardian.full_name %> at <%= @event.start_time %>"); /* Just for debugging */
 
 /* Toggles the visibility of the list of parents for the current child */
 $( "#parent_list_<%= @child.id %>").fadeToggle( "fast" );
+
+$modal = $('.modal'),
+$modalBody = $('.modal .modal-body'),
+$modalHeading = $('.modal .modal-heading');
+$modalFooter = $('.modal .modal-footer');
+$modalHeading.html("<%= @child.full_name %>");
+
+/*$modalFooter.html("<%= link_to 'Child is Arriving',  {:controller => 'child_arrive_depart', :action => 'children', :remote => true, :child_id => @child.id, :parent_guardian_id => @parent_guardian.id  }, class: 'btn btn-primary' %>");*/
+
+$modalBody.html("<%= @child.full_name %> was signed in by <%= @parent_guardian.full_name %> at <%= @event.start_time %>");
+$modal.modal();
