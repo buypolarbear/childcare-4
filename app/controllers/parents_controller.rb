@@ -94,7 +94,8 @@ class ParentsController < ApplicationController
 		:state,
 		:phone_home,
 		:phone_cell,
-		:phone_work
+		:phone_work,
+		:verified
 	  )
     end
 
