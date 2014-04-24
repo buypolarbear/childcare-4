@@ -41,7 +41,11 @@ class ChildArriveDepartController < ApplicationController
 	end
 	
 	respond_to do |format|
-		format.js {  render :action => "toggle_signin_and_verify" unless @parent_guardian.verified? }
+		if @parent_guardian.verified? 
+			format.js { } # just render the default toggle_signin.js.erb
+		else
+			format.js {  render :action => "toggle_signin_and_verify" } # render the OTHER js file
+		end
 	end
   
   end
