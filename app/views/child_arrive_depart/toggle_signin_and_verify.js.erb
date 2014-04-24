@@ -20,7 +20,14 @@ $("#modal").dialog({
 });
 */
 
-alert("Please have your photo ID ready for the administrator; you must be verified before you can pick up or drop off children"); /* Just for debugging */
+$modal = $('.modal'),
+$modalBody = $('.modal .modal-body'),
+$modalHeading = $('.modal .modal-heading');
+$modalFooter = $('.modal .modal-footer');
+$modalHeading.html("Unverified Guardian");
+$modalBody.html("Do you want to verify the identity of <%= @parent_guardian.full_name %> and allow them to manage <%= @child.full_name %>?");
+$modalFooter.html("<%= escape_javascript(render('partials/modal_verify')) %>");
+$modal.modal();
 
 /* Toggles the visibility of the list of parents for the current child */
 $( "#parent_list_<%= @child.id %>").fadeToggle( "fast" );
