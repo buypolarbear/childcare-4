@@ -16,24 +16,48 @@ $(document).ready ->
     editable: true
     events: [
       {
-        title: "All Day Event"
+        title: "Fieldtrip to Cider Mill"
         start: new Date(y, m, 1)
       }
       {
-        title: "Long Event"
+        title: "Youth Education Conference"
         start: new Date(y, m, d - 5)
         end: new Date(y, m, d - 2)
       }
       {
         id: 999
-        title: "Repeating Event"
+        title: "Health Inspection"
         start: new Date(y, m, d - 3, 16, 0)
         allDay: false
       }
       {
         id: 999
-        title: "Repeating Event"
+        title: "Andrew dropped off early"
         start: new Date(y, m, d + 4, 16, 0)
+        allDay: false
+      }
+      {
+        title: "Andrew"
+        start: new Date(y, m, d, 7, 30)
+        end: new Date(y, m, d, 17, 0)
+        allDay: false
+      }
+      {
+        title: "James"
+        start: new Date(y, m, d, 6, 30)
+        end: new Date(y, m, d, 14, 0)
+        allDay: false
+      }
+      {
+        title: "Jessica"
+        start: new Date(y, m, d, 8, 30)
+        end: new Date(y, m, d, 16, 0)
+        allDay: false
+      }
+      {
+        title: "Marie"
+        start: new Date(y, m, d, 7, 30)
+        end: new Date(y, m, d, 15, 0)
         allDay: false
       }
       {
@@ -42,19 +66,19 @@ $(document).ready ->
         allDay: false
       }
       {
-        title: "Lunch"
-        start: new Date(y, m, d, 12, 0)
-        end: new Date(y, m, d, 14, 0)
+        title: "Lunch with Tamara"
+        start: new Date(y, m, d+1, 12, 0)
+        end: new Date(y, m, d+1, 14, 0)
         allDay: false
       }
       {
-        title: "Birthday Party"
+        title: "Birthday Party for Julie"
         start: new Date(y, m, d + 1, 19, 0)
         end: new Date(y, m, d + 1, 22, 30)
         allDay: false
       }
       {
-        title: "Click for Google"
+        title: "Conference"
         start: new Date(y, m, 28)
         end: new Date(y, m, 29)
         url: "http://google.com/"

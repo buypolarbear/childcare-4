@@ -49,6 +49,15 @@ class DocumentsController < ApplicationController
   def show
 	@document = Document.find(params[:id])
   end
+  
+  
+  def download
+	@document = Document.find(params[:id])
+	
+	document_path = @document.path.url.gsub('/','\\')
+	
+    send_file @document.path.url, :type => "#{@document.path.content_type}", :filename => "#{@document.title} + #{@document.path.file.extension}"
+  end
 
   
   #############################################

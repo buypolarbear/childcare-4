@@ -19,7 +19,11 @@ Childcare::Application.routes.draw do
   resources :expenses
   
   resources :vehicles
-  resources :documents
+  resources :documents do
+	member do
+      get :download
+    end
+  end
   resources :users do
 	get :autocomplete_user_lname, :on => :collection
   end
