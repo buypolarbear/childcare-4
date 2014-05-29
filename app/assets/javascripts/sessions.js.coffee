@@ -4,21 +4,31 @@
 
 
 $(document).ready ->
-  $("#calendar").fullCalendar eventSources: [
+  $("#calendar").fullCalendar
+    defaultView: "agendaWeek"
+    header:
+      left: "prev,next today"
+      center: "title"
+      right: "month,agendaWeek,agendaDay"
     
-    # your event source
-    url: "/events.json"
-    type: "GET"
-    data:
-      custom_param1: "something"
-      custom_param2: "somethingelse"
-
-    error: ->
-      alert "there was an error while fetching events!"
+    dayClick: ->
+      alert "a day has been clicked!"
       return
 
-    color: "yellow" # a non-ajax option
-    textColor: "black" # a non-ajax option
-  ]
+    eventSources: [
+      
+      # your event source
+      url: "/events.json"
+      type: "GET"
+      data:
+        child_id: 1
+
+      error: ->
+        alert "there was an error while fetching events!"
+        return
+
+      color: "yellow" # a non-ajax option
+      textColor: "black" # a non-ajax option
+    ]
+
   return
-  
