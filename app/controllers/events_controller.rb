@@ -10,6 +10,8 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+	@child = Child.find(@event.child_id) unless @event.child_id.nil?
+		
   end
 
   # GET /events/new

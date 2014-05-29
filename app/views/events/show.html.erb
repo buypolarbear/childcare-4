@@ -40,10 +40,12 @@
   <%= @event.textColor %>
 </p>
 
+<% if !@event.child_id.nil? %>
 <p>
   <strong>Child:</strong>
-  <%= @event.child_id %>
+  <%= link_to @child.full_name, child_path(@child.id) %>
 </p>
+<% end %>
 
 <p>
   <strong>Type:</strong>
