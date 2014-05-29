@@ -62,18 +62,4 @@
 	</section>	
 </div>
 
-<div id='calendar'></div>
-
-<script>
-$(document).ready ->
-  $("#calendar").fullCalendar
-    header:
-      left: "prev,next today"
-      center: "title"
-      right: "month,agendaWeek,agendaDay"
-
-    editable: true
-    events: '/events.json'
-
-  return
-</script>
+<%= render "partials/calendar.html.erb", :object => @child_id = @child.id %>

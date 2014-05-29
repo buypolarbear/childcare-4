@@ -1,0 +1,35 @@
+<div id='calendar'></div>
+
+<%= javascript_tag do %>
+  child_id = '<%= @child_id %>';
+<% end %>
+
+<script>
+$(document).ready(function() {
+  $("#calendar").fullCalendar({
+    defaultView: "agendaWeek",
+    header: {
+      left: "prev,next today",
+      center: "title",
+      right: "month,agendaWeek,agendaDay"
+    },
+    dayClick: function() {
+      alert("a day has been clicked!");
+    },
+    eventSources: [
+      {
+        url: "/events.json",
+        type: "GET",
+        data: {
+          child_id: child_id
+        },
+        error: function() {
+          alert("there was an error while fetching events!");
+        },
+        color: "yellow",
+        textColor: "black"
+      }
+    ]
+  });
+});
+</script>
