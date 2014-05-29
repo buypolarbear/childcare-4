@@ -27,9 +27,9 @@ class FacilitiesController < ApplicationController
     @facility = Facility.find(1)
     if @facility.update_attributes(facility_params)
       flash[:success] = "Facility settings updated"
-      redirect_to @facility
+      redirect_to '/settings'
     else
-      render 'edit'
+      render '/settings'
     end
   end
   
@@ -47,7 +47,7 @@ class FacilitiesController < ApplicationController
     # Strong parameters for Facility model
     ##############################################
     def facility_params
-      params.require(:facility).permit(:business_addr_one, :business_addr_two, :business_city,
+      params.require(:facility).permit(:business_name, :business_addr_one, :business_addr_two, :business_city,
 										:business_state, :business_zip, :business_phone,
 										:business_email, :exclusive_use_room)
     end

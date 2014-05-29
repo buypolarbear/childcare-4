@@ -1,94 +1,52 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Settings</title>
-<link rel="stylesheet" type="text/css" href="view.css" media="all">
-<script type="text/javascript" src="view.js"></script>
+<% provide(:title, 'Settings') %>
+<h1>Settings</h1>
 
-</head>
-<body id="main_body" >
-	
-	<div id="form_container">
-	
-		<h1><a>Settings</a></h1>
-		<form id="form_851652" class="appnitro"  method="post" action="">
-					<div class="form_description">
-			<h2>Settings</h2>
-			<p>Facility Information</p>
-		</div>						
-			<ul >
-			
-					<li class="section_break">
-			<h3>Business Information</h3>
-			<p></p>
-		</li>		<li id="li_1" >
-		<label class="description" for="element_1">Tax ID </label>
-		<div>
-			<input id="element_1" name="element_1" class="element text medium" type="text" maxlength="255" value=""/> 
-		</div> 
-		</li>		<li id="li_2" >
-		<label class="description" for="element_2">Business Address </label>
-		<div>
-			<input id="element_2" name="element_2" class="element text medium" type="text" maxlength="255" value=""/> 
-		</div> 
-		</li>		<li id="li_5" >
-		<label class="description" for="element_5"> </label>
-		<div>
-			<input id="element_5" name="element_5" class="element text medium" type="text" maxlength="255" value=""/> 
-		</div> 
-		</li>		<li id="li_3" >
-		<label class="description" for="element_3">City </label>
-		<div>
-			<input id="element_3" name="element_3" class="element text medium" type="text" maxlength="255" value=""/> 
-		</div> 
-		</li>		<li id="li_4" >
-		<label class="description" for="element_4">State </label>
-		<div>
-			<input id="element_4" name="element_4" class="element text small" type="text" maxlength="255" value=""/> 
-		</div> 
-		</li>		<li id="li_8" >
-		<label class="description" for="element_8">Business Email </label>
-		<div>
-			<input id="element_8" name="element_8" class="element text medium" type="text" maxlength="255" value=""/> 
-		</div> 
-		</li>		<li id="li_9" >
-		<label class="description" for="element_9">Business Phone </label>
-		<span>
-			<input id="element_9_1" name="element_9_1" class="element text" size="3" maxlength="3" value="" type="text"> -
-			<label for="element_9_1">(###)</label>
-		</span>
-		<span>
-			<input id="element_9_2" name="element_9_2" class="element text" size="3" maxlength="3" value="" type="text"> -
-			<label for="element_9_2">###</label>
-		</span>
-		<span>
-	 		<input id="element_9_3" name="element_9_3" class="element text" size="4" maxlength="4" value="" type="text">
-			<label for="element_9_3">####</label>
-		</span>
-		 
-		</li>		<li class="section_break">
-			<h3>Time-Space Calculation</h3>
-			<p></p>
-		</li>		<li id="li_10" >
-		<label class="description" for="element_10">Is there a room in your house used 100% for business purposes? </label>
-		<span>
-			<input id="element_10_1" name="element_10" class="element radio" type="radio" value="1" checked="checked"/>
-<label class="choice" for="element_10_1">Yes</label>
-<input id="element_10_2" name="element_10" class="element radio" type="radio" value="2" />
-<label class="choice" for="element_10_2">No</label>
-
-		</span><p class="guidelines" id="guide_10"><small>If you have an exclusive-use room in your home, you are entitled to use a special rule to calculate your Time-Space Percentage, and this method will give you much higher deductions.</small></p> 
-		</li>
-			
-					<li class="buttons">
-			    <input type="hidden" name="form_id" value="851652" />
-			    
-				<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
-		</li>
-			</ul>
-		</form>
-	</div>
-	<img id="bottom" src="bottom.png" alt="">
-	</body>
-</html>
+<div class="row">
+  <div class="span8">
+    <%= form_for(@facility) do |f|%>
+	  <%= render 'shared/error_messages', :object => @facility %>
+	  <div class="table-responsive">
+	  <table class="table table-condensed">
+		<tr>
+			<td width="150px">Business Name: </td>
+			<td><%= f.text_field :business_name %></td>
+		</tr>
+		<tr >
+			<td width="150px">Business Phone:</td>
+			<td><%= f.text_field :business_phone %></td>
+		</tr>
+		<tr >
+			<td width="150px">Business Email:</td>
+			<td><%= f.text_field :business_phone %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">Street Address:</td>
+			<td><%= f.text_field :business_address_one %></td>
+			<td width="150px">Apt #, etc.</td>
+			<td><%= f.text_field :business_address_two %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">City:</td>
+			<td><%= f.text_field :business_city %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">State:</td>
+			<td><%= f.text_field :business_state %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">ZIP:</td>
+			<td><%= f.text_field :business_zip %></td>
+		</tr>
+		<tr width="150px">
+			<td width="150px">Exclusive-Use Room:</td>
+			<td><%= f.check_box :exclusive_use_room %></td>
+		</tr>
+	  </table>
+	  </div>
+	  
+      <p><%= f.submit "Save Changes", class: "btn btn-large btn-primary" %></p>	  
+	  <%= link_to "Cancel", '/settings', class: "btn btn-large btn-primary" %>
+	  
+    <% end %>
+  </div>
+</div>

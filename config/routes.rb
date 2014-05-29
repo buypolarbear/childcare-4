@@ -4,6 +4,8 @@ Childcare::Application.routes.draw do
   get "facilities/timespace"
   get "reports/test_action"
   
+  resources :facilities, except: [:destroy, :index]
+  
   # static pages
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
