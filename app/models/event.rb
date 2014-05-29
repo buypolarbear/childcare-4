@@ -25,4 +25,13 @@ class Event < ActiveRecord::Base
   def self.format_date(date_time)
     Time.at(date_time.to_i).to_formatted_s(:db)
   end
+  
+  def duration()
+    (self.end.to_f - self.start.to_f).to_formatted_s(:db)
+  end
+  
+  def duration_rounded(seconds = 60)
+    duration = (self.end.to_f - self.start.to_f)
+	duration = (duration / seconds).round * seconds
+  end
 end

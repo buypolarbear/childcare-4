@@ -26,6 +26,16 @@
 </p>
 
 <p>
+  <strong>Duration:</strong>
+  <%= "#{@event.duration} seconds ( #{@event.duration.to_f/3600} hours)" %>
+</p>
+
+<p>
+  <strong>Duration (rounded):</strong>
+  <%= "#{@event.duration_rounded(15.minutes)} seconds ( #{@event.duration_rounded(15.minutes).to_f/3600} hours)" %>
+</p>
+
+<p>
   <strong>Url:</strong>
   <%= @event.url %>
 </p>

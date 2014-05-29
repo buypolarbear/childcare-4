@@ -5,8 +5,9 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
-    @events = Event.where(:child_id => params[:child_id]) unless params[:child_id].empty?
-
+	if (params[:child_id] && !params[:child_id].empty?)
+		@events = Event.where(:child_id => params[:child_id])
+	end
   end
 
   # GET /events/1
