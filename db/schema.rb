@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529013312) do
+ActiveRecord::Schema.define(version: 20140529030325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,15 +70,19 @@ ActiveRecord::Schema.define(version: 20140529013312) do
   add_index "documents_tables", ["title"], name: "index_documents_tables_on_title", using: :btree
 
   create_table "events", force: true do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.string   "title"
     t.string   "description"
-    t.boolean  "notify"
+    t.boolean  "allDay"
+    t.datetime "start"
+    t.datetime "end"
+    t.string   "url"
+    t.string   "color"
+    t.string   "textColor"
+    t.integer  "child_id"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "events", ["id"], name: "index_events_on_id", using: :btree
 
   create_table "expenses", force: true do |t|
     t.string   "expense_type"

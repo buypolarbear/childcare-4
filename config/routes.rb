@@ -1,5 +1,7 @@
 Childcare::Application.routes.draw do
 
+  resources :events
+
   match '/settings',	to: 'facilities#edit',	via: 'get'
   get "facilities/timespace"
   get "reports/test_action"
