@@ -1,0 +1,23 @@
+<!-- This is the entire home landing page for the site -->
+
+<% provide(:title, current_user.full_name) %>
+<div class="row">
+  <div class="span8 offset3">
+	<h2>what kind of work are you doing?</h2>
+    <%= link_to 'Childcare',  new_session_path, class: 'btn btn-primary btn-large' %>
+    <%= link_to 'Other',  new_session_path, class: 'btn btn-primary btn-large' %>
+    <!-- link_to 'Other',  {:controller => 'user', :action => 'create_work_event', :work_type => "other", }, class: 'btn btn-primary' -->
+	
+	</br>
+	</br>
+	<p><b>Check the boxes of the types of work you'll be doing while logged in, or click the button below to add a new category of work</b></p>
+	<p><%= check_box_tag "option_1" %> Taxes </p>
+	<p><%= check_box_tag "option_2" %> Washing Dishes </p>
+	<p><%= check_box_tag "option_3" %> Misc. Crafts </p>
+	<%= button_tag "Add New Work Type" %> <%= text_field_tag "monkey" %>
+	
+  </div>
+  
+  
+
+</div>

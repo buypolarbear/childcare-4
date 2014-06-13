@@ -14,7 +14,12 @@ class SessionsController < ApplicationController
 
 	if user && user.authenticate(params[:session][:password])
 		sign_in user
-		redirect_back_or user		
+		
+		if user.admin?
+			redirect_to signin_admin_session_type_path
+		else
+			redirect_back_or user
+		end
     else
 		flash[:error] = "Invalid email address or password"
 		redirect_to root_url
@@ -27,6 +32,14 @@ class SessionsController < ApplicationController
   def destroy
 	sign_out
 	redirect_to root_url
+  end
+  
+  
+  #############################################
+  # Signs out the current user
+  ##############################################
+  def admin_session_type
+	
   end
   
   #############################################

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529030325) do
+ActiveRecord::Schema.define(version: 20140607010949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140529030325) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "rate_id"
+    t.integer  "current_event_id"
   end
 
   add_index "children", ["id"], name: "index_children_on_id", using: :btree
@@ -162,6 +163,7 @@ ActiveRecord::Schema.define(version: 20140529030325) do
     t.string  "state"
     t.integer "zip"
     t.boolean "verified"
+    t.integer "current_event_id"
   end
 
   add_index "parents", ["id"], name: "index_parents_on_id", using: :btree
@@ -197,6 +199,7 @@ ActiveRecord::Schema.define(version: 20140529030325) do
     t.string   "phone_cell"
     t.string   "phone_work"
     t.string   "ssn"
+    t.integer  "current_event_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

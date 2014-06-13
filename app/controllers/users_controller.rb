@@ -86,6 +86,15 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
   
+  
+  #############################################
+  # Attempts to delete the user with the passed
+  # ID
+  ##############################################
+  def create_work_event
+	
+  end
+  
   private
 
     #############################################

@@ -22,6 +22,8 @@ Childcare::Application.routes.draw do
   end 
   
   match '/expenses/year_end_report',	to: 'expenses#year_end_report',	via: 'get'
+  match '/signin/admin_session_type',	to: 'sessions#admin_session_type',	via: 'get'
+  
   resources :expenses
   
   resources :vehicles
@@ -32,6 +34,9 @@ Childcare::Application.routes.draw do
   end
   resources :users do
 	get :autocomplete_user_lname, :on => :collection
+	member do
+		get 'create_work_event'
+	end
   end
   resources :parents do
 	get :autocomplete_parent_lname, :on => :collection
@@ -39,6 +44,7 @@ Childcare::Application.routes.draw do
   resources :rates do
 	get :autocomplete_rate_name, :on => :collection
   end
+  
   resources :children
   resources :sessions, only: [:new, :create, :destroy]
   #root  'sessions#new'
@@ -49,6 +55,8 @@ Childcare::Application.routes.draw do
   
 
 
+  #match '/signin/create_work_event',    to: 'users#create_work_event',    via: 'get'
+  
   match '/child_signin',    to: 'child_arrive_depart#last_names',    via: 'get'
   match '/child_signin/children',    to: 'child_arrive_depart#children',    via: 'get'
   match '/child_signin/toggle_signin',    to: 'child_arrive_depart#toggle_signin',    via: 'get'
