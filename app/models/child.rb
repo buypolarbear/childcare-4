@@ -87,7 +87,16 @@ class Child < ActiveRecord::Base
 	# the start date and the present
 	##############################################
 	def hours_scheduled_between(start_time, end_time = Time.now)
-		self.events.between(start_time, end_time)
+		events_between = self.events.between(start_time, end_time)
+		
+		duration = 0
+		
+		events_between.each do | event |
+			duration += event.duration
+		end
+		
+		# convert to hours and return
+		return duration/3600.0
 	end
 	
 	#############################################

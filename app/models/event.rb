@@ -1,6 +1,10 @@
 class Event < ActiveRecord::Base
   belongs_to :child
   
+  #############################################
+  # Enables Event.between(Time, Time) (scoped
+  # searching)
+  ##############################################
   scope :between, lambda { |start_time, end_time|
 	where("start BETWEEN ? AND ?", Event.format_date(start_time), Event.format_date(end_time))
   }
@@ -22,14 +26,31 @@ class Event < ActiveRecord::Base
 
   end
 
+  #############################################
+  # Pretty print the date
+  ##############################################
   def self.format_date(date_time)
     Time.at(date_time.to_i).to_formatted_s(:db)
   end
   
+  #############################################
+  # Returns the duration of the current event
+  # in seconds
+  ##############################################
   def duration()
-    (self.end.to_f - self.start.to_f).to_formatted_s(:db)
+    self.end.to_f - self.start.to_f
   end
   
+  
+  #############################################
+  # Returns the duration of the current event
+  # in seconds, rounded to the nearest time
+  # period passed. If "30.minutes" is passed,
+  # the duration will be rounded to the nearest
+  # 30 minutes (but still returned in seconds).
+  # If no parameter is passed, the duration will
+  # not be rounded.
+  ##############################################
   def duration_rounded(seconds = 60)
     duration = (self.end.to_f - self.start.to_f)
 	duration = (duration / seconds).round * seconds
