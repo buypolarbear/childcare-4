@@ -34,8 +34,8 @@
             <td><%= link_to "#{@child.rate.name} (#{number_to_currency(@child.rate.rate_per_unit)} per hour)", rate_path(@child.rate.id) %></td>
           </tr>
 		  <tr>
-            <td><span class="pull-right">Hours Scheduled for Last 30 days</span></td>
-            <td><%= @child.bill_between(Time.now-30.days) %></td>
+            <td><span class="pull-right">Bill over last 30 days</span></td>
+            <td><%= number_to_currency(@child.bill_between(Time.now-30.days)) %></td>
           </tr>
       </table>
       </div>

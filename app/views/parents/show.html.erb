@@ -38,22 +38,28 @@
 			<td><span class="pull-right">ZIP:</span></td>
 			<td><%= @parent.zip %></td>
 		</tr>
-	  </table> 
-	 </section>
-
-	<section class="pull-right span3 " style="margin-top:20px; ">
-	  <%= link_to "Change Information", edit_parent_path, class: "btn btn-large btn-primary pull-left" %>
-	  <% if !current_user?(@parent) %>
-		<div>
-		<%= link_to "Delete", parent_path(@parent.id), method: :delete, data: {confirm: "Are you sure you want to delete parent #{@parent.full_name}?"}, class: "btn btn-large btn-primary", style: "margin-top:5px" %>
-
-		</div>
-	  <%end%>
-	<%= link_to "Back", parents_path, class: "btn btn-large btn-primary pull-left  margin-top" %>
+	  </table>
+	 </div>
+	 
+	 <p><b>Total Amount Owed For Last 30 Days: <%= number_to_currency(@parent.bill_between(Time.now-30.days)) %></b></p>
+	 
+		<section class="pull-right span3 " style="margin-top:20px; ">
+			<%= link_to "Change Information", edit_parent_path, class: "btn btn-large btn-primary pull-left" %>
+			<% if !current_user?(@parent) %>
+				<div>
+				<%= link_to "Delete", parent_path(@parent.id), method: :delete, data: {confirm: "Are you sure you want to delete parent #{@parent.full_name}?"}, class: "btn btn-large btn-primary", style: "margin-top:5px" %>
+				</div>
+			<%end%>
+			<%= link_to "Back", parents_path, class: "btn btn-large btn-primary pull-left  margin-top" %>
+		</section>
 	</section>
+	
+	
+	
+	
 
 	
-</div>
+
 
 
 

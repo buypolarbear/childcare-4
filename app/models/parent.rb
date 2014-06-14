@@ -13,6 +13,24 @@ class Parent < ActiveRecord::Base
 	end
 	
 	
+	#############################################
+	# Returns the total amount owed by this parent
+	# for all of their children
+	##############################################
+	def bill_between(start_time, end_time = Time.now)
+		
+		bill_amount = 0
+		
+		# loop through children, adding their bill amounts to the total
+		self.children.each do | child |
+			bill_amount += child.bill_between(start_time, end_time)
+		end
+		
+		return bill_amount
+	
+	end
+	
+	
 	####################################
 	# Sets this parent's verified var to
 	# true (i.e. Lori has visually

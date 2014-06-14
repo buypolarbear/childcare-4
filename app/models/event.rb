@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   # searching)
   ##############################################
   scope :between, lambda { |start_time, end_time|
-	where("start BETWEEN ? AND ?", Event.format_date(start_time), Event.format_date(end_time))
+	where("start BETWEEN ? AND ?", Event.db_format_date(start_time), Event.db_format_date(end_time))
   }
 
   # need to override the json view to return what full_calendar is expecting.
@@ -31,6 +31,11 @@ class Event < ActiveRecord::Base
   ##############################################
   def self.format_date(date_time)
     Time.at(date_time.to_i).to_formatted_s(:long_ordinal)
+  end
+  
+  
+  def self.db_format_date(date_time)
+	Time.at(date_time.to_i).to_formatted_s(:db)
   end
   
   

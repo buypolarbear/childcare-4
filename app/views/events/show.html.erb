@@ -1,66 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+<h1>Events</h1>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+<%= link_to "Add new event", new_event_path, class: "btn btn-primary" %>
+<div class="table-responsive incomes">
+	<table id="myTable" class="table table-condensed table-hover table-striped table-bordered users">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Start</th>
+      <th>End</th>
+	  <th>Duration</th>
+      <th>Child</th>
+      <th></th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Allday:</strong>
-  <%= @event.allDay %>
-</p>
+  <tbody>
+      <tr>
+        <td><%= @event.title %></td>
+        <td><%= @event.description %></td>
+        <td><%= Event.format_date(@event.start) %></td>
+        <td><%= Event.format_date(@event.end) %></td>
+		<td><%= seconds_to_units(@event.duration) %></td>
+        <td><%= @event.child_id %></td>
+        <td><%= link_to 'Show', @event, class: "btn btn-primary btn-small"  %> |
+        <%= link_to 'Edit', edit_event_path(@event), class: "btn btn-primary btn-small"  %> |
+        <%= link_to 'Delete', @event, class: "btn btn-danger btn-small", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Start:</strong>
-  <%= @event.start %>
-</p>
+<br>
 
-<p>
-  <strong>End:</strong>
-  <%= @event.end %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= "#{@event.duration} seconds ( #{@event.duration.to_f/3600} hours)" %>
-</p>
-
-<p>
-  <strong>Duration (rounded):</strong>
-  <%= "#{@event.duration_rounded(15.minutes)} seconds ( #{@event.duration_rounded(15.minutes).to_f/3600} hours)" %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @event.url %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @event.color %>
-</p>
-
-<p>
-  <strong>Textcolor:</strong>
-  <%= @event.textColor %>
-</p>
-
-<% if !@event.child_id.nil? %>
-<p>
-  <strong>Child:</strong>
-  <%= link_to @child.full_name, child_path(@child.id) %>
-</p>
-<% end %>
-
-<p>
-  <strong>Type:</strong>
-  <%= @event.type %>
-</p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
