@@ -21,24 +21,24 @@ class Child < ActiveRecord::Base
 	# Get the child_event with the
 	# most recent start_time
 	##############################################
-	def current_event
-		@last_child_event = nil
+	# def current_event
+		# @last_child_event = nil
 	
-		# if there is an event to return
-		if !self.child_events.nil?
-			@last_child_event = self.child_events.order('start_time DESC').first
-		end
-	end
+		# # if there is an event to return
+		# if !self.child_events.nil?
+			# @last_child_event = self.child_events.order('start_time DESC').first
+		# end
+	# end
 	
 	
 	#############################################
 	# Get the child_event with the
 	# most recent start_time
 	##############################################
-	def current_event=( event )
+	# def current_event=( event )
 		# if there is an event to return
-		#write_attribute(self.child_events.order('start_time DESC').first, event)
-	end
+		# write_attribute(self.child_events.order('start_time DESC').first, event)
+	# end
 	
 	
 	#############################################
@@ -49,13 +49,19 @@ class Child < ActiveRecord::Base
 	# still running/incomplete)
 	##############################################
 	def in_care?
-		last_child_event = self.current_event
+		#last_child_event = self.current_event
 		
-		if last_child_event && last_child_event.end_time == nil
-			return true
+		#if last_child_event && last_child_event.end_time == nil
+		#	return true
+		#end
+		
+		#return false
+		
+		if current_event_id.nil?
+			return false
 		end
 		
-		return false
+		return true
 	end
 	
 	
