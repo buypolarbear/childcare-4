@@ -14,6 +14,22 @@ module ApplicationHelper
   
   
   #############################################
+  # Breaks down a time (in seconds) into time
+  # in hours, minutes, and seconds
+  ##############################################
+  def seconds_to_units(seconds)
+	mm, ss = seconds.divmod(60)
+	hh, mm = mm.divmod(60)
+	dd, hh = hh.divmod(24)
+	if dd > 0
+		return "#{dd} days, #{hh} hours, #{mm} minutes"
+	end
+	
+	return "#{hh} hours, #{mm} minutes"
+  end
+  
+  
+  #############################################
   # Takes a form and the name of an association
   # between models, i.e. if can do children.parents,
   # children has # "parents" as a relation. Creates

@@ -25,6 +25,18 @@
             <td><span class="pull-right">Parent 2: </span></td>
             <td><%= link_to @child.parents.second.full_name, parent_path(@child.parents.second.id) %></td>
           </tr>
+		  <tr>
+            <td><span class="pull-right">Hours Scheduled for Last 30 days</span></td>
+            <td><%= @child.hours_scheduled_between(Time.now-30.days).round(2) %></td>
+          </tr>
+		  <tr>
+            <td><span class="pull-right">Rate: </span></td>
+            <td><%= link_to "#{@child.rate.name} (#{number_to_currency(@child.rate.rate_per_unit)} per hour)", rate_path(@child.rate.id) %></td>
+          </tr>
+		  <tr>
+            <td><span class="pull-right">Hours Scheduled for Last 30 days</span></td>
+            <td><%= @child.bill_between(Time.now-30.days) %></td>
+          </tr>
       </table>
       </div>
     </aside>

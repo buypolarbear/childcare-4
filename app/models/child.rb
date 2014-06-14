@@ -66,6 +66,47 @@ class Child < ActiveRecord::Base
 	
 	
 	#############################################
+	# Returns the total amount that should be
+	# charged for the scheduled time in-care
+	# between the passed start and end dates
+	##############################################
+	def bill_between(start_time, end_time = Time.now)
+		
+		# calculate hours scheduled during this time period
+		hours_scheduled = hours_scheduled_between(start_time, end_time)
+		
+		# retrieve this child's current billing rate
+		rate = Rate.find(self.rate_id)
+		
+		# calculate the 
+		hours_scheduled * rate.rate_per_unit
+	end
+	
+	
+	#############################################
+	# Returns the number of hours this child is
+	# scheduled to be in care between the passed
+	# start and end dates; if no end date is
+	# passed, the method will calculate between
+	# the start date and the present
+	##############################################
+	def hours_scheduled_between(start_time, end_time = Time.now)
+		# find the events that fall in the given time frame
+		events_between = self.events.between(start_time, end_time)
+		
+		duration = 0
+		
+		# add up the durations of each event
+		events_between.each do | event |
+			duration += event.duration
+		end
+		
+		# convert to hours (from seconds) and return
+		return duration/3600.0
+	end
+	
+	
+	#############################################
 	# NOT USED CURRENTLY;
 	# Creates a new child_event (places this child
 	# in care)
@@ -79,25 +120,6 @@ class Child < ActiveRecord::Base
 	end
 	
 	
-	#############################################
-	# Returns the number of hours this child is
-	# scheduled to be in care between the passed
-	# start and end dates; if no end date is
-	# passed, the method will calculate between
-	# the start date and the present
-	##############################################
-	def hours_scheduled_between(start_time, end_time = Time.now)
-		events_between = self.events.between(start_time, end_time)
-		
-		duration = 0
-		
-		events_between.each do | event |
-			duration += event.duration
-		end
-		
-		# convert to hours and return
-		return duration/3600.0
-	end
 	
 	#############################################
 	# NOT USED CURRENTLY;

@@ -1,20 +1,16 @@
-<h1>Listing events</h1>
+<h1>Events</h1>
 
-<table>
+<%= link_to "Add new event", new_event_path, class: "btn btn-primary" %>
+<div class="table-responsive incomes">
+	<table id="myTable" class="table table-condensed table-hover table-striped table-bordered users">
   <thead>
     <tr>
       <th>Title</th>
       <th>Description</th>
-      <th>Allday</th>
       <th>Start</th>
       <th>End</th>
-      <th>Url</th>
-      <th>Color</th>
-      <th>Textcolor</th>
+	  <th>Duration</th>
       <th>Child</th>
-      <th>Type</th>
-      <th></th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -24,22 +20,16 @@
       <tr>
         <td><%= event.title %></td>
         <td><%= event.description %></td>
-        <td><%= event.allDay %></td>
-        <td><%= event.start %></td>
-        <td><%= event.end %></td>
-        <td><%= event.url %></td>
-        <td><%= event.color %></td>
-        <td><%= event.textColor %></td>
+        <td><%= Event.format_date(event.start) %></td>
+        <td><%= Event.format_date(event.end) %></td>
+		<td><%= seconds_to_units(event.duration) %></td>
         <td><%= event.child_id %></td>
-        <td><%= event.type %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', event, class: "btn btn-primary btn-small"  %> |
+        <%= link_to 'Edit', edit_event_path(event), class: "btn btn-primary btn-small"  %> |
+        <%= link_to 'Delete', event, class: "btn btn-danger btn-small", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Event', new_event_path %>

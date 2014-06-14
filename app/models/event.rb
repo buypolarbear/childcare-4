@@ -30,8 +30,12 @@ class Event < ActiveRecord::Base
   # Pretty print the date
   ##############################################
   def self.format_date(date_time)
-    Time.at(date_time.to_i).to_formatted_s(:db)
+    Time.at(date_time.to_i).to_formatted_s(:long_ordinal)
   end
+  
+  
+  
+  
   
   #############################################
   # Returns the duration of the current event
