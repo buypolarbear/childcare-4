@@ -66,7 +66,9 @@ class Child < ActiveRecord::Base
 	
 	
 	#############################################
-	# Creates a child 
+	# NOT USED CURRENTLY;
+	# Creates a new child_event (places this child
+	# in care)
 	##############################################
 	def arrive
 		if self.in_care?
@@ -77,6 +79,23 @@ class Child < ActiveRecord::Base
 	end
 	
 	
+	#############################################
+	# Returns the number of hours this child is
+	# scheduled to be in care between the passed
+	# start and end dates; if no end date is
+	# passed, the method will calculate between
+	# the start date and the present
+	##############################################
+	def hours_scheduled_between(start_time, end_time = Time.now)
+		self.events.between(start_time, end_time)
+	end
+	
+	#############################################
+	# NOT USED CURRENTLY;
+	# Finds the child_event with the most recent
+	# start_time (for this particular child)
+	# and sets its end_time
+	##############################################
 	def depart( parent_guardian_id )
 		if !self.in_care?
 			return false

@@ -1,8 +1,8 @@
 class Event < ActiveRecord::Base
   belongs_to :child
   
-  scope :between, lambda {|start_time, end_time|
-    {:conditions => ["? < starts_at < ?", Event.format_date(start_time), Event.format_date(end_time)] }
+  scope :between, lambda { |start_time, end_time|
+	where("start BETWEEN ? AND ?", Event.format_date(start_time), Event.format_date(end_time))
   }
 
   # need to override the json view to return what full_calendar is expecting.
