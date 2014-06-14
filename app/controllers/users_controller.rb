@@ -32,7 +32,8 @@ class UsersController < ApplicationController
   
   
   #############################################
-  # 
+  # Initializes view for user with the passed
+  # id
   ##############################################
   def show
     @user = User.find(params[:id])
@@ -40,7 +41,8 @@ class UsersController < ApplicationController
   
   
   #############################################
-  # 
+  # Initializes view that displays list of all
+  # users
   ##############################################
   def index
     @users = User.all
@@ -48,11 +50,9 @@ class UsersController < ApplicationController
 
   
   #############################################
-  # 
+  # Initializes edit view
   ##############################################
   def edit
-	# no longer needed since the before_filter actions already
-	# initialize this variable
     @user = User.find(params[:id])
   end
   
