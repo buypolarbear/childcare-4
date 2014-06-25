@@ -25,6 +25,7 @@ Childcare::Application.routes.draw do
   match '/signin/admin_session_type',	to: 'sessions#admin_session_type',	via: 'get'
   
   resources :expenses
+  resources :invoices
   
   resources :vehicles
   resources :documents do

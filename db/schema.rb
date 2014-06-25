@@ -11,15 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140607010949) do
+ActiveRecord::Schema.define(version: 20140625200835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "calenders", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "child_events", force: true do |t|
     t.integer  "child_id"
@@ -124,16 +119,6 @@ ActiveRecord::Schema.define(version: 20140607010949) do
 
   add_index "facilities", ["name"], name: "index_facilities_on_name", using: :btree
 
-  create_table "income_payments", force: true do |t|
-    t.datetime "date_paid"
-    t.decimal  "amount_paid"
-    t.integer  "parent_id"
-    t.integer  "income_id"
-    t.string   "type"
-  end
-
-  add_index "income_payments", ["id"], name: "index_income_payments_on_id", using: :btree
-
   create_table "incomes", force: true do |t|
     t.decimal  "amount"
     t.datetime "date"
@@ -150,6 +135,26 @@ ActiveRecord::Schema.define(version: 20140607010949) do
   end
 
   add_index "incomes", ["date"], name: "index_incomes_on_date", using: :btree
+
+  create_table "incomes_invoices", force: true do |t|
+    t.integer  "invoice_id"
+    t.integer  "income_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "incomes_invoices", ["invoice_id"], name: "index_incomes_invoices_on_invoice_id", using: :btree
+
+  create_table "invoices", force: true do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "parent_id"
+    t.boolean  "paid"
+    t.decimal  "correction_amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "amount"
+  end
 
   create_table "parents", force: true do |t|
     t.string  "email"

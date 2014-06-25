@@ -1,0 +1,43 @@
+<h3>Invoices</h3>
+<%= link_to "Add new Invoice", new_invoice_path, class: "btn btn-primary" %>
+<script>
+
+</script>
+<div class="table-responsive invoices">
+	<table id="myTable" class="table table-condensed table-hover table-striped table-bordered tablesorter">
+		<thead>		
+		<tr>
+			<th width="60px">Start Date</th>
+			<th width="60px">End Date</th>
+			<th width="120px">Amount</th>
+			<th width="75px">Paid</th>			
+			<th width="80px"></th>
+		</tr>
+		</thead>
+		<tbody>
+		<% @invoices.each_with_index do |invoice, i| %>
+		<tr data-link="<%= invoice_path(invoice.id) %>" >
+			<td width="60px" ><%= invoice.start_date %></td>
+			<td><%= invoice.end_date %></td>			
+			<td><span class="pull-right"><%= invoice.amount %></span></td>
+			<td><%= invoice.paid %></td>
+			<td width="115px">
+				<span class="pull-right">
+					<%= link_to "Edit", edit_invoice_path(invoice.id), class: "btn btn-primary btn-small" %>
+					|
+					<%= link_to "Delete", invoice_path(invoice.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-small" %>
+				</span>
+			</td>
+		</tr>
+		<%end%>
+		</tbody>
+		<!-- add a new row -->
+		<tr>
+			<td colspan="7">
+				<%= link_to "New Entry", new_invoice_path, class: "pull-right btn btn-primary" %>	
+				</a>
+			</td>
+		</tr>
+	
+	</table>
+</div>

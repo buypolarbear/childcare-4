@@ -1,0 +1,41 @@
+<% provide(:title, "Invoice for #{@parent.full_name}") %>
+<div class="row">
+	<div class="span6">
+		<h1>Invoice</h1>
+		<div class="table-responsive">
+			<table class="table table-condensed">
+				<tr>
+					<td><span class="pull-right">Billed Parent:</span></td>
+					<td><span class="pull-right"><%= @parent.full_name %></span></td>
+				</tr>
+				<tr>
+					<td><span class="pull-right">Start Date:</span></td>
+					<td><span class="pull-right"><%= @invoice.start_date %></span></td>
+				</tr>
+				<tr>
+					<td><span class="pull-right">End Date:</span></td>
+					<td><span class="pull-right"><%= @invoice.end_date %></span></td>
+				</tr>
+				<tr>
+					<td><span class="pull-right">Amount:</span></td>
+					<td><span class="pull-right"><%= @invoice.amount %></span></td>
+				</tr>
+				<tr>
+					<td><span class="pull-right">Amount to Add/Subtract:</span></td>
+					<td><span class="pull-right"><%= @invoice.correction_amount %></span></td>
+				</tr>
+				<tr>
+					<td><span class="pull-right">Paid:</span></td>
+					<td><span class="pull-right"><%= @invoice.paid %></span></td>
+				</tr>
+			</table>
+		</div>
+	<%= link_to "Back", invoices_path, class: "btn btn-primary btn-large" %>
+	</div>
+</div>
+
+<div class="row">
+</div>
+
+
+

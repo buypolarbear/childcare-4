@@ -1,0 +1,31 @@
+<% provide(:title, "New Invoice") %>
+  <div class="span6 offset3">
+	<h1>New Invoice</h1>
+    <%= form_for(@invoice) do |f| %>
+      <%= render 'shared/error_messages', :object => @invoice %>
+	  
+	  <%= f.label "Bill To Parent" %>
+	  <p><%= f.autocomplete_field :parent_id, autocomplete_parent_lname_parents_path %></p>
+
+	  <%= f.label :start_date %>
+      <%= f.text_field :start_date, class: "datepicker" %>
+	  
+	  <%= f.label :end_date %>
+      <%= f.text_field :end_date, class: "datepicker" %>
+	  
+      <%= f.label :amount %>
+      <%= f.text_field :amount, placeholder: "Amount" %>
+	  
+	  <%= f.label :correction_amount %>
+      <%= f.text_field :amount, placeholder: "Amount to Add/Subtract" %>
+
+	  <%= f.label :paid %>
+      <%= f.check_box :paid, id: "roundCheck" %>
+	  
+	  <p></p>
+      <%= f.submit "Save invoice", class: "btn btn-large btn-primary" %>
+	  <%= link_to "Cancel", invoices_path, class: "btn btn-large btn-primary" %>
+	  
+    <% end %>
+</div>
+<div class="row"></div>
