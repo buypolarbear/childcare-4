@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  belongs_to :child
+
   
   #############################################
   # Enables Event.between(Time, Time) (scoped

@@ -9,6 +9,7 @@ gem "carrierwave"
 gem 'rails', '4.0.2'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'jquery-ui-rails'
+gem 'ice_cube', '0.12.0'
 
 # encrypted password plugin
 gem 'bcrypt-ruby', '3.1.2'

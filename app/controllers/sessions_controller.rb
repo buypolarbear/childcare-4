@@ -36,7 +36,7 @@ class SessionsController < ApplicationController
   
   
   #############################################
-  # Signs out the current user
+  # Creates a work session for the current user
   ##############################################
   def admin_session_type
 	

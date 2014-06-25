@@ -1,3 +1,3 @@
-class ChildEvent < ActiveRecord::Base
+class ChildEvent < Event
 	belongs_to :child
 end

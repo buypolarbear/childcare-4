@@ -37,7 +37,7 @@ class ChildArriveDepartController < ApplicationController
 		@event.save!
 		@child.current_event_id = nil	# reset the child's current event
 	else # if the child does NOT have an ongoing event (is about to enter care)
-		@event = @child.child_events.create(start_time: Time.now, parent_id: params[:parent_guardian_id]) # create a new event for this child
+		@event = @child.child_events.create(start: Time.now, parent_id: params[:parent_guardian_id]) # create a new event for this child
 		@child.current_event_id = @event.id # set the child's current event to the event just created
 	end
 	
