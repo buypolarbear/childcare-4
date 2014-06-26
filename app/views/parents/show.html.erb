@@ -7,7 +7,6 @@
 	  <table class="table table-condensed">
 		<tr>
 			<td width="120px"><span class="pull-right">Email Address: </span></td>
-	<!-- mail_to @parent.email, -->
 			<td><%= @parent.email %></td>
 		</tr>
 		<tr >
@@ -42,9 +41,9 @@
 	 </div>
 	 
 	 
-	 @parent.invoices.where(:paid => false).each do | invoice |
-		<p><%= @invoice.description %></p>
-	 end
+	 <% @parent.invoices.where(:paid => false).each do | invoice | %>
+		<p><%= invoice.amount %></p>
+	 <% end %>
 	 
 	 <p><b>Total Amount Owed For Last 30 Days: <%= number_to_currency(@parent.bill_between(Time.now-30.days)) %></b></p>
 	 
