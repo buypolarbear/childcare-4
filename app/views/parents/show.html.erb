@@ -41,6 +41,11 @@
 	  </table>
 	 </div>
 	 
+	 
+	 @parent.invoices.where(:paid => false).each do | invoice |
+		<p><%= @invoice.description %></p>
+	 end
+	 
 	 <p><b>Total Amount Owed For Last 30 Days: <%= number_to_currency(@parent.bill_between(Time.now-30.days)) %></b></p>
 	 
 		<section class="pull-right span3 " style="margin-top:20px; ">

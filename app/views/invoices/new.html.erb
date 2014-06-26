@@ -5,7 +5,10 @@
       <%= render 'shared/error_messages', :object => @invoice %>
 	  
 	  <%= f.label "Bill To Parent" %>
-	  <p><%= f.autocomplete_field :parent_id, autocomplete_parent_lname_parents_path %></p>
+	  
+	  <p><%= autocomplete_field_tag :parent_autocomplete, '', autocomplete_parent_lname_parents_path, :placeholder => "Start typing a parent's name", :id_element => '#parent_id' %></p>
+	  
+	  <%= f.hidden_field :parent_id, :id => "parent_id" %>
 
 	  <%= f.label :start_date %>
       <%= f.text_field :start_date, class: "datepicker" %>
@@ -17,7 +20,7 @@
       <%= f.text_field :amount, placeholder: "Amount" %>
 	  
 	  <%= f.label :correction_amount %>
-      <%= f.text_field :amount, placeholder: "Amount to Add/Subtract" %>
+      <%= f.text_field :correction_amount, placeholder: "Amount to Add/Subtract" %>
 
 	  <%= f.label :paid %>
       <%= f.check_box :paid, id: "roundCheck" %>

@@ -3,26 +3,34 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@income) do |f| %>
+	<%= form_for(@income) do |f| %>
       <%= render 'shared/error_messages', :object => @income %>
 
       <%= f.label :description %>
       <%= f.text_field :description %>
 	  
-	  <%= f.label "Type" %>
-      <%= f.text_field :income_type %>
+	  <%= f.label "Paid By" %>
+	  <p><%= collection_select(:income, :parent_id, Parent.all, :id, :full_name , {include_blank: 'No Selection'}) %></p>
+	  
+	  <%= f.label "Category" %>
+      <%= f.text_field :category %>
 
       <%= f.label :amount %>
       <%= f.text_field :amount %>
 	  
-	  <%= f.label :paid %>
-      <%= f.check_box :paid %>
-
+	  <%= f.label :tender_type %>
+	  <%= f.select(:tender_type, {'Cash' => 1, 'Credit' => 2, 'Check' => 2} ) %>
+	  
+	  <%= f.label :check_number %>
+      <%= f.text_field :check_number %>
+	
       <%= f.label :date %>
-      <%= f.text_field :date, value: @income.date, class: "datepicker"%>
+      <%= f.text_field :date, value: @income.date, class: "datepicker" %>
+	  
 	  <p></p>
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-	  <%= link_to "Cancel", income_path(@income.id), class: "btn btn-large btn-primary" %>
+      <%= f.submit "Save record", class: "btn btn-large btn-primary" %>
+	  <%= link_to "Cancel", incomes_path, class: "btn btn-large btn-primary" %>
+	  
     <% end %>
 	
   </div>

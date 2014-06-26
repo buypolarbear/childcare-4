@@ -63,7 +63,7 @@ class IncomesController < ApplicationController
   ##############################################
   def show
 	@income = Income.find(params[:id])
-	@user = User.find(@income.user_id)
+	@parent = Parent.find(@income.parent_id) unless @income.parent_id.nil?
   end
 
   
@@ -105,6 +105,6 @@ class IncomesController < ApplicationController
 	# contain a description, income_type, etc.
 	##############################################
 	def income_params
-		params.require(:income).permit(:description, :income_type, :amount, :date, :user_id, :paid)
+		params.require(:income).permit(:description, :category, :amount, :date, :parent_id, :tender_type, :check_number)
 	end
 end

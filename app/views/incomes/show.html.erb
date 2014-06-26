@@ -5,23 +5,29 @@
 		<h1> Income Record</h1>
 		<div class="table-responsive"><table class="table table-condensed">
 			<tr>
-				<td><span class="pull-right">Created By:</span></td>
-				<td><%= @user.full_name %> on <%= @income.date("%d/%m/%Y")  %></td>
-			</tr>
-			<tr>
 				<td><span class="pull-right">Description</span></td>
 				<td><%= @income.description %></td>
 			</tr>
 			<tr>
-				<td><span class="pull-right">Type:</span></td>
-				<td><%= @income.income_type %></td>
+				<td><span class="pull-right">Created On:</span></td>
+				<td><%= @income.date("%d/%m/%Y")  %></td>
+			</tr>
+			<tr>
+				<td><span class="pull-right">Paid By:</span></td>
+				<td><%= @parent.full_name unless @parent.nil? %></td>
+			</tr>
+			<tr>
+				<td><span class="pull-right">Category:</span></td>
+				<td><%= @income.category %></td>
 			</tr>
 			<tr>
 				<td><span class="pull-right">Amount: </span></td>
 				<td><%= @income.amount %></td>
 			</tr>
 		</table></div>
+	<%= link_to "Edit", edit_income_path(@income.id), class: "btn btn-primary btn-large" %>
 	<%= link_to "Back", incomes_path, class: "btn btn-primary btn-large" %>
+	
 	</div>
 </div>
 

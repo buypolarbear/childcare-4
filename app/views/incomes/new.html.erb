@@ -5,24 +5,25 @@
       <%= render 'shared/error_messages', :object => @income %>
 
       <%= f.label :description %>
-      <%= f.text_field :description, placeholder: "Description" %>
+      <%= f.text_field :description %>
 	  
 	  <%= f.label "Paid By" %>
-	  <p><%= f.autocomplete_field :user_id, autocomplete_parent_lname_parents_path, placeholder: "Paid by" %></p>
+	  <p><%= collection_select(:income, :parent_id, Parent.all, :id, :full_name , {include_blank: 'No Selection'}) %></p>
 	  
-	  <%= f.label "Type" %>
-      <%= f.text_field :income_type, placeholder: "Type" %>
+	  <%= f.label "Category" %>
+      <%= f.text_field :category %>
 
       <%= f.label :amount %>
-      <%= f.text_field :amount, placeholder: "Amount" %>
-
-	  <%= f.label :paid %>
-      <%= f.check_box :paid, id: "roundCheck" %>
+      <%= f.text_field :amount %>
+	  
+	  <%= f.label :tender_type %>
+      <%= f.select(:tender_type, {'Cash' => 1, 'Credit' => 2, 'Check' => 2} ) %>
+	  
+	  <%= f.label :check_number %>
+      <%= f.text_field :check_number %>
 	
       <%= f.label :date %>
-      <%= f.text_field :date, class: "datepicker" %>
-	  
-	  <%= f.hidden_field :user_id, {:value => current_user.id} %>
+      <%= f.text_field :date, value: Date.today.strftime("%m/%d/%Y"), class: "datepicker" %>
 	  
 	  <p></p>
       <%= f.submit "Save record", class: "btn btn-large btn-primary" %>

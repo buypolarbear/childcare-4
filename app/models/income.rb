@@ -1,5 +1,6 @@
 class Income < ActiveRecord::Base
 	has_and_belongs_to_many :invoices
+	belongs_to :parent
 	
 	require 'date'
 	
@@ -14,7 +15,7 @@ class Income < ActiveRecord::Base
 	
 	
 	#############################################
-	# Secondary getter for the income.amount field. 
+	# Secondary getter for the income.amount field.
 	# Returns a raw (decimal) version of the value.
 	#############################################
 	def amount_raw

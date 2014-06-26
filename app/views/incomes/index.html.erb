@@ -1,5 +1,5 @@
 <h3>Income Records</h3>
-<%= link_to "Add new Invoice/Income Record", new_income_path, class: "btn btn-primary" %>
+<%= link_to "Add new Income Record", new_income_path, class: "btn btn-primary" %>
 <script>
 
 </script>
@@ -8,9 +8,9 @@
 		<thead>		
 		<tr>
 			<th width="60px">Date</th>
-			<th>Memo</th>
-			<th width="120px">Income Type</th>
-			<th width="75px">Paid</th>
+			<th>Description</th>
+			<th width="120px">Category</th>
+			<th width="75px">Paid By</th>
 			<th width="120px">Amount</th>
 			<th width="80px"></th>
 		</tr>
@@ -20,12 +20,9 @@
 		<tr data-link="<%= income_path(income.id) %>" >
 			<td width="60px" ><%= income.date("%m/%d/%Y") %></td>
 	  		<td><%= link_to income.description, income_path(income.id)  %></td>
-			<td><%= income.income_type %></td>
-			<td><%= form_for(income, :remote => true) do |f| %>
-				<%= f.check_box :paid %>
-				<%= f.submit "Save", disable_with: "Saved", class: "btn btn-primary btn-small", data: { confirm: 'Are you sure?' } %>
-				<% end %>
-			</td>
+			<td><%= income.category %></td>
+			<td><%= Parent.find(income.parent_id).full_name unless income.parent_id.nil? %></td>
+
 			<td><span class="pull-right"><%= income.amount %></span></td>
 			<td width="115px">
 				<span class="pull-right">
